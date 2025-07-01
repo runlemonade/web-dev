@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FORM by runLemonade - The SketchUp Extension for Cabinetmakers & Architects</title>
+    <title>FORM by runLemonade - Build beautiful cabinetry, fast</title>
     <style>
         /* === DESIGN TOKENS === */
         :root {
@@ -645,7 +645,7 @@
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        /* === HERO VIDEO - BIG WOW FACTOR === */
+        /* === HERO VIDEO - YOUTUBE EMBED === */
         .hero-video-container {
             margin: 48px 0 64px 0;
             perspective: 1200px;
@@ -664,6 +664,7 @@
                 0 30px 60px rgba(0, 0, 0, 0.15),
                 0 10px 30px rgba(0, 0, 0, 0.1);
             background: #000;
+            aspect-ratio: 16/9;
         }
 
         .hero-video-wrapper:hover {
@@ -673,25 +674,47 @@
                 0 20px 50px rgba(0, 115, 230, 0.1);
         }
 
-        .hero-video {
+        .hero-video-youtube {
             width: 100%;
-            height: auto;
-            display: block;
-            aspect-ratio: 16/9;
-            object-fit: cover;
+            height: 100%;
+            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
             transition: transform 0.6s ease;
         }
 
-        .hero-video-wrapper:hover .hero-video {
+        .hero-video-wrapper:hover .hero-video-youtube {
             transform: scale(1.02);
+        }
+
+        .hero-video-youtube-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(0, 0, 0, 0.2) 0%,
+                rgba(0, 0, 0, 0.05) 50%,
+                transparent 100%
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            pointer-events: none;
+        }
+
+        .hero-video-wrapper:hover .hero-video-youtube-overlay {
+            opacity: 1;
         }
 
         .hero-video-image {
             width: 100%;
-            height: auto;
-            display: block;
-            aspect-ratio: 16/9;
+            height: 100%;
             object-fit: cover;
+            aspect-ratio: 16/9;
         }
 
         .hero-video-fallback {
@@ -713,68 +736,11 @@
             justify-content: center;
         }
 
-        .hero-video-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                135deg,
-                rgba(0, 0, 0, 0.3) 0%,
-                rgba(0, 0, 0, 0.1) 50%,
-                transparent 100%
-            );
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
-
-        .hero-video-wrapper:hover .hero-video-overlay {
-            opacity: 1;
-        }
-
         .hero-video-controls {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-        }
-
-        .hero-play-button-large {
-            width: 100px;
-            height: 100px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            transition: all 0.4s ease;
-            box-shadow: 
-                0 15px 35px rgba(0, 0, 0, 0.15),
-                0 5px 15px rgba(0, 0, 0, 0.1);
-            border: 3px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .hero-play-button-large::after {
-            content: '';
-            width: 0;
-            height: 0;
-            border-left: 32px solid var(--trimble-blue);
-            border-top: 18px solid transparent;
-            border-bottom: 18px solid transparent;
-            margin-left: 6px;
-        }
-
-        .hero-video-overlay:hover .hero-play-button-large {
-            transform: scale(1.15);
-            background: rgba(255, 255, 255, 1);
-            box-shadow: 
-                0 25px 50px rgba(0, 0, 0, 0.2),
-                0 10px 25px rgba(0, 115, 230, 0.15);
         }
 
         .hero-play-button {
@@ -873,17 +839,6 @@
 
             .hero-video-wrapper:hover {
                 transform: perspective(800px) rotateX(0deg) translateY(-8px);
-            }
-
-            .hero-play-button-large {
-                width: 80px;
-                height: 80px;
-            }
-
-            .hero-play-button-large::after {
-                border-left: 24px solid var(--trimble-blue);
-                border-top: 14px solid transparent;
-                border-bottom: 14px solid transparent;
             }
 
             .hero-video-caption {
@@ -1253,13 +1208,16 @@
         <!-- Hero Video - The Big WOW -->
         <div class="hero-video-container">
             <div class="hero-video-wrapper">
-                <!-- Video will be loaded from git repo: hero-video.mp4 or hero-video-thumbnail.jpg -->
-                <video class="hero-video" autoplay muted loop playsinline poster="./images/hero-video-thumbnail.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <source src="./images/hero-video.mp4" type="video/mp4">
-                    <source src="./images/hero-video.webm" type="video/webm">
-                </video>
+                <!-- YouTube Video Embed -->
+                <iframe 
+                    class="hero-video-youtube"
+                    src="https://www.youtube.com/embed/ybRNJ_t6bRk?autoplay=1&mute=1&loop=1&playlist=ybRNJ_t6bRk&controls=0&showinfo=0&rel=0&modestbranding=1"
+                    frameborder="0" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen>
+                </iframe>
                 
-                <!-- Fallback for when video doesn't load -->
+                <!-- Fallback for when YouTube doesn't load -->
                 <div class="hero-video-fallback" style="display: none;">
                     <img src="./images/hero-video-thumbnail.jpg" alt="FORM in Action" class="hero-video-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     
@@ -1275,10 +1233,9 @@
                     </div>
                 </div>
                 
-                <!-- Video overlay for interaction -->
-                <div class="hero-video-overlay" onclick="toggleHeroVideo()">
+                <!-- Optional overlay for branding (appears on hover) -->
+                <div class="hero-video-youtube-overlay" onclick="openYouTubeVideo()">
                     <div class="hero-video-controls">
-                        <div class="hero-play-button-large"></div>
                         <div class="hero-video-info">
                             <div class="hero-video-badge">🚀 Live Demo</div>
                             <div class="hero-video-caption">Watch FORM transform cabinet modeling</div>
@@ -1594,40 +1551,23 @@
             alert('Demo video would play here - showing FORM\'s drag and drop workflow in SketchUp');
         }
 
-        function toggleHeroVideo() {
-            const video = document.querySelector('.hero-video');
-            const overlay = document.querySelector('.hero-video-overlay');
-            
-            if (video) {
-                if (video.paused) {
-                    video.play();
-                    overlay.style.opacity = '0';
-                } else {
-                    video.pause();
-                    overlay.style.opacity = '1';
-                }
-            } else {
-                // Fallback for when video doesn't exist
-                alert('Hero video would play here - showing FORM\'s complete workflow transformation');
-            }
+        function openYouTubeVideo() {
+            // Open the YouTube video in a new tab for full viewing experience
+            window.open('https://youtu.be/ybRNJ_t6bRk', '_blank');
         }
 
-        // Auto-hide overlay when video starts playing
+        // YouTube embed handling
         document.addEventListener('DOMContentLoaded', function() {
-            const video = document.querySelector('.hero-video');
-            const overlay = document.querySelector('.hero-video-overlay');
+            const iframe = document.querySelector('.hero-video-youtube');
+            const fallback = document.querySelector('.hero-video-fallback');
             
-            if (video && overlay) {
-                video.addEventListener('play', function() {
-                    overlay.style.opacity = '0';
-                });
-                
-                video.addEventListener('pause', function() {
-                    overlay.style.opacity = '1';
-                });
-                
-                video.addEventListener('ended', function() {
-                    overlay.style.opacity = '1';
+            if (iframe) {
+                // Show fallback if iframe fails to load
+                iframe.addEventListener('error', function() {
+                    if (fallback) {
+                        fallback.style.display = 'flex';
+                        iframe.style.display = 'none';
+                    }
                 });
             }
         });
