@@ -713,6 +713,9 @@
         display: none;
         opacity: 0;
         transition: opacity 0.3s ease;
+        padding: 16px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .popup-overlay.show {
@@ -727,23 +730,29 @@
         backdrop-filter: blur(20px);
         border: 1px solid rgba(0, 0, 0, 0.08);
         border-radius: 16px;
-        padding: 40px;
+        padding: 32px 24px;
         max-width: 480px;
-        margin: 20px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
         text-align: center;
         position: relative;
+        margin: auto;
     }
 
     .popup-close {
         position: absolute;
-        top: 16px;
-        right: 20px;
+        top: 12px;
+        right: 16px;
         background: none;
         border: none;
         font-size: 24px;
         color: #86868b;
         cursor: pointer;
         transition: color 0.2s;
+        padding: 8px;
+        line-height: 1;
+        z-index: 1;
     }
 
     .popup-close:hover {
@@ -756,7 +765,7 @@
     }
 
     .popup-title {
-        font-size: 24px;
+        font-size: 22px;
         font-weight: 600;
         margin-bottom: 12px;
         color: #1d1d1f;
@@ -764,23 +773,24 @@
 
     .popup-subtitle {
         color: #86868b;
-        margin-bottom: 28px;
+        margin-bottom: 24px;
         line-height: 1.5;
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .popup-benefits {
         background: rgba(0, 0, 0, 0.04);
         border-radius: 12px;
-        padding: 20px;
-        margin: 20px 0;
+        padding: 16px;
+        margin: 16px 0;
         text-align: left;
     }
 
     .popup-benefits h4 {
         font-weight: 600;
-        margin-bottom: 12px;
+        margin-bottom: 8px;
         color: #1d1d1f;
+        font-size: 15px;
     }
 
     .popup-benefits ul {
@@ -788,11 +798,12 @@
     }
 
     .popup-benefits li {
-        padding: 4px 0;
+        padding: 3px 0;
         position: relative;
-        padding-left: 20px;
-        font-size: 15px;
+        padding-left: 16px;
+        font-size: 14px;
         color: #1d1d1f;
+        line-height: 1.4;
     }
 
     .popup-benefits li::before {
@@ -801,6 +812,7 @@
         left: 0;
         color: #4CAF50;
         font-weight: 700;
+        font-size: 12px;
     }
 
     .download-success {
@@ -808,10 +820,11 @@
         background: rgba(76, 175, 80, 0.1);
         border: 1px solid #4CAF50;
         border-radius: 12px;
-        padding: 16px;
-        margin-top: 16px;
+        padding: 12px;
+        margin-top: 12px;
         color: #1b5e20;
         font-weight: 600;
+        font-size: 14px;
     }
 
     /* === CONTENT SECTION STYLING === */
@@ -870,17 +883,116 @@
             align-items: center;
         }
 
-        .popup-card {
-            padding: 32px 24px;
-            margin: 20px;
-        }
-
         .banner {
             padding: 32px 24px;
         }
 
         .blob-1, .blob-2, .blob-3, .blob-4, .blob-5 {
             opacity: 0.08;
+        }
+
+        /* Mobile-specific popup styles */
+        .popup-overlay {
+            padding: 12px;
+            align-items: flex-start;
+        }
+
+        .popup-overlay.show {
+            align-items: flex-start;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .popup-card {
+            padding: 24px 20px;
+            margin: 0;
+            max-height: calc(100vh - 40px);
+            max-width: 100%;
+            border-radius: 12px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .popup-close {
+            top: 8px;
+            right: 12px;
+            font-size: 20px;
+            padding: 6px;
+        }
+
+        .popup-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .popup-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .popup-subtitle {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .popup-benefits {
+            padding: 14px;
+            margin: 14px 0;
+        }
+
+        .popup-benefits h4 {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .popup-benefits li {
+            font-size: 13px;
+            padding: 2px 0;
+            padding-left: 14px;
+        }
+
+        .popup-benefits li::before {
+            font-size: 11px;
+        }
+
+        /* Ensure Ghost form is responsive */
+        .popup-card [data-site] {
+            max-width: 100% !important;
+        }
+
+        /* Make sure text at bottom is readable */
+        .popup-card p:last-of-type {
+            font-size: 12px;
+            line-height: 1.4;
+            margin-top: 12px;
+        }
+    }
+
+    /* Extra small screens */
+    @media (max-width: 480px) {
+        .popup-overlay {
+            padding: 8px;
+        }
+
+        .popup-card {
+            padding: 20px 16px;
+            border-radius: 8px;
+        }
+
+        .popup-title {
+            font-size: 18px;
+        }
+
+        .popup-subtitle {
+            font-size: 13px;
+        }
+
+        .popup-benefits {
+            padding: 12px;
+        }
+
+        .popup-benefits li {
+            font-size: 12px;
         }
     }
 </style>
@@ -900,7 +1012,7 @@
 <div id="newsletterPopup" class="popup-overlay">
     <div class="popup-card">
         <button class="popup-close" onclick="closePopup()">&times;</button>
-        <div class="popup-icon">📁</div>
+        <div class="popup-icon"></div>
         <h2 class="popup-title">Get FORM for SketchUp</h2>
         <p class="popup-subtitle">Subscribe to runLemonade's FORM newsletter to receive product updates and your download link</p>
         
@@ -927,7 +1039,7 @@
         <p style="font-size: 14px; color: #86868b; margin-top: 16px;">(Please allow pop-ups/downloads) Once subscribed, your download will begin automatically.</p>
         
         <div id="downloadSuccess" class="download-success">
-            ✅ Download starting! Check your downloads folder for FORM_byrunLemonade_V1.0.5.rbz
+            Download starting! Check your downloads folder for FORM_byrunLemonade_V1.0.5.rbz
         </div>
     </div>
 </div>
@@ -970,7 +1082,7 @@
         
         <div class="cta-buttons">
             <a href="#" class="btn btn-primary download-btn">Download .rbz File</a>
-            <a href="#" class="btn btn-secondary">▶ Watch Full Demo</a>
+            <a href="#" class="btn btn-secondary">Watch Full Demo</a>
         </div>
     </div>
 </section>
@@ -995,13 +1107,13 @@
             <h3 class="banner-title">Build beautifully, faster. 1 SketchUp extension download, monthly updates.</h3>
             <p class="banner-subtitle">You'll never have to manually model cabinets again!</p>
             <div class="banner-features">
-                <div class="banner-feature">• 200+ Click & place dynamic SketchUp cabinets</div>
-                <div class="banner-feature">• Monthly cabinet additions & updates</div>
-                <div class="banner-feature">• 1:1 Getting started video call if required in the first month</div>
-                <div class="banner-feature">• Blueprint drawings - pre designed in Layout, PDF'd without branding</div>
-                <div class="banner-feature">• Custom model requests - tell me what you need & I'll build it</div>
-                <div class="banner-feature">• Access the mobile catalogue with AR cabinets, handy numbering system and tool tips</div>
-                <div class="banner-feature">• Beta access to NestMate - FORM's Nesting Extension</div>
+                <div class="banner-feature">200+ Click & place dynamic SketchUp cabinets</div>
+                <div class="banner-feature">Monthly cabinet additions & updates</div>
+                <div class="banner-feature">1:1 Getting started video call if required in the first month</div>
+                <div class="banner-feature">Blueprint drawings - pre designed in Layout, PDF'd without branding</div>
+                <div class="banner-feature">Custom model requests - tell me what you need & I'll build it</div>
+                <div class="banner-feature">Access the mobile catalogue with AR cabinets, handy numbering system and tool tips</div>
+                <div class="banner-feature">Beta access to NestMate - FORM's Nesting Extension</div>
             </div>
             <a href="#" class="btn btn-yellow download-btn">Download .rbz File Today</a>
             <p style="margin-top: 24px; color: #86868b; font-size: 16px;">Your monthly subscription starts today. Cancel anytime. FORM by runLemonade.</p>
@@ -1284,7 +1396,7 @@
         const icon = document.querySelector('.popup-icon');
         
         successDiv.style.display = 'block';
-        icon.textContent = '⬇️';
+        icon.textContent = '';
         
         // Trigger the actual download
         setTimeout(() => {
