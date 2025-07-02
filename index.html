@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,937 +13,870 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-            line-height: 1.5;
-            color: #333;
-            background: #fff;
-            font-size: 18px;
-            -webkit-font-smoothing: antialiased;
-            position: relative;
-            overflow-x: hidden;
-        }
+```
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "SF Pro Display", system-ui, sans-serif;
+        line-height: 1.6;
+        color: #1d1d1f;
+        background: #fafafa;
+        font-size: 17px;
+        -webkit-font-smoothing: antialiased;
+        position: relative;
+        overflow-x: hidden;
+    }
 
-        /* === BEAR-STYLE COLORED BLOBS === */
-        .bg-blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.3;
-            z-index: -1;
-            pointer-events: none;
-        }
+    /* === BEAR-STYLE COLORED BLOBS === */
+    .bg-blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.15;
+        z-index: -1;
+        pointer-events: none;
+        will-change: transform;
+    }
 
-        .blob-1 {
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(135deg, #0073E6, #4FC3F7);
-            top: 10%;
-            right: -100px;
-            animation: float 20s ease-in-out infinite;
-        }
+    .blob-1 {
+        width: 400px;
+        height: 400px;
+        background: linear-gradient(135deg, #007aff, #5ac8fa);
+        top: 10%;
+        right: -100px;
+        animation: float 20s ease-in-out infinite;
+    }
 
-        .blob-2 {
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, #FFC107, #FF9800);
-            top: 60%;
-            left: -150px;
-            animation: float 25s ease-in-out infinite reverse;
-        }
+    .blob-2 {
+        width: 300px;
+        height: 300px;
+        background: linear-gradient(135deg, #ff9500, #ffcc02);
+        top: 60%;
+        left: -150px;
+        animation: float 25s ease-in-out infinite reverse;
+    }
 
-        .blob-3 {
-            width: 350px;
-            height: 350px;
-            background: linear-gradient(135deg, #E91E63, #9C27B0);
-            top: 120%;
-            right: -100px;
-            animation: float 30s ease-in-out infinite;
-        }
+    .blob-3 {
+        width: 350px;
+        height: 350px;
+        background: linear-gradient(135deg, #ff2d92, #ff6961);
+        top: 120%;
+        right: -100px;
+        animation: float 30s ease-in-out infinite;
+    }
 
-        .blob-4 {
-            width: 250px;
-            height: 250px;
-            background: linear-gradient(135deg, #4CAF50, #8BC34A);
-            top: 180%;
-            left: -100px;
-            animation: float 22s ease-in-out infinite reverse;
-        }
+    .blob-4 {
+        width: 250px;
+        height: 250px;
+        background: linear-gradient(135deg, #30d158, #64d2ff);
+        top: 180%;
+        left: -100px;
+        animation: float 22s ease-in-out infinite reverse;
+    }
 
-        .blob-5 {
-            width: 320px;
-            height: 320px;
-            background: linear-gradient(135deg, #FF5722, #FF9800);
-            top: 240%;
-            right: -120px;
-            animation: float 28s ease-in-out infinite;
-        }
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        33% { transform: translateY(-30px) rotate(120deg); }
+        66% { transform: translateY(20px) rotate(240deg); }
+    }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-30px) rotate(120deg); }
-            66% { transform: translateY(20px) rotate(240deg); }
-        }
+    /* === BEAR-STYLE HEADER === */
+    .header {
+        background: rgba(250, 250, 250, 0.8);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        padding: 16px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
 
-        /* === BEAR-STYLE HEADER === */
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid #e5e5e5;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+    .header-content {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
+    .logo {
+        font-size: 22px;
+        font-weight: 600;
+        color: #1d1d1f;
+        text-decoration: none;
+        letter-spacing: -0.01em;
+    }
+
+    .logo .subtitle {
+        font-weight: 400;
+        color: #86868b;
+        font-size: 16px;
+    }
+
+    .nav {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+    }
+
+    .nav a {
+        color: #86868b;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s;
+        font-size: 16px;
+    }
+
+    .nav a:hover {
+        color: #1d1d1f;
+    }
+
+    .download-btn {
+        background: #007aff;
+        color: white !important;
+        padding: 10px 20px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.2s;
+    }
+
+    .download-btn:hover {
+        background: #0051d5;
+        transform: translateY(-1px);
+    }
+
+    /* === BEAR-STYLE SECTIONS === */
+    .container {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 0 24px;
+        position: relative;
+    }
+
+    .section {
+        padding: 60px 0;
+        position: relative;
+    }
+
+    .section-sm {
+        padding: 40px 0;
+    }
+
+    /* === BEAR-STYLE TYPOGRAPHY === */
+    .hero-title {
+        font-size: clamp(40px, 6vw, 56px);
+        font-weight: 700;
+        line-height: 1.1;
+        color: #1d1d1f;
+        margin-bottom: 20px;
+        text-align: center;
+        letter-spacing: -0.025em;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(18px, 3vw, 24px);
+        color: #86868b;
+        text-align: center;
+        margin-bottom: 16px;
+        font-weight: 400;
+    }
+
+    .hero-description {
+        font-size: 19px;
+        color: #86868b;
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto 40px;
+        line-height: 1.5;
+    }
+
+    .section-title {
+        font-size: clamp(32px, 5vw, 40px);
+        font-weight: 700;
+        color: #1d1d1f;
+        text-align: center;
+        margin-bottom: 12px;
+        letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+        font-size: 19px;
+        color: #86868b;
+        text-align: center;
+        margin-bottom: 50px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* === BEAR-STYLE BUTTONS === */
+    .btn {
+        display: inline-block;
+        padding: 14px 28px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        border-radius: 12px;
+        transition: all 0.2s;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        transform: translateY(-1px);
+    }
+
+    .btn-primary {
+        background: #007aff;
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background: #0051d5;
+    }
+
+    .btn-secondary {
+        background: rgba(0, 0, 0, 0.04);
+        color: #1d1d1f;
+    }
+
+    .btn-secondary:hover {
+        background: rgba(0, 0, 0, 0.08);
+    }
+
+    .btn-yellow {
+        background: #ff9500;
+        color: white;
+    }
+
+    .btn-yellow:hover {
+        background: #e6850e;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 40px;
+    }
+
+    /* === BEAR-STYLE ROUNDED WINDOWS === */
+    .window {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 16px;
+        overflow: hidden;
+        margin: 40px 0;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .window:hover {
+        transform: translateY(-2px);
+        border-color: rgba(0, 0, 0, 0.12);
+    }
+
+    .window-content {
+        padding: 0;
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    .video-window {
+        aspect-ratio: 16/9;
+        background: #000;
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .video-window iframe {
+        width: 120%;
+        height: 120%;
+        border: none;
+        position: absolute;
+        top: -10%;
+        left: -10%;
+        object-fit: cover;
+    }
+
+    .image-window {
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    .image-window img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* === BEAR-STYLE VIDEO OVERLAY === */
+    .video-with-overlay {
+        position: relative;
+        aspect-ratio: 16/9;
+        background: #000;
+    }
+
+    .video-with-overlay iframe {
+        width: 120%;
+        height: 120%;
+        border: none;
+        position: absolute;
+        top: -10%;
+        left: -10%;
+        object-fit: cover;
+    }
+
+    .video-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        padding: 40px;
+    }
+
+    .video-title {
+        font-size: clamp(20px, 4vw, 28px);
+        font-weight: 700;
+        margin-bottom: 12px;
+    }
+
+    .video-subtitle {
+        font-size: clamp(16px, 2vw, 18px);
+        opacity: 0.9;
+    }
+
+    /* === BEAR-STYLE GRID === */
+    .grid {
+        display: grid;
+        gap: 32px;
+        margin: 50px 0;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-auto {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    /* === BEAR-STYLE CARDS === */
+    .card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 16px;
+        padding: 28px;
+        transition: all 0.2s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(0, 0, 0, 0.12);
+    }
+
+    .card-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        margin-bottom: 16px;
+        overflow: hidden;
+    }
+
+    .card-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card-avatar.text {
+        background: #007aff;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 18px;
+    }
+
+    .card-name {
+        font-weight: 600;
+        margin-bottom: 4px;
+        font-size: 17px;
+        color: #1d1d1f;
+    }
+
+    .card-role {
+        color: #86868b;
+        font-size: 15px;
+        margin-bottom: 16px;
+    }
+
+    .card-content {
+        line-height: 1.5;
+        color: #1d1d1f;
+        font-size: 16px;
+    }
+
+    /* === BEAR-STYLE WORKFLOW === */
+    .workflow-step {
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .workflow-step:hover {
+        transform: translateY(-4px);
+    }
+
+    .step-number {
+        width: 60px;
+        height: 60px;
+        background: #007aff;
+        color: white;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 24px;
+        margin: 0 auto 24px;
+    }
+
+    .step-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: #1d1d1f;
+    }
+
+    .step-description {
+        color: #86868b;
+        line-height: 1.5;
+        font-size: 16px;
+    }
+
+    /* === BEAR-STYLE FEATURES === */
+    .feature {
+        text-align: center;
+        padding: 24px 16px;
+    }
+
+    .feature-icon {
+        font-size: 48px;
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    .feature-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: #1d1d1f;
+    }
+
+    .feature-description {
+        color: #86868b;
+        line-height: 1.5;
+        font-size: 16px;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 24px;
+        margin: 32px 0;
+    }
+
+    /* === BEAR-STYLE PRICING === */
+    .pricing-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 16px;
+        padding: 40px 32px;
+        text-align: center;
+        max-width: 480px;
+        margin: 0 auto;
+        transition: all 0.2s ease;
+        position: relative;
+    }
+
+    .pricing-card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(0, 0, 0, 0.12);
+    }
+
+    .pricing-title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #1d1d1f;
+    }
+
+    .pricing-price {
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #007aff;
+    }
+
+    .pricing-period {
+        color: #86868b;
+        margin-bottom: 28px;
+        font-size: 16px;
+    }
+
+    .pricing-features {
+        list-style: none;
+        text-align: left;
+        margin-bottom: 32px;
+    }
+
+    .pricing-features li {
+        padding: 8px 0;
+        position: relative;
+        padding-left: 24px;
+        font-size: 16px;
+        color: #1d1d1f;
+    }
+
+    .pricing-features li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: #30d158;
+        font-weight: 700;
+        font-size: 16px;
+    }
+
+    /* === BEAR-STYLE FAQ === */
+    .faq-container {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .faq-item {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 16px;
+        padding: 28px;
+        margin-bottom: 16px;
+        transition: all 0.2s ease;
+    }
+
+    .faq-item:hover {
+        transform: translateY(-1px);
+        border-color: rgba(0, 0, 0, 0.12);
+    }
+
+    .faq-question {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: #1d1d1f;
+    }
+
+    .faq-answer {
+        color: #86868b;
+        line-height: 1.6;
+        font-size: 16px;
+    }
+
+    /* === BEAR-STYLE FOOTER === */
+    .footer {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        padding: 60px 0 40px;
+        text-align: center;
+        position: relative;
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        margin-bottom: 32px;
+        flex-wrap: wrap;
+    }
+
+    .footer-links a {
+        color: #86868b;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s;
+        font-size: 16px;
+    }
+
+    .footer-links a:hover {
+        color: #1d1d1f;
+    }
+
+    .footer-text {
+        color: #86868b;
+        line-height: 1.6;
+        font-size: 15px;
+    }
+
+    .footer-text a {
+        color: #007aff;
+        text-decoration: none;
+    }
+
+    .footer-text a:hover {
+        text-decoration: underline;
+    }
+
+    /* === BEAR-STYLE BANNER === */
+    .banner {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 16px;
+        padding: 40px;
+        text-align: center;
+        margin: 60px 0;
+        position: relative;
+    }
+
+    .banner-title {
+        font-size: clamp(20px, 4vw, 28px);
+        font-weight: 600;
+        margin-bottom: 16px;
+        color: #1d1d1f;
+    }
+
+    .banner-subtitle {
+        color: #86868b;
+        margin-bottom: 32px;
+        line-height: 1.5;
+        font-size: 17px;
+    }
+
+    .banner-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 12px;
+        margin: 32px 0;
+    }
+
+    .banner-feature {
+        background: rgba(0, 0, 0, 0.04);
+        border-radius: 12px;
+        padding: 16px;
+        font-weight: 500;
+        font-size: 15px;
+        color: #1d1d1f;
+        transition: all 0.2s ease;
+    }
+
+    .banner-feature:hover {
+        background: rgba(0, 0, 0, 0.08);
+    }
+
+    /* === NEWSLETTER POPUP === */
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .popup-overlay.show {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+    }
+
+    .popup-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 16px;
+        padding: 40px;
+        max-width: 480px;
+        margin: 20px;
+        text-align: center;
+        position: relative;
+    }
+
+    .popup-close {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: #86868b;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+
+    .popup-close:hover {
+        color: #1d1d1f;
+    }
+
+    .popup-icon {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    .popup-title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: #1d1d1f;
+    }
+
+    .popup-subtitle {
+        color: #86868b;
+        margin-bottom: 28px;
+        line-height: 1.5;
+        font-size: 16px;
+    }
+
+    .popup-benefits {
+        background: rgba(0, 0, 0, 0.04);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 20px 0;
+        text-align: left;
+    }
+
+    .popup-benefits h4 {
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: #1d1d1f;
+    }
+
+    .popup-benefits ul {
+        list-style: none;
+    }
+
+    .popup-benefits li {
+        padding: 4px 0;
+        position: relative;
+        padding-left: 20px;
+        font-size: 15px;
+        color: #1d1d1f;
+    }
+
+    .popup-benefits li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: #30d158;
+        font-weight: 700;
+    }
+
+    .download-success {
+        display: none;
+        background: rgba(48, 209, 88, 0.1);
+        border: 1px solid #30d158;
+        border-radius: 12px;
+        padding: 16px;
+        margin-top: 16px;
+        color: #1b5e20;
+        font-weight: 600;
+    }
+
+    /* === CONTENT SECTION STYLING === */
+    .content-section {
+        margin: 60px 0;
+    }
+
+    .content-left h3,
+    .content-right h3 {
+        font-size: clamp(24px, 4vw, 32px);
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #1d1d1f;
+        text-align: left;
+    }
+
+    .content-left p,
+    .content-right p {
+        font-size: 17px;
+        color: #86868b;
+        line-height: 1.5;
+        margin-bottom: 24px;
+    }
+
+    .content-left .btn,
+    .content-right .btn {
+        margin-top: 20px;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
         .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            padding: 0 20px;
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #333;
-            text-decoration: none;
+        .nav a:not(.download-btn) {
+            display: none;
         }
 
-        .logo .subtitle {
-            font-weight: 400;
-            color: #999;
-            font-size: 18px;
-        }
-
-        .nav {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .nav a {
-            color: #666;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav a:hover {
-            color: #333;
-        }
-
-        .nav .download-btn {
-            color: white !important;
-        }
-
-        .download-btn {
-            background: #0073E6;
-            color: white !important;
-            padding: 12px 24px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.2s;
-            box-shadow: 0 4px 12px rgba(0, 115, 230, 0.2);
-        }
-
-        .download-btn:hover {
-            background: #005BB8;
-            color: white !important;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 115, 230, 0.3);
-        }
-
-        /* === BEAR-STYLE SECTIONS === */
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
-            position: relative;
+            padding: 0 20px;
         }
 
         .section {
-            padding: 60px 0;
-            position: relative;
+            padding: 50px 0;
         }
 
-        .section-sm {
-            padding: 40px 0;
-        }
-
-        /* === BEAR-STYLE TYPOGRAPHY === */
-        .hero-title {
-            font-size: clamp(48px, 8vw, 72px);
-            font-weight: 700;
-            line-height: 1.1;
-            color: #333;
-            margin-bottom: 24px;
-            text-align: center;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(20px, 4vw, 28px);
-            color: #666;
-            text-align: center;
-            margin-bottom: 24px;
-            font-weight: 400;
-        }
-
-        .hero-description {
-            font-size: 20px;
-            color: #666;
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 50px;
-            line-height: 1.6;
-        }
-
-        .section-title {
-            font-size: clamp(36px, 6vw, 48px);
-            font-weight: 700;
-            color: #333;
-            text-align: center;
-            margin-bottom: 16px;
-        }
-
-        .section-subtitle {
-            font-size: 20px;
-            color: #666;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        /* === BEAR-STYLE BUTTONS === */
-        .btn {
-            display: inline-block;
-            padding: 16px 32px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-            transition: all 0.2s;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn-primary {
-            background: #0073E6;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #005BB8;
-        }
-
-        .btn-secondary {
-            background: #f8f9fa;
-            color: #333;
-            border: 1px solid #e9ecef;
-        }
-
-        .btn-secondary:hover {
-            background: #e9ecef;
-        }
-
-        .btn-yellow {
-            background: #FFC107;
-            color: #333;
-        }
-
-        .btn-yellow:hover {
-            background: #E6AC00;
+        .grid-2,
+        .grid-3 {
+            grid-template-columns: 1fr;
+            gap: 32px;
         }
 
         .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 50px;
-        }
-
-        /* === BEAR-STYLE ROUNDED WINDOWS === */
-        .window {
-            background: #fff;
-            border: 1px solid #e5e5e5;
-            border-radius: 20px;
-            overflow: hidden;
-            margin: 40px 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .window:hover {
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
-            transform: translateY(-4px);
-        }
-
-        .window-content {
-            padding: 0;
-            position: relative;
-            border-radius: 80px;
-            overflow: hidden;
-        }
-
-        .video-window {
-            aspect-ratio: 16/9;
-            background: #000;
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .video-window iframe {
-            width: 120%;
-            height: 120%;
-            border: none;
-            position: absolute;
-            top: -10%;
-            left: -10%;
-            object-fit: cover;
-        }
-
-        .image-window {
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
-        .image-window img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 80px;
-        }
-
-        /* === BEAR-STYLE VIDEO OVERLAY === */
-        .video-with-overlay {
-            position: relative;
-            aspect-ratio: 16/9;
-            background: #000;
-            overflow: hidden;
-        }
-
-        .video-with-overlay iframe {
-            width: 120%;
-            height: 120%;
-            border: none;
-            position: absolute;
-            top: -10%;
-            left: -10%;
-            object-fit: cover;
-        }
-
-        .video-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
-            display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding: 40px;
-        }
-
-        .video-title {
-            font-size: clamp(24px, 4vw, 36px);
-            font-weight: 700;
-            margin-bottom: 16px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .video-subtitle {
-            font-size: clamp(16px, 2vw, 20px);
-            opacity: 0.95;
-            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
-        }
-
-        /* === BEAR-STYLE GRID === */
-        .grid {
-            display: grid;
-            gap: 40px;
-            margin: 60px 0;
-        }
-
-        .grid-2 {
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-        }
-
-        .grid-3 {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        .grid-auto {
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        }
-
-        /* === BEAR-STYLE CARDS === */
-        .card {
-            background: #fff;
-            border: 1px solid #e5e5e5;
-            border-radius: 16px;
-            padding: 32px;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-            border-color: #d0d0d0;
-        }
-
-        .card-avatar {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .card-avatar.text {
-            background: linear-gradient(135deg, #0073E6, #4FC3F7);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 20px;
-        }
-
-        .card-name {
-            font-weight: 700;
-            margin-bottom: 4px;
-            font-size: 18px;
-        }
-
-        .card-role {
-            color: #666;
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-
-        .card-content {
-            line-height: 1.6;
-            color: #444;
-        }
-
-        /* === BEAR-STYLE WORKFLOW === */
-        .workflow-step {
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .workflow-step:hover {
-            transform: translateY(-8px);
-        }
-
-        .step-number {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #0073E6, #4FC3F7);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 28px;
-            margin: 0 auto 32px;
-            box-shadow: 0 8px 25px rgba(0, 115, 230, 0.3);
-        }
-
-        .step-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: #333;
-        }
-
-        .step-description {
-            color: #666;
-            line-height: 1.6;
-            font-size: 16px;
-        }
-
-        /* === BEAR-STYLE FEATURES === */
-        .feature {
-            text-align: center;
-            padding: 32px 20px;
-        }
-
-        .feature-icon {
-            font-size: 56px;
-            margin-bottom: 24px;
-            display: block;
-        }
-
-        .feature-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: #333;
-        }
-
-        .feature-description {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
-            margin: 40px 0;
-        }
-
-        /* === BEAR-STYLE PRICING === */
-        .pricing-card {
-            background: #fff;
-            border: 2px solid #e5e5e5;
-            border-radius: 20px;
-            padding: 48px 40px;
-            text-align: center;
-            max-width: 520px;
-            margin: 0 auto;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-            position: relative;
-        }
-
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            background: linear-gradient(135deg, #0073E6, #4FC3F7, #FFC107);
-            border-radius: 20px;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
-
-        .pricing-card:hover::before {
-            opacity: 1;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-        }
-
-        .pricing-card:hover .pricing-price {
-            -webkit-text-fill-color: white;
-            color: white;
-            transform: scale(1.02);
-        }
-
-        .pricing-title {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #333;
-        }
-
-        .pricing-price {
-            font-size: 64px;
-            font-weight: 900;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, #0073E6, #4FC3F7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .pricing-period {
-            color: #666;
-            margin-bottom: 32px;
-            font-size: 18px;
-        }
-
-        .pricing-features {
-            list-style: none;
-            text-align: left;
-            margin-bottom: 40px;
-        }
-
-        .pricing-features li {
-            padding: 10px 0;
-            position: relative;
-            padding-left: 32px;
-            font-size: 16px;
-            color: #444;
-        }
-
-        .pricing-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #0073E6;
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        /* === BEAR-STYLE FAQ === */
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: #fff;
-            border: 1px solid #e5e5e5;
-            border-radius: 16px;
-            padding: 32px;
-            margin-bottom: 16px;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-        }
-
-        .faq-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-            border-color: #d0d0d0;
-        }
-
-        .faq-question {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: #333;
-        }
-
-        .faq-answer {
-            color: #666;
-            line-height: 1.7;
-        }
-
-        /* === BEAR-STYLE FOOTER === */
-        .footer {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-top: 1px solid #e5e5e5;
-            padding: 80px 0 50px;
-            text-align: center;
-            position: relative;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #666;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: #333;
-        }
-
-        .footer-text {
-            color: #999;
-            line-height: 1.6;
-        }
-
-        .footer-text a {
-            color: #0073E6;
-            text-decoration: none;
-        }
-
-        .footer-text a:hover {
-            text-decoration: underline;
-        }
-
-        /* === BEAR-STYLE BANNER === */
-        .banner {
-            background: #f8f9fa;
-            border: 1px solid #e5e5e5;
-            border-radius: 20px;
-            padding: 48px;
-            text-align: center;
-            margin: 80px 0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            position: relative;
-        }
-
-        .banner::before {
-            display: none;
-        }
-
-        .banner-title {
-            font-size: clamp(24px, 4vw, 32px);
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .banner-subtitle {
-            color: #666;
-            margin-bottom: 40px;
-            line-height: 1.6;
-            font-size: 18px;
-        }
-
-        .banner-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-            margin: 40px 0;
-        }
-
-        .banner-feature {
-            background: #fff;
-            border: 1px solid #e5e5e5;
-            padding: 24px;
-            border-radius: 12px;
-            font-weight: 500;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            transition: all 0.2s ease;
-        }
-
-        .banner-feature:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-            border-color: #d0d0d0;
-        }
-
-        /* === NEWSLETTER POPUP === */
-        .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .popup-overlay.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 1;
         }
 
         .popup-card {
-            background: #fff;
-            border: 1px solid #e5e5e5;
-            border-radius: 20px;
-            padding: 48px;
-            max-width: 520px;
+            padding: 32px 24px;
             margin: 20px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
         }
 
-        .popup-close {
-            position: absolute;
-            top: 20px;
-            right: 24px;
-            background: none;
-            border: none;
-            font-size: 28px;
-            color: #999;
-            cursor: pointer;
-            transition: color 0.2s;
+        .banner {
+            padding: 32px 24px;
         }
 
-        .popup-close:hover {
-            color: #333;
+        .blob-1, .blob-2, .blob-3, .blob-4 {
+            opacity: 0.08;
         }
+    }
+</style>
+```
 
-        .popup-icon {
-            font-size: 56px;
-            margin-bottom: 24px;
-        }
-
-        .popup-title {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: #333;
-        }
-
-        .popup-subtitle {
-            color: #666;
-            margin-bottom: 32px;
-            line-height: 1.6;
-            font-size: 18px;
-        }
-
-        .popup-benefits {
-            background: #f8f9fa;
-            border: 1px solid #e5e5e5;
-            border-radius: 12px;
-            padding: 24px;
-            margin: 24px 0;
-            text-align: left;
-        }
-
-        .popup-benefits h4 {
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: #333;
-        }
-
-        .popup-benefits ul {
-            list-style: none;
-        }
-
-        .popup-benefits li {
-            padding: 6px 0;
-            position: relative;
-            padding-left: 24px;
-        }
-
-        .popup-benefits li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #0073E6;
-            font-weight: 700;
-        }
-
-        .download-success {
-            display: none;
-            background: rgba(76, 175, 80, 0.1);
-            border: 1px solid #4caf50;
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 20px;
-            color: #2e7d32;
-            font-weight: 600;
-        }
-
-        /* === RESPONSIVE === */
-        @media (max-width: 768px) {
-            .header-content {
-                padding: 0 20px;
-            }
-
-            .nav a:not(.download-btn) {
-                display: none;
-            }
-
-            .container {
-                padding: 0 20px;
-            }
-
-            .section {
-                padding: 60px 0;
-            }
-
-            .grid-2,
-            .grid-3 {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .popup-card {
-                padding: 32px 24px;
-                margin: 20px;
-            }
-
-            .banner {
-                padding: 32px 24px;
-            }
-
-            .blob-1, .blob-2, .blob-3, .blob-4, .blob-5 {
-                opacity: 0.15;
-            }
-        }
-
-        /* === CONTENT SECTION STYLING === */
-        .content-section {
-            margin: 80px 0;
-        }
-
-        .content-left h3,
-        .content-right h3 {
-            font-size: clamp(28px, 4vw, 36px);
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: #333;
-            text-align: left;
-        }
-
-        .content-left p,
-        .content-right p {
-            font-size: 20px;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 32px;
-        }
-
-        .content-left .btn,
-        .content-right .btn {
-            margin-top: 24px;
-        }
-
-        /* === MOBILE CATALOGUE MOCKUP === */
-        .mobile-catalogue {
-            width: 120px;
-            height: 240px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 20px;
-            border: 3px solid #333;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            color: #666;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            position: relative;
-        }
-
-        .mobile-catalogue::before {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 3px;
-            background: #333;
-            border-radius: 2px;
-        }
-    </style>
 </head>
 <body>
     <!-- Colored Background Blobs -->
@@ -950,487 +884,111 @@
     <div class="bg-blob blob-2"></div>
     <div class="bg-blob blob-3"></div>
     <div class="bg-blob blob-4"></div>
-    <div class="bg-blob blob-5"></div>
 
-    <!-- Newsletter Popup -->
-    <div id="newsletterPopup" class="popup-overlay">
-        <div class="popup-card">
-            <button class="popup-close" onclick="closePopup()">&times;</button>
-            <div class="popup-icon">📁</div>
-            <h2 class="popup-title">Get FORM for SketchUp</h2>
-            <p class="popup-subtitle">Subscribe to runLemonade's FORM newsletter to receive product updates and your download link</p>
-            
-            <div class="popup-benefits">
-                <h4>What you'll get:</h4>
-                <ul>
-                    <li>Instant download link for FORM extension</li>
-                    <li>Monthly product updates & new cabinet additions</li>
-                    <li>Exclusive tips & tutorials from the community</li>
-                    <li>Early access to new features like NestMate</li>
-                </ul>
+```
+<!-- Newsletter Popup -->
+<div id="newsletterPopup" class="popup-overlay">
+    <div class="popup-card">
+        <button class="popup-close" onclick="closePopup()">&times;</button>
+        <div class="popup-icon">📁</div>
+        <h2 class="popup-title">Get FORM for SketchUp</h2>
+        <p class="popup-subtitle">Subscribe to runLemonade's FORM newsletter to receive product updates and your download link</p>
+        
+        <div class="popup-benefits">
+            <h4>What you'll get:</h4>
+            <ul>
+                <li>Instant download link for FORM extension</li>
+                <li>Monthly product updates & new cabinet additions</li>
+                <li>Exclusive tips & tutorials from the community</li>
+                <li>Early access to new features like NestMate</li>
+            </ul>
+        </div>
+        
+        <div style="min-height: 58px;max-width: 440px;margin: 0 auto;width: 100%">
+            <script src="https://cdn.jsdelivr.net/ghost/signup-form@~0.2/umd/signup-form.min.js" 
+                    data-button-color="#007aff" 
+                    data-button-text-color="#ffffff" 
+                    data-site="https://www.runlemonade.com/" 
+                    data-locale="en" 
+                    async>
+            </script>
+        </div>
+        
+        <p style="font-size: 14px; color: #86868b; margin-top: 16px;">(Please allow pop-ups/downloads) Once subscribed, your download will begin automatically.</p>
+        
+        <div id="downloadSuccess" class="download-success">
+            ✅ Download starting! Check your downloads folder for FORM_byrunLemonade_V1.0.5.rbz
+        </div>
+    </div>
+</div>
+
+<!-- Header -->
+<header class="header">
+    <div class="header-content">
+        <a href="#" class="logo">FORM <span class="subtitle">by runLemonade</span></a>
+        <nav class="nav">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
+            <a href="#" class="download-btn">Download Extension</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="section">
+    <div class="container">
+        <h1 class="hero-title">The fastest way to model beautiful cabinets</h1>
+        <p class="hero-subtitle">FORM by runLemonade. Built for makers & designers not programmers.</p>
+        <p class="hero-description">
+            Cut your modeling time by 80%. FORM gives you ready-to-use tools that make SketchUp feel 10x faster — no setup needed. Download instantly and start using today.
+        </p>
+        
+        <!-- Hero Video Window -->
+        <div class="window">
+            <div class="window-content">
+                <div class="video-window">
+                    <iframe 
+                        src="https://www.youtube.com/embed/Mnt4J1kEuc0?autoplay=1&mute=1&loop=1&playlist=Mnt4J1kEuc0&controls=0&showinfo=0&rel=0&modestbranding=1"
+                        frameborder="0" 
+                        allow="autoplay; encrypted-media" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
-            
-            <div style="min-height: 58px;max-width: 440px;margin: 0 auto;width: 100%">
-                <script src="https://cdn.jsdelivr.net/ghost/signup-form@~0.2/umd/signup-form.min.js" 
-                        data-button-color="#FEC51D" 
-                        data-button-text-color="#000000" 
-                        data-site="https://www.runlemonade.com/" 
-                        data-locale="en" 
-                        async>
-                </script>
-            </div>
-            
-            <p style="font-size: 14px; color: #999; margin-top: 16px;">(Please allow pop-ups/downloads) Once subscribed, your download will begin automatically.</p>
-            
-            <div id="downloadSuccess" class="download-success">
-                ✅ Download starting! Check your downloads folder for FORM_byrunLemonade_V1.0.5.rbz
+        </div>
+        
+        <div class="cta-buttons">
+            <a href="#" class="btn btn-primary download-btn">Download .rbz File</a>
+            <a href="#" class="btn btn-secondary">▶ Watch Full Demo</a>
+        </div>
+    </div>
+</section>
+
+<!-- Product Showcase -->
+<section class="section-sm">
+    <div class="container">
+        <div class="window">
+            <div class="window-content">
+                <div class="image-window">
+                    <img src="https://raw.githubusercontent.com/runlemonade/web-dev/main/images/hero-product.png" alt="FORM SketchUp Extension Interface">
+                </div>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <a href="#" class="logo">FORM <span class="subtitle">by runLemonade</span></a>
-            <nav class="nav">
-                <a href="#features">Features</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#faq">FAQ</a>
-                <a href="#" class="download-btn">Download Extension</a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="section">
-        <div class="container">
-            <h1 class="hero-title">The fastest way to model beautiful cabinets</h1>
-            <p class="hero-subtitle">FORM by runLemonade. Built for makers & designers not programmers.</p>
-            <p class="hero-description">
-                Cut your modeling time by 80%. FORM gives you ready-to-use tools that make SketchUp feel 10x faster — no setup needed. Download instantly and start using today.
-            </p>
-            
-            <!-- Hero Video Window -->
-            <div class="window">
-                <div class="window-content">
-                    <div class="video-window">
-                        <iframe 
-                            src="https://www.youtube.com/embed/Mnt4J1kEuc0?autoplay=1&mute=1&loop=1&playlist=Mnt4J1kEuc0&controls=0&showinfo=0&rel=0&modestbranding=1"
-                            frameborder="0" 
-                            allow="autoplay; encrypted-media" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="cta-buttons">
-                <a href="#" class="btn btn-primary download-btn">Download .rbz File</a>
-                <a href="#" class="btn btn-secondary">▶ Watch Full Demo</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Product Showcase -->
-    <section class="section-sm">
-        <div class="container">
-            <div class="window">
-                <div class="window-content">
-                    <div class="image-window">
-                        <img src="https://raw.githubusercontent.com/runlemonade/web-dev/main/images/hero-product.png" alt="FORM SketchUp Extension Interface">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trial Banner -->
-    <section class="section-sm">
-        <div class="container">
-            <div class="banner">
-                <h3 class="banner-title">Build beautifully, faster. 1 SketchUp extension download, monthly updates.</h3>
-                <p class="banner-subtitle">You'll never have to manually model cabinets again!</p>
-                <div class="banner-features">
-                    <div class="banner-feature">• 200+ Click & place dynamic SketchUp cabinets</div>
-                    <div class="banner-feature">• Monthly cabinet additions & updates</div>
-                    <div class="banner-feature">• 1:1 Getting started video call if required in the first month</div>
-                    <div class="banner-feature">• Blueprint drawings - pre designed in Layout, PDF'd without branding</div>
-                    <div class="banner-feature">• Custom model requests - tell me what you need & I'll build it</div>
-                    <div class="banner-feature">• Access the mobile catalogue with AR cabinets, handy numbering system and tool tips</div>
-                    <div class="banner-feature">• Beta access to NestMate - FORM's Nesting Extension</div>
-                </div>
-                <a href="#" class="btn btn-yellow download-btn">Download .rbz File Today</a>
-                <p style="margin-top: 24px; color: #666; font-size: 16px;">Your monthly subscription starts today. Cancel anytime. FORM by runLemonade.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Demo Video Section -->
-    <section class="section-sm">
-        <div class="container">
-            <div class="window">
-                <div class="window-content">
-                    <div class="video-with-overlay">
-                        <iframe 
-                            src="https://www.youtube.com/embed/Q7YInbloSeg?autoplay=1&mute=1&loop=1&playlist=Q7YInbloSeg&controls=0&showinfo=0&rel=0&modestbranding=1"
-                            frameborder="0" 
-                            allow="autoplay; encrypted-media" 
-                            allowfullscreen>
-                        </iframe>
-                        <div class="video-overlay">
-                            <div class="video-title">Click, place and make!</div>
-                            <div class="video-subtitle">Mac or PC - you click, place and make.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Workflow Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Simple. Powerful. Fast.</h2>
-            <p class="section-subtitle">Three steps to transform your cabinet modeling workflow forever</p>
-            
-            <div class="grid grid-3">
-                <div class="workflow-step">
-                    <div class="step-number">1</div>
-                    <div class="step-title">Install Extension</div>
-                    <div class="step-description">Download and install FORM in just one click through SketchUp's extension manager</div>
-                </div>
-                
-                <div class="workflow-step">
-                    <div class="step-number">2</div>
-                    <div class="step-title">Browse Library</div>
-                    <div class="step-description">Access 215+ professional cabinet models with advanced search and filtering</div>
-                </div>
-                
-                <div class="workflow-step">
-                    <div class="step-number">3</div>
-                    <div class="step-title">Drag & Drop</div>
-                    <div class="step-description">Simply drag cabinets into your model and customize dimensions dynamically</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="section" id="features">
-        <div class="container">
-            <div class="grid grid-2 content-section">
-                <div class="content-left">
-                    <h3>And so much more</h3>
-                    <p>FORM is packed with advanced features that reveal themselves naturally once you dive in.</p>
-                    <div class="features-grid">
-                        <div class="feature">
-                            <div class="feature-title">Cabinet Library</div>
-                            <div class="feature-description">215+ professional cabinet models with instant layout files</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-title">Technical Drawings</div>
-                            <div class="feature-description">Complete blueprints ready for workshop production</div>
-                        </div>
-                    </div>
-                    <a href="#" class="btn btn-primary download-btn">Explore Full Library</a>
-                </div>
-                <div class="window">
-                    <div class="window-content">
-                        <div class="image-window">
-                            <img src="https://raw.githubusercontent.com/runlemonade/web-dev/main/images/iPhone_Catalogue_FORM.png" alt="FORM Cabinet Library Interface">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-2 content-section">
-                <div class="window">
-                    <div class="window-content">
-                        <div class="image-window">
-                            <img src="https://raw.githubusercontent.com/runlemonade/web-dev/main/images/Nestmate_preview.png" alt="NestMate Nesting Extension">
-                        </div>
-                    </div>
-                </div>
-                <div class="content-right">
-                    <h3>Preview things to come.. Built-in Nesting & Panel Saw Production</h3>
-                    <p style="font-size: 16px; color: #999; font-style: italic; margin-bottom: 20px;">Beta access now live, please note that this is in development and not a fully deployed nesting extension.</p>
-                    <p>FORM subscribers get a look at our integrated nesting function, coming Autumn 2025. Cutting edge, toggled for panel saw or CNC production.</p>
-                    <div class="features-grid">
-                        <div class="feature">
-                            <div class="feature-title">Intelligent Nesting</div>
-                            <div class="feature-description">AI-powered algorithms optimize sheet utilization</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-title">Instant Cutting Diagrams</div>
-                            <div class="feature-description">Generate production-ready layouts in minutes</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-2 content-section">
-                <div class="content-left">
-                    <h3>Universal beauty</h3>
-                    <p>Perfect integration with SketchUp means FORM works exactly how you expect it to.</p>
-                    <div class="features-grid">
-                        <div class="feature">
-                            <div class="feature-title">Drag & Drop Simplicity</div>
-                            <div class="feature-description">Mac or PC - just drag components into your model</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-title">Dynamic Components</div>
-                            <div class="feature-description">Resize and modify cabinets with intelligent controls</div>
-                        </div>
-                    </div>
-                    <a href="#" class="btn btn-primary download-btn">Download Extension</a>
-                </div>
-                <div class="window" style="max-width: 400px; margin: 0 auto;">
-                    <div class="window-content">
-                        <div class="image-window" style="border-radius: 80px;">
-                            <img src="https://raw.githubusercontent.com/runlemonade/web-dev/main/images/feature-cabinet-library.png" alt="SketchUp Integration" style="border-radius: 80px;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Customer Reviews</h2>
-            <p class="section-subtitle">Why makers are using FORM</p>
-            
-            <div class="grid grid-auto">
-                <div class="card">
-                    <div class="card-avatar text">SW</div>
-                    <div class="card-name">Simon Wright</div>
-                    <div class="card-role">Cabinetmaker</div>
-                    <div class="card-content">
-                        This first release of FORM for SketchUp has already sped up my client designs so much. Toby is great with support and the additional models I get a month are well worth the 30 quid. Can't wait for the shaker update. Thanks Toby, great product.
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-avatar text">JG</div>
-                    <div class="card-name">James Graham</div>
-                    <div class="card-role">Cabinetmaker</div>
-                    <div class="card-content">
-                        I just use the empty cabinets to create quick quotes from. I'm a bit of a technical idiot, there's lots in this that I don't use but for speedy quoting this thing has saved me hours. Back end needs a bit more work but Toby has said that this is in the pipeline.
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-avatar text">MB</div>
-                    <div class="card-name">Matt Barker</div>
-                    <div class="card-role">Cabinetmaker</div>
-                    <div class="card-content">
-                        I was a bit apprehensive of trying this. I use SketchUp day to day and didn't want to change how I do things, but I have to say that I am surprised at how easy it is to use after an hour of using it. The drag and drop works well for client changes. It's regularly updated and Toby's helpful. Would recommend.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="section" id="pricing">
-        <div class="container">
-            <h2 class="section-title">Simple, transparent pricing</h2>
-            <p class="section-subtitle">Start with a 7-day free trial. No credit card required.</p>
-            
-            <div class="pricing-card">
-                <div class="pricing-title">FORM for SketchUp</div>
-                <div class="pricing-price">£49.99</div>
-                <div class="pricing-period">per month</div>
-                <p style="margin-bottom: 32px; color: #666; font-size: 18px;">Everything you need to build professional cabinets:</p>
-                <ul class="pricing-features">
-                    <li>200+ Click & place dynamic SketchUp cabinets</li>
-                    <li>Monthly cabinet additions & updates</li>
-                    <li>1:1 Getting started video call if required in the first month</li>
-                    <li>Blueprint drawings - pre designed in Layout, PDF'd without branding</li>
-                    <li>Custom model requests - tell me what you need & I'll build it</li>
-                    <li>Access the mobile catalogue with AR cabinets, handy numbering system and tool tips</li>
-                    <li>Beta access to NestMate - FORM's Nesting Extension</li>
-                </ul>
-                <a href="https://www.runlemonade.com/#/portal/signup/684f36db39d04f0001f114fe/monthly" class="btn btn-primary">Get Your Licence Today</a>
-                <p style="margin-top: 24px; font-size: 16px; color: #666; text-align: center;">Your monthly subscription starts today. Cancel anytime.<br>
-                <small style="opacity: 0.8;">FORM by runLemonade</small></p>
-            </div>
-            
-            <div style="background: rgba(248, 249, 250, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 16px; padding: 32px; margin-top: 40px; text-align: left; max-width: 520px; margin-left: auto; margin-right: auto; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);">
-                <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px; color: #333;">How it works:</h4>
-                <ol style="margin: 0; padding-left: 20px; color: #666; line-height: 1.6;">
-                    <li>Download the FORM extension (.rbz file)</li>
-                    <li>Install in SketchUp Extensions menu</li>
-                    <li>Access full library for 7 days free</li>
-                    <li>Subscribe to continue after trial</li>
-                </ol>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="section" id="faq">
-        <div class="container">
-            <h2 class="section-title">FAQ's</h2>
-            
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">How do I start my free trial?</div>
-                    <div class="faq-answer">Simply download the FORM extension (.rbz file) and install it in SketchUp through the Extensions menu. You'll have immediate access to the full library for 7 days with no credit card required.</div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">What's included in FORM Professional?</div>
-                    <div class="faq-answer">You get access to 200+ click & place dynamic SketchUp cabinets, monthly cabinet additions & updates, 1:1 getting started video call if required in the first month, blueprint drawings pre-designed in Layout (PDF'd without branding), custom model requests, access to mobile catalogue with AR cabinets, and beta access to NestMate - FORM's Nesting Extension.</div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Do I need SketchUp Pro to use FORM?</div>
-                    <div class="faq-answer">Yes, a copy of SketchUp Pro is required to use features such as dynamic components and LayOut integration that FORM relies on.</div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Can I use these components for commercial projects?</div>
-                    <div class="faq-answer">Yes — FORM Professional includes a full commercial use license. You can use all components in client work, commercial projects, or any professional applications without restrictions.</div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">What happens after my 7-day trial ends?</div>
-                    <div class="faq-answer">After 7 days, you'll need to subscribe for £49.99/month to continue using FORM. If you don't subscribe, the extension will stop working, but any models you've already inserted into your SketchUp files will remain.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Support</a>
-                <a href="#">Documentation</a>
-                <a href="#">Community</a>
-            </div>
-            <div class="footer-text">
-                Follow us on <a href="#">Instagram</a>, <a href="#">Twitter</a> and <a href="#">Discord</a><br><br>
-                © 2025 runLemonade.
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Newsletter popup functionality
-        function showNewsletterPopup() {
-            const popup = document.getElementById('newsletterPopup');
-            popup.classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closePopup() {
-            const popup = document.getElementById('newsletterPopup');
-            popup.classList.remove('show');
-            document.body.style.overflow = 'auto';
-        }
-
-        function triggerDownload() {
-            // Show success message
-            const successDiv = document.getElementById('downloadSuccess');
-            const icon = document.querySelector('.popup-icon');
-            
-            successDiv.style.display = 'block';
-            icon.textContent = '⬇️';
-            
-            // Trigger the actual download
-            setTimeout(() => {
-                const downloadUrl = 'https://github.com/runlemonade/web-dev/releases/download/Public_Web_release/FORM_byrunLemonade_V1.0.5.rbz';
-                const link = document.createElement('a');
-                link.href = downloadUrl;
-                link.download = 'FORM_byrunLemonade_V1.0.5.rbz';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                // Close popup after a delay
-                setTimeout(() => {
-                    closePopup();
-                }, 3000);
-            }, 1000);
-        }
-
-        // Add event listeners to all download buttons
-        document.addEventListener('DOMContentLoaded', function() {
-            const downloadButtons = document.querySelectorAll('.download-btn');
-            downloadButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    showNewsletterPopup();
-                });
-            });
-
-            // Listen for Ghost newsletter form submission
-            window.addEventListener('message', function(event) {
-                if (event.data && event.data.type === 'ghost-signup-success') {
-                    triggerDownload();
-                }
-            });
-
-            // Fallback: Monitor for form changes and auto-trigger download
-            const observer = new MutationObserver(function(mutations) {
-                mutations.forEach(function(mutation) {
-                    if (mutation.type === 'childList') {
-                        const ghostContainer = document.querySelector('[data-site="https://www.runlemonade.com/"]');
-                        if (ghostContainer) {
-                            const successElements = ghostContainer.querySelectorAll('[data-success], .success, .gh-portal-success');
-                            if (successElements.length > 0) {
-                                triggerDownload();
-                                observer.disconnect();
-                            }
-                        }
-                    }
-                });
-            });
-
-            // Start observing when popup is shown
-            document.getElementById('newsletterPopup').addEventListener('transitionend', function() {
-                if (this.classList.contains('show')) {
-                    observer.observe(document.body, {
-                        childList: true,
-                        subtree: true
-                    });
-                }
-            });
-        });
-
-        // Close popup when clicking outside
-        document.getElementById('newsletterPopup').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closePopup();
-            }
-        });
-
-        // Close popup with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closePopup();
-            }
-        });
-
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if (this.classList.contains('download-btn')) return;
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+<!-- Trial Banner -->
+<section class="section-sm">
+    <div class="container">
+        <div class="banner">
+            <h3 class="banner-title">Build beautifully, faster. 1 SketchUp extension download, monthly updates.</h3>
+            <p class="banner-subtitle">You'll never have to manually model cabinets again!</p>
+            <div class="banner-features">
+                <div class="banner-feature">• 200+ Click & place dynamic SketchUp cabinets</div>
+                <div class="banner-feature">• Monthly cabinet additions & updates</div>
+                <div class="banner-feature">• 1:1 Getting started video call if required in the first month</div>
+                <div class="banner-feature">• Blueprint drawings - pre designed in Layout, PDF'd without branding</div>
+                <div class="banner-feature">• Custom model requests - tell me what you need & I'll build it</div>
+                <div class="banner-feature">• Access the mobile catalogue with AR cabinets, handy
+```
