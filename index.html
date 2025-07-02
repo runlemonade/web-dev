@@ -39,7 +39,7 @@
     .blob-1 {
         width: 400px;
         height: 400px;
-        background: linear-gradient(135deg, #007aff, #5ac8fa);
+        background: linear-gradient(135deg, #0073E6, #4FC3F7);
         top: 10%;
         right: -100px;
         animation: float 20s ease-in-out infinite;
@@ -48,7 +48,7 @@
     .blob-2 {
         width: 300px;
         height: 300px;
-        background: linear-gradient(135deg, #ff9500, #ffcc02);
+        background: linear-gradient(135deg, #FFC107, #FF9800);
         top: 60%;
         left: -150px;
         animation: float 25s ease-in-out infinite reverse;
@@ -57,7 +57,7 @@
     .blob-3 {
         width: 350px;
         height: 350px;
-        background: linear-gradient(135deg, #ff2d92, #ff6961);
+        background: linear-gradient(135deg, #E91E63, #9C27B0);
         top: 120%;
         right: -100px;
         animation: float 30s ease-in-out infinite;
@@ -66,10 +66,19 @@
     .blob-4 {
         width: 250px;
         height: 250px;
-        background: linear-gradient(135deg, #30d158, #64d2ff);
+        background: linear-gradient(135deg, #4CAF50, #8BC34A);
         top: 180%;
         left: -100px;
         animation: float 22s ease-in-out infinite reverse;
+    }
+
+    .blob-5 {
+        width: 320px;
+        height: 320px;
+        background: linear-gradient(135deg, #FF5722, #FF9800);
+        top: 240%;
+        right: -120px;
+        animation: float 28s ease-in-out infinite;
     }
 
     @keyframes float {
@@ -131,7 +140,7 @@
     }
 
     .download-btn {
-        background: #007aff;
+        background: #0073E6;
         color: white !important;
         padding: 10px 20px;
         border-radius: 12px;
@@ -142,7 +151,7 @@
     }
 
     .download-btn:hover {
-        background: #0051d5;
+        background: #005BB8;
         transform: translateY(-1px);
     }
 
@@ -228,12 +237,12 @@
     }
 
     .btn-primary {
-        background: #007aff;
+        background: #0073E6;
         color: white;
     }
 
     .btn-primary:hover {
-        background: #0051d5;
+        background: #005BB8;
     }
 
     .btn-secondary {
@@ -246,12 +255,12 @@
     }
 
     .btn-yellow {
-        background: #ff9500;
-        color: white;
+        background: #FFC107;
+        color: #333;
     }
 
     .btn-yellow:hover {
-        background: #e6850e;
+        background: #E6AC00;
     }
 
     .cta-buttons {
@@ -406,7 +415,7 @@
     }
 
     .card-avatar.text {
-        background: #007aff;
+        background: #0073E6;
         color: white;
         display: flex;
         align-items: center;
@@ -447,7 +456,7 @@
     .step-number {
         width: 60px;
         height: 60px;
-        background: #007aff;
+        background: #0073E6;
         color: white;
         border-radius: 16px;
         display: flex;
@@ -533,7 +542,7 @@
         font-size: 48px;
         font-weight: 700;
         margin-bottom: 8px;
-        color: #007aff;
+        color: #0073E6;
     }
 
     .pricing-period {
@@ -560,7 +569,7 @@
         content: '✓';
         position: absolute;
         left: 0;
-        color: #30d158;
+        color: #4CAF50;
         font-weight: 700;
         font-size: 16px;
     }
@@ -636,7 +645,7 @@
     }
 
     .footer-text a {
-        color: #007aff;
+        color: #0073E6;
         text-decoration: none;
     }
 
@@ -790,14 +799,14 @@
         content: '✓';
         position: absolute;
         left: 0;
-        color: #30d158;
+        color: #4CAF50;
         font-weight: 700;
     }
 
     .download-success {
         display: none;
-        background: rgba(48, 209, 88, 0.1);
-        border: 1px solid #30d158;
+        background: rgba(76, 175, 80, 0.1);
+        border: 1px solid #4CAF50;
         border-radius: 12px;
         padding: 16px;
         margin-top: 16px;
@@ -870,7 +879,7 @@
             padding: 32px 24px;
         }
 
-        .blob-1, .blob-2, .blob-3, .blob-4 {
+        .blob-1, .blob-2, .blob-3, .blob-4, .blob-5 {
             opacity: 0.08;
         }
     }
@@ -884,6 +893,7 @@
     <div class="bg-blob blob-2"></div>
     <div class="bg-blob blob-3"></div>
     <div class="bg-blob blob-4"></div>
+    <div class="bg-blob blob-5"></div>
 
 ```
 <!-- Newsletter Popup -->
@@ -906,8 +916,8 @@
         
         <div style="min-height: 58px;max-width: 440px;margin: 0 auto;width: 100%">
             <script src="https://cdn.jsdelivr.net/ghost/signup-form@~0.2/umd/signup-form.min.js" 
-                    data-button-color="#007aff" 
-                    data-button-text-color="#ffffff" 
+                    data-button-color="#FFC107" 
+                    data-button-text-color="#333333" 
                     data-site="https://www.runlemonade.com/" 
                     data-locale="en" 
                     async>
@@ -990,5 +1000,395 @@
                 <div class="banner-feature">• 1:1 Getting started video call if required in the first month</div>
                 <div class="banner-feature">• Blueprint drawings - pre designed in Layout, PDF'd without branding</div>
                 <div class="banner-feature">• Custom model requests - tell me what you need & I'll build it</div>
-                <div class="banner-feature">• Access the mobile catalogue with AR cabinets, handy
+                <div class="banner-feature">• Access the mobile catalogue with AR cabinets, handy numbering system and tool tips</div>
+                <div class="banner-feature">• Beta access to NestMate - FORM's Nesting Extension</div>
+            </div>
+            <a href="#" class="btn btn-yellow download-btn">Download .rbz File Today</a>
+            <p style="margin-top: 24px; color: #86868b; font-size: 16px;">Your monthly subscription starts today. Cancel anytime. FORM by runLemonade.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Demo Video Section -->
+<section class="section-sm">
+    <div class="container">
+        <div class="window">
+            <div class="window-content">
+                <div class="video-with-overlay">
+                    <iframe 
+                        src="https://www.youtube.com/embed/Q7YInbloSeg?autoplay=1&mute=1&loop=1&playlist=Q7YInbloSeg&controls=0&showinfo=0&rel=0&modestbranding=1"
+                        frameborder="0" 
+                        allow="autoplay; encrypted-media" 
+                        allowfullscreen>
+                    </iframe>
+                    <div class="video-overlay">
+                        <div class="video-title">Click, place and make!</div>
+                        <div class="video-subtitle">Mac or PC - you click, place and make.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Workflow Section -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Simple. Powerful. Fast.</h2>
+        <p class="section-subtitle">Three steps to transform your cabinet modeling workflow forever</p>
+        
+        <div class="grid grid-3">
+            <div class="workflow-step">
+                <div class="step-number">1</div>
+                <div class="step-title">Install Extension</div>
+                <div class="step-description">Download and install FORM in just one click through SketchUp's extension manager</div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">2</div>
+                <div class="step-title">Browse Library</div>
+                <div class="step-description">Access 215+ professional cabinet models with advanced search and filtering</div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">3</div>
+                <div class="step-title">Drag & Drop</div>
+                <div class="step-description">Simply drag cabinets into your model and customize dimensions dynamically</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="section" id="features">
+    <div class="container">
+        <div class="grid grid-2 content-section">
+            <div class="content-left">
+                <h3>And so much more</h3>
+                <p>FORM is packed with advanced features that reveal themselves naturally once you dive in.</p>
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-title">Cabinet Library</div>
+                        <div class="feature-description">215+ professional cabinet models with instant layout files</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-title">Technical Drawings</div>
+                        <div class="feature-description">Complete blueprints ready for workshop production</div>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-primary download-btn">Explore Full Library</a>
+            </div>
+            <div class="window">
+                <div class="window-content">
+                    <div class="image-window">
+                        <img src="https://raw.githubusercontent.com/runlemonade/web-dev/main/images/iPhone_Catalogue_FORM.png" alt="FORM Cabinet Library Interface">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-2 content-section">
+            <div class="window">
+                <div class="window-content">
+                    <div class="image-window">
+                        <img src="https://raw.githubusercontent.com/runlemonade/web-dev/main/images/Nestmate_preview.png" alt="NestMate Nesting Extension">
+                    </div>
+                </div>
+            </div>
+            <div class="content-right">
+                <h3>Preview things to come.. Built-in Nesting & Panel Saw Production</h3>
+                <p style="font-size: 15px; color: #86868b; font-style: italic; margin-bottom: 16px;">Beta access now live, please note that this is in development and not a fully deployed nesting extension.</p>
+                <p>FORM subscribers get a look at our integrated nesting function, coming Autumn 2025. Cutting edge, toggled for panel saw or CNC production.</p>
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-title">Intelligent Nesting</div>
+                        <div class="feature-description">AI-powered algorithms optimize sheet utilization</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-title">Instant Cutting Diagrams</div>
+                        <div class="feature-description">Generate production-ready layouts in minutes</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-2 content-section">
+            <div class="content-left">
+                <h3>Universal beauty</h3>
+                <p>Perfect integration with SketchUp means FORM works exactly how you expect it to.</p>
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-title">Drag & Drop Simplicity</div>
+                        <div class="feature-description">Mac or PC - just drag components into your model</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-title">Dynamic Components</div>
+                        <div class="feature-description">Resize and modify cabinets with intelligent controls</div>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-primary download-btn">Download Extension</a>
+            </div>
+            <div class="window" style="max-width: 400px; margin: 0 auto;">
+                <div class="window-content">
+                    <div class="image-window">
+                        <img src="https://raw.githubusercontent.com/runlemonade/web-dev/main/images/feature-cabinet-library.png" alt="SketchUp Integration">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Reviews Section -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Customer Reviews</h2>
+        <p class="section-subtitle">Why makers are using FORM</p>
+        
+        <div class="grid grid-auto">
+            <div class="card">
+                <div class="card-avatar text">SW</div>
+                <div class="card-name">Simon Wright</div>
+                <div class="card-role">Cabinetmaker</div>
+                <div class="card-content">
+                    This first release of FORM for SketchUp has already sped up my client designs so much. Toby is great with support and the additional models I get a month are well worth the 30 quid. Can't wait for the shaker update. Thanks Toby, great product.
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-avatar text">JG</div>
+                <div class="card-name">James Graham</div>
+                <div class="card-role">Cabinetmaker</div>
+                <div class="card-content">
+                    I just use the empty cabinets to create quick quotes from. I'm a bit of a technical idiot, there's lots in this that I don't use but for speedy quoting this thing has saved me hours. Back end needs a bit more work but Toby has said that this is in the pipeline.
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-avatar text">MB</div>
+                <div class="card-name">Matt Barker</div>
+                <div class="card-role">Cabinetmaker</div>
+                <div class="card-content">
+                    I was a bit apprehensive of trying this. I use SketchUp day to day and didn't want to change how I do things, but I have to say that I am surprised at how easy it is to use after an hour of using it. The drag and drop works well for client changes. It's regularly updated and Toby's helpful. Would recommend.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section class="section" id="pricing">
+    <div class="container">
+        <h2 class="section-title">Simple, transparent pricing</h2>
+        <p class="section-subtitle">Start with a 7-day free trial. No credit card required.</p>
+        
+        <div class="pricing-card">
+            <div class="pricing-title">FORM for SketchUp</div>
+            <div class="pricing-price">£49.99</div>
+            <div class="pricing-period">per month</div>
+            <p style="margin-bottom: 28px; color: #86868b; font-size: 17px;">Everything you need to build professional cabinets:</p>
+            <ul class="pricing-features">
+                <li>200+ Click & place dynamic SketchUp cabinets</li>
+                <li>Monthly cabinet additions & updates</li>
+                <li>1:1 Getting started video call if required in the first month</li>
+                <li>Blueprint drawings - pre designed in Layout, PDF'd without branding</li>
+                <li>Custom model requests - tell me what you need & I'll build it</li>
+                <li>Access the mobile catalogue with AR cabinets, handy numbering system and tool tips</li>
+                <li>Beta access to NestMate - FORM's Nesting Extension</li>
+            </ul>
+            <a href="https://www.runlemonade.com/#/portal/signup/684f36db39d04f0001f114fe/monthly" class="btn btn-primary">Get Your Licence Today</a>
+            <p style="margin-top: 20px; font-size: 15px; color: #86868b; text-align: center;">Your monthly subscription starts today. Cancel anytime.<br>
+            <small style="opacity: 0.8;">FORM by runLemonade</small></p>
+        </div>
+        
+        <div style="background: rgba(0, 0, 0, 0.04); border-radius: 12px; padding: 28px; margin-top: 32px; text-align: left; max-width: 480px; margin-left: auto; margin-right: auto;">
+            <h4 style="font-size: 17px; font-weight: 600; margin-bottom: 12px; color: #1d1d1f;">How it works:</h4>
+            <ol style="margin: 0; padding-left: 16px; color: #86868b; line-height: 1.6;">
+                <li>Download the FORM extension (.rbz file)</li>
+                <li>Install in SketchUp Extensions menu</li>
+                <li>Access full library for 7 days free</li>
+                <li>Subscribe to continue after trial</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section" id="faq">
+    <div class="container">
+        <h2 class="section-title">FAQ's</h2>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">How do I start my free trial?</div>
+                <div class="faq-answer">Simply download the FORM extension (.rbz file) and install it in SketchUp through the Extensions menu. You'll have immediate access to the full library for 7 days with no credit card required.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What's included in FORM Professional?</div>
+                <div class="faq-answer">You get access to 200+ click & place dynamic SketchUp cabinets, monthly cabinet additions & updates, 1:1 getting started video call if required in the first month, blueprint drawings pre-designed in Layout (PDF'd without branding), custom model requests, access to mobile catalogue with AR cabinets, and beta access to NestMate - FORM's Nesting Extension.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do I need SketchUp Pro to use FORM?</div>
+                <div class="faq-answer">Yes, a copy of SketchUp Pro is required to use features such as dynamic components and LayOut integration that FORM relies on.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can I use these components for commercial projects?</div>
+                <div class="faq-answer">Yes — FORM Professional includes a full commercial use license. You can use all components in client work, commercial projects, or any professional applications without restrictions.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What happens after my 7-day trial ends?</div>
+                <div class="faq-answer">After 7 days, you'll need to subscribe for £49.99/month to continue using FORM. If you don't subscribe, the extension will stop working, but any models you've already inserted into your SketchUp files will remain.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Support</a>
+            <a href="#">Documentation</a>
+            <a href="#">Community</a>
+        </div>
+        <div class="footer-text">
+            Follow us on <a href="#">Instagram</a>, <a href="#">Twitter</a> and <a href="#">Discord</a><br><br>
+            © 2025 runLemonade.
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Newsletter popup functionality
+    function showNewsletterPopup() {
+        const popup = document.getElementById('newsletterPopup');
+        popup.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closePopup() {
+        const popup = document.getElementById('newsletterPopup');
+        popup.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+
+    function triggerDownload() {
+        // Show success message
+        const successDiv = document.getElementById('downloadSuccess');
+        const icon = document.querySelector('.popup-icon');
+        
+        successDiv.style.display = 'block';
+        icon.textContent = '⬇️';
+        
+        // Trigger the actual download
+        setTimeout(() => {
+            const downloadUrl = 'https://github.com/runlemonade/web-dev/releases/download/Public_Web_release/FORM_byrunLemonade_V1.0.5.rbz';
+            const link = document.createElement('a');
+            link.href = downloadUrl;
+            link.download = 'FORM_byrunLemonade_V1.0.5.rbz';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Close popup after a delay
+            setTimeout(() => {
+                closePopup();
+            }, 3000);
+        }, 1000);
+    }
+
+    // Add event listeners to all download buttons
+    document.addEventListener('DOMContentLoaded', function() {
+        const downloadButtons = document.querySelectorAll('.download-btn');
+        downloadButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                showNewsletterPopup();
+            });
+        });
+
+        // Listen for Ghost newsletter form submission
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.type === 'ghost-signup-success') {
+                triggerDownload();
+            }
+        });
+
+        // Fallback: Monitor for form changes and auto-trigger download
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'childList') {
+                    const ghostContainer = document.querySelector('[data-site="https://www.runlemonade.com/"]');
+                    if (ghostContainer) {
+                        const successElements = ghostContainer.querySelectorAll('[data-success], .success, .gh-portal-success');
+                        if (successElements.length > 0) {
+                            triggerDownload();
+                            observer.disconnect();
+                        }
+                    }
+                }
+            });
+        });
+
+        // Start observing when popup is shown
+        document.getElementById('newsletterPopup').addEventListener('transitionend', function() {
+            if (this.classList.contains('show')) {
+                observer.observe(document.body, {
+                    childList: true,
+                    subtree: true
+                });
+            }
+        });
+    });
+
+    // Close popup when clicking outside
+    document.getElementById('newsletterPopup').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closePopup();
+        }
+    });
+
+    // Close popup with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closePopup();
+        }
+    });
+
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            if (this.classList.contains('download-btn')) return;
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Parallax effect for blobs (subtle)
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const blobs = document.querySelectorAll('.bg-blob');
+        
+        blobs.forEach((blob, index) => {
+            const speed = 0.05 + (index * 0.02);
+            const yPos = -(scrolled * speed);
+            blob.style.transform = `translateY(${yPos}px)`;
+        });
+    });
+</script>
 ```
+
+</body>
+</html>
