@@ -860,6 +860,25 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        @media (max-width: 900px) {
+            .header { padding: 0.5rem 0; }
+            .nav.container { padding: 0.7rem 1rem; }
+            .extensions-layout { flex-direction: column; margin-top: 60px; min-height: unset; }
+            .extensions-sidebar { display: none; }
+            .extensions-main { width: 100vw; padding: 0 1rem; }
+            .extension-item, .extension-info, .extension-icon { width: 100%; max-width: 100vw; }
+        }
+        @media (max-width: 600px) {
+            .extensions-layout { margin-top: 40px; }
+            .extensions-main { padding: 0 0.5rem; }
+            .extension-item { padding: 1rem 0.5rem; }
+            .nav-links { flex-direction: column; gap: 0.5rem; }
+            .nav-links a { font-size: 1.1rem; padding: 0.7rem 1.2rem; }
+        }
+        body, html {
+            overflow-x: hidden;
+        }
     </style>
 </head>
 <body>

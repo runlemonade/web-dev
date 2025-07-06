@@ -618,5 +618,23 @@ Best regards,
             });
         });
     </script>
+
+    <script>
+    @media (max-width: 900px) {
+        .header { padding: 0.5rem 0; }
+        .nav.container { padding: 0.7rem 1rem; }
+        .main-content, .container { max-width: 100vw; padding: 0 1rem; }
+        .screenshots-section .screenshot-card { width: 90vw; height: 38vw; min-width: 220px; min-height: 120px; }
+    }
+    @media (max-width: 600px) {
+        .main-content, .container { padding: 0 0.5rem; }
+        .screenshots-section .screenshot-card { width: 98vw; height: 44vw; min-width: 120px; min-height: 80px; }
+        .nav-links { flex-direction: column; gap: 0.5rem; }
+        .nav-links a { font-size: 1.1rem; padding: 0.7rem 1.2rem; }
+    }
+    body, html {
+        overflow-x: hidden;
+    }
+    </script>
 </body>
 </html>
