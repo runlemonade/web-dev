@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RunLemonade Pro - Extensions</title>
+    
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/extension.css">
+    <link rel="stylesheet" href="../components/download-modal.css">
+</head>
+<body>
+
+    <div class="main-content">
+        <!-- App Header -->
+        <div class="app-header" style="margin-top: 40px;">
+            <div class="container">
+            <div class="app-info">
+                <div class="app-icon">
+                    <img src="../images/SKETCHUP EXTENSION ICON .png" alt="RunLemonade Extension Icon" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                <div class="app-details">
+                    <h1 class="app-title">FORM for SketchUp</h1>
+                    <p class="app-subtitle">Spend less time modelling and more time making</p>
+                    <div class="action-buttons">
+                        <button class="get-btn" onclick="openDownloadModal()">Download</button>
+                        <button class="share-btn" onclick="shareExtension()">↗</button>
+                        <span style="font-size: 11px; color: var(--text-muted);">7 day trial, no credit card required</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="stat-label">Ratings</div>
+                    <div class="rating-display">
+                        <span class="stat-value">4.8</span>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                </div>
+
+
+                <div class="stat-item">
+                    <div class="stat-label">Developer</div>
+                    <div class="stat-value"><a href="../developer/" style="color: var(--primary-color); text-decoration: none;">runLemonade</a></div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Language</div>
+                    <div class="stat-value">EN</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Size</div>
+                    <div class="stat-value">15.2</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">MB</div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Hero Video (YouTube Embed) in Card -->
+        <div class="screenshots-section">
+            <div class="container">
+                <div class="screenshots-scroll">
+                    <div class="screenshots-container">
+                        <div class="screenshot-card video-card">
+                            <div class="video-card-inner">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Q7YInbloSeg?modestbranding=1&showinfo=0&rel=0" title="FORM for SketchUp Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="screenshot-card"><img src="../images/form-img1.png" alt="Screenshot 1"></div>
+                        <div class="screenshot-card"><img src="../images/form-img2.png" alt="Screenshot 2"></div>
+                        <div class="screenshot-card"><img src="../images/form-img3.png" alt="Screenshot 3"></div>
+                        <div class="screenshot-card"><img src="../images/form-img4.png" alt="Screenshot 4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+        .screenshots-section, .screenshots-section * {
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        .screenshot-card::before, .screenshot-card::after,
+        .screenshots-container::before, .screenshots-container::after {
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            content: none !important;
+            display: none !important;
+        }
+        .screenshots-section .screenshot-card {
+            background: #fff !important;
+            padding: 0 !important;
+            margin: 0 18px 0 0;
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            align-items: stretch;
+            height: 220px;
+            width: 358px;
+            transition: box-shadow 0.2s;
+        }
+        .screenshots-section .screenshot-card:last-child {
+            margin-right: 0;
+        }
+        .screenshots-section .screenshot-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+            display: block;
+        }
+        .screenshots-section .video-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            padding: 0;
+        }
+        .screenshots-section .video-card-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            overflow: hidden;
+            display: flex;
+        }
+        .screenshots-section .video-card-inner iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            background: #000;
+        }
+        .screenshots-container {
+            display: flex;
+            gap: 0;
+        }
+        @media (max-width: 600px) {
+            .screenshots-section .screenshot-card {
+                width: 80vw;
+                height: 38vw;
+                min-width: 220px;
+                min-height: 120px;
+            }
+        }
+        </style>
+
+        <!-- Description -->
+        <div class="description-section">
+            <div class="container">
+                <p class="description-text">RunLemonade Pro is a premium productivity extension designed to streamline your workflow and boost efficiency. With advanced features and intuitive design, it transforms how you work across all your favorite browsers.</p>
+                <p class="description-more">Take control of your digital workspace with smart automation, beautiful interfaces, and powerful collaboration tools. <a href="#" class="more-link">more</a></p>
+                
+                <div class="developer-info">
+                    <a href="../developer/" class="developer-link">runLemonade</a>
+                    <div class="developer-role">Developer</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ratings & Reviews -->
+        <div class="ratings-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Ratings & Reviews</h2>
+                    <span class="chevron">❯</span>
+                </div>
+                
+                <div class="rating-overview">
+                    <div class="rating-score">
+                        <div class="rating-number">4.8</div>
+                        <div class="rating-count">10 Ratings</div>
+                    </div>
+                    <div class="rating-bars">
+                        <div class="rating-bar">
+                            <span class="bar-stars">★★★★★</span>
+                            <div class="bar-fill"><div class="bar-active" style="width: 80%"></div></div>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="bar-stars">★★★★</span>
+                            <div class="bar-fill"><div class="bar-active" style="width: 20%"></div></div>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="bar-stars">★★★</span>
+                            <div class="bar-fill"><div class="bar-active" style="width: 0%"></div></div>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="bar-stars">★★</span>
+                            <div class="bar-fill"><div class="bar-active" style="width: 0%"></div></div>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="bar-stars">★</span>
+                            <div class="bar-fill"><div class="bar-active" style="width: 0%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reviews-preview">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div>
+                                <div class="review-title">Great product with excellent support</div>
+                                <div class="review-stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <div class="review-meta">Simon Wright • Cabinetmaker</div>
+                        <p class="review-text">This first release of FORM for SketchUp has already sped up my client designs so much. Toby is great with support and the additional models I get a month are well worth the 30 quid. Can't wait for the shaker update. Thanks Toby, great product.</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div>
+                                <div class="review-title">Saves hours on quoting</div>
+                                <div class="review-stars">★★★★</div>
+                            </div>
+                        </div>
+                        <div class="review-meta">James Graham • Cabinetmaker</div>
+                        <p class="review-text">I just use the empty cabinets to create quick quotes from. I'm a bit of a technical idiot, there's lots in this that I don't use but for speedy quoting this thing has saved me hours. Back end needs a bit more work but Toby has said that this is in the pipeline.</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div>
+                                <div class="review-title">Surprisingly easy to use</div>
+                                <div class="review-stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <div class="review-meta">Matt Barker • Cabinetmaker</div>
+                        <p class="review-text">I was a bit apprehensive of trying this. I use SketchUp day to day and didn't want to change how I do things, but I have to say that I am surprised at how easy it is to use after an hour of using it. The drag and drop works well for client changes. It's regularly updated and Toby's helpful. Would recommend.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- What's New -->
+        <div class="whats-new-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">What's New</h2>
+                    <span class="chevron">❯</span>
+                </div>
+                <div class="version-info">
+                    <div class="update-notes">Enhanced AI suggestions engine with improved accuracy and faster response times. New dark mode interface and better team collaboration features.</div>
+                    <div class="version-details">
+                        1w ago<br>
+                        Version 2.4.1
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subscriptions -->
+        <div class="subscriptions-section">
+            <div class="container">
+                <h2 class="section-title">Subscriptions</h2>
+                <div class="subscription-options">
+                    <div class="subscription-card">
+                        <div class="subscription-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 2V5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 2V5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3 10H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 14H10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 18H10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 14H14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 18H14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 14H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 18H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="subscription-content">
+                            <h3 class="subscription-title">Monthly Subscription</h3>
+                            <p class="subscription-description">Full Access, Rolling 30 day subscription</p>
+                            <a href="https://buy.stripe.com/00w28qcmYf5B5Q0dwdc7u00" class="trial-button" target="_blank" rel="noopener">£49.99/Month</a>
+                            <p class="trial-details">Start your monthly subscription today</p>
+                        </div>
+                    </div>
+                    <div class="subscription-card">
+                        <div class="subscription-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 18V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M4.93 4.93L7.76 7.76" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16.24 16.24L19.07 19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 12H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M18 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M4.93 19.07L7.76 16.24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16.24 7.76L19.07 4.93" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="subscription-content">
+                            <h3 class="subscription-title">Yearly Subscription</h3>
+                            <p class="subscription-description">Full Access, Rolling 12 month subscription. Save £100 when buying for the year.</p>
+                            <a href="https://buy.stripe.com/14A4gyev6bTp2DO8bTc7u01" class="trial-button" target="_blank" rel="noopener">£499/Year</a>
+                            <p class="trial-details">Save £100 with yearly subscription</p>
+                        </div>
+                    </div>
+                    <div class="subscription-card">
+                        <div class="subscription-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="subscription-content">
+                            <h3 class="subscription-title">Multiple User, Yearly Subscription</h3>
+                            <p class="subscription-description">Full Access for Studio Users. Discounted Pricing Available for Studios with 5+ Users.</p>
+                            <a href="#" class="trial-button" onclick="requestStudioPricing()">Request Pricing</a>
+                            <p class="trial-details">Contact us for studio pricing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What is FORM for SketchUp?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>FORM for SketchUp is a productivity extension that helps you spend less time modelling and more time making. It provides a library of pre-built components and tools to streamline your SketchUp workflow.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How does the 7-day trial work?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can try FORM for SketchUp completely free for 7 days. No credit card is required to start your trial. Simply download the extension and start using all premium features immediately.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What's included in the subscription?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Your subscription includes full access to the FORM library, regular updates with new components, priority support, and access to exclusive features and tools.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Can I cancel my subscription anytime?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, you can cancel your subscription at any time. Your access will continue until the end of your current billing period, and you won't be charged again.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What SketchUp versions are supported?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>FORM for SketchUp is compatible with SketchUp 2017 and later versions, including SketchUp Pro and SketchUp Free.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Information -->
+        <div class="information-section" style="border-bottom: none; padding-bottom: 40px;">
+            <div class="container">
+                <h2 class="section-title">Information</h2>
+                <div class="info-grid">
+                                    <div class="info-row">
+                    <span class="info-label">Provider</span>
+                    <span class="info-value"><a href="../developer/" style="color: var(--primary-color); text-decoration: none;">runLemonade</a></span>
+                </div>
+                    <div class="info-row">
+                        <span class="info-label">Size</span>
+                        <span class="info-value">15.2 MB</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Compatibility</span>
+                        <span class="info-value">Works on this Browser ></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Languages</span>
+                        <span class="info-value">English and 5 more ></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Age Rating</span>
+                        <span class="info-value">4+ ></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">In-App Purchases</span>
+                        <span class="info-value">Yes ></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Copyright</span>
+                        <span class="info-value">© 2025 RunLemonade Ltd.</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Developer Website</span>
+                        <span class="info-value"><a href="#" class="info-link">Visit Site</a></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Privacy Policy</span>
+                        <span class="info-value"><a href="#" class="info-link">View Policy</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Download Modal -->
+    <div class="modal-overlay" id="downloadModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeDownloadModal()">×</button>
+            
+            <div id="emailForm">
+                <div class="modal-header">
+                    <div class="modal-icon">
+                        <img src="../images/logo.png" alt="RunLemonade Logo">
+                    </div>
+                    <h2 class="modal-title">Download FORM for SketchUp</h2>
+                    <p class="modal-subtitle">Get instant access to the latest version with premium features and updates. Enter your email to begin the download.</p>
+                </div>
+
+                <div class="email-form-container">
+                    <div style="min-height: 58px;max-width: 440px;margin: 0 auto;width: 100%">
+                        <script src="https://cdn.jsdelivr.net/ghost/signup-form@~0.2/umd/signup-form.min.js" 
+                                data-button-color="#FEC51D" 
+                                data-button-text-color="#000000" 
+                                data-site="https://www.runlemonade.com/" 
+                                data-locale="en" 
+                                async>
+                        </script>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="download-success" id="downloadSuccess">
+                <div class="success-icon">✓</div>
+                <h3 class="success-title">Download Starting...</h3>
+                <p class="success-subtitle">Thanks for signing up! Your download will begin automatically.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include the download modal JavaScript -->
+    <script src="../components/download-modal.js"></script>
+    
+    <!-- Share functionality -->
+    <script>
+        function shareExtension() {
+            console.log('Share button clicked!');
+            alert('Share button clicked! Opening share menu...');
+            
+            const shareData = {
+                title: 'FORM for SketchUp - Spend less time modelling and more time making',
+                text: 'Check out FORM for SketchUp - the extension that helps you spend less time modelling and more time making!',
+                url: window.location.href
+            };
+            
+            // Check if native sharing is supported
+            if (navigator.share) {
+                console.log('Using native sharing...');
+                navigator.share(shareData)
+                    .catch((error) => console.log('Error sharing:', error));
+            } else {
+                console.log('Using fallback sharing...');
+                // Fallback: show share options
+                showShareOptions();
+            }
+        }
+        
+        function showShareOptions() {
+            const shareUrl = window.location.href;
+            const shareText = 'Check out FORM for SketchUp - the extension that helps you spend less time modelling and more time making!';
+            
+            const shareOptions = [
+                {
+                    name: 'Twitter',
+                    url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`
+                },
+                {
+                    name: 'Facebook',
+                    url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`
+                },
+                {
+                    name: 'LinkedIn',
+                    url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`
+                },
+                {
+                    name: 'WhatsApp',
+                    url: `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`
+                },
+                {
+                    name: 'Email',
+                    url: `mailto:?subject=${encodeURIComponent('FORM for SketchUp Extension')}&body=${encodeURIComponent(shareText + '\n\n' + shareUrl)}`
+                }
+            ];
+            
+            // Create share menu
+            const shareMenu = document.createElement('div');
+            shareMenu.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: white;
+                border-radius: 12px;
+                padding: 20px;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+                z-index: 10000;
+                min-width: 200px;
+            `;
+            
+            shareMenu.innerHTML = `
+                <h3 style="margin: 0 0 15px 0; font-size: 16px;">Share via:</h3>
+                ${shareOptions.map(option => `
+                    <a href="${option.url}" target="_blank" rel="noopener" 
+                       style="display: block; padding: 10px; text-decoration: none; color: #0073E6; 
+                              border-bottom: 1px solid #eee; font-size: 14px;">
+                        ${option.name}
+                    </a>
+                `).join('')}
+                <button onclick="this.parentElement.remove()" 
+                        style="margin-top: 15px; padding: 8px 16px; background: #f0f0f0; 
+                               border: none; border-radius: 6px; cursor: pointer; width: 100%;">
+                    Cancel
+                </button>
+            `;
+            
+            // Add overlay
+            const overlay = document.createElement('div');
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.5);
+                z-index: 9999;
+            `;
+            overlay.onclick = () => {
+                overlay.remove();
+                shareMenu.remove();
+            };
+            
+            document.body.appendChild(overlay);
+            document.body.appendChild(shareMenu);
+        }
+        
+        // Studio pricing request function
+        function requestStudioPricing() {
+            const subject = encodeURIComponent('FORM for SketchUp - Studio Pricing Request');
+            const body = encodeURIComponent(`Hello RunLemonade team,
+
+I'm interested in studio pricing for FORM for SketchUp.
+
+Studio Details:
+- Number of users: 
+- Studio name: 
+- Contact email: 
+- Phone number: 
+
+Please provide pricing information for our studio.
+
+Best regards,
+[Your name]`);
+            
+            window.open(`mailto:hello@runlemonade.com?subject=${subject}&body=${body}`, '_blank');
+        }
+
+        // Add event listener as backup
+        document.addEventListener('DOMContentLoaded', function() {
+            const shareBtn = document.querySelector('.share-btn');
+            if (shareBtn) {
+                console.log('Share button found and event listener added');
+                shareBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Share button clicked via event listener');
+                    shareExtension();
+                });
+            } else {
+                console.log('Share button not found');
+            }
+            
+            // FAQ Accordion functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                    });
+                    
+                    // Toggle current item
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

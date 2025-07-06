@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer - RunLemonade</title>
+    
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link rel="stylesheet" href="../components/download-modal.css">
+    <style>
+        :root {
+            --runlemonade-yellow: #FEC51D;
+            --runlemonade-yellow-light: #FFD54F;
+            --runlemonade-yellow-muted: #FFF3CD;
+            --runlemonade-purple: #bba6e8;
+            --runlemonade-blue: #b6e6f7;
+            --glass-bg: rgba(255,255,255,0.7);
+            --glass-border: rgba(200,200,200,0.3);
+            --card-shadow: 0 4px 32px rgba(0,0,0,0.10);
+            --border-radius: 20px;
+        }
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: var(--glass-bg);
+            border-bottom: 1px solid var(--glass-border);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+        }
+        .nav.container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .logo img {
+            height: 36px;
+            margin-right: 10px;
+        }
+        .company-name {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #222;
+            letter-spacing: -0.01em;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .nav-links a:hover {
+            background: var(--runlemonade-yellow-light);
+            color: #1a1a1a;
+        }
+        @media (max-width: 768px) {
+            .header { padding: 0.5rem 0; }
+            .nav.container { padding: 0.7rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.png" alt="RunLemonade Logo">
+                <span class="company-name">runLemonade</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../extensions/catalogue.html">Extensions</a></li>
+                <li><a href="index.html">Developer</a></li>
+                <li><a href="../learn/">Learn</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Meet the Developer - Toby @ runLemonade</h1>
+            <p class="hero-mission">"When life gives you lemons, runLemonade"</p>
+            <p>I'm on a mission to lower the entry barrier into digital fabrication.</p>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="section">
+                <h2>Why Trust My Tools?</h2>
+                <p>Every tool I build comes from real-world experience. I've walked the same path you're on, faced the same challenges, and created solutions that actually work in practice. Now I've shut up the workshop and I'm spending my time building solutions that pull up the digital fabrication skillset of the industry.</p>
+            </section>
+
+            <section class="features-grid">
+                <div class="feature-card">
+                    <h3>Real Workshop Experience</h3>
+                    <p>I've been in your shoes - running a joinery workshop, dealing with complex designs, tight deadlines, and the constant need to optimize workflows. My tools solve problems I actually faced.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Deep Technical Expertise</h3>
+                    <p>15+ years of SketchUp, 5 years of Fusion360, 8 years programming CNCs, and 10 years drafting bespoke joinery. I understand the entire digital fabrication pipeline.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Built for Professionals</h3>
+                    <p>These aren't theoretical solutions - they're battle-tested tools designed by someone who knows what professionals actually need to get the job done efficiently.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Snapshot Skillset</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">15 Years</div>
+                        <div class="timeline-content">
+                            <h3>Using Google SketchUp</h3>
+                            <p>From basic modeling to complex parametric designs, I've explored every corner of SketchUp's capabilities. This deep understanding drives every extension I create.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">5 Years</div>
+                        <div class="timeline-content">
+                            <h3>Using Fusion360</h3>
+                            <p>Advanced CAD/CAM workflows, parametric modeling, and manufacturing preparation. This experience ensures my tools integrate seamlessly with modern fabrication processes.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">8 Years</div>
+                        <div class="timeline-content">
+                            <h3>Programming CNCs</h3>
+                            <p>From simple 2D cuts to complex 3D machining, I understand what it takes to get designs from screen to machine. My tools optimize this critical workflow.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">10 Years</div>
+                        <div class="timeline-content">
+                            <h3>Drafting Bespoke Joinery</h3>
+                            <p>Creating detailed technical drawings for custom furniture and architectural joinery. This precision-focused background ensures my tools handle complex, real-world projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>The Mission</h2>
+                <div class="mission-content">
+                    <div class="mission-text">
+                        <h3>Lowering the Entry Barrier</h3>
+                        <p>Digital fabrication shouldn't be intimidating. My goal is to create tools that make complex workflows accessible to everyone - from hobbyists to professional workshops.</p>
+                        <p>Every extension I build addresses a specific pain point I experienced. When you use my tools, you're benefiting from years of trial, error, and refinement.</p>
+                    </div>
+                    <div class="mission-values">
+                        <div class="value-item">
+                            <h4>Practical Solutions</h4>
+                            <p>Tools that solve real problems, not theoretical ones</p>
+                        </div>
+                        <div class="value-item">
+                            <h4>User-Focused Design</h4>
+                            <p>Built by someone who uses them daily</p>
+                        </div>
+                        <div class="value-item">
+                            <h4>Continuous Improvement</h4>
+                            <p>Evolving based on real user feedback and needs</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <section class="product-showcase">
+        <div class="container">
+            <h2>Tools Built from Experience</h2>
+            <p>Each tool I create comes from solving real problems in my own workshop.</p>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <h3>FORM for SketchUp</h3>
+                    <p>Born from the frustration of spending hours modeling cabinets when I could be making them. This extension cuts modeling time by 80% while maintaining precision.</p>
+                    <span class="status available">Available Now</span>
+                </div>
+                <div class="product-card">
+                    <h3>NestMate</h3>
+                    <p>Solving the puzzle of efficient material usage. Built after watching too much expensive material go to waste due to poor nesting strategies.</p>
+                    <span class="status available">Available Now</span>
+                </div>
+                <div class="product-card">
+                    <h3>More Tools Coming</h3>
+                    <p>Based on years of workshop experience, I'm developing additional tools to streamline every aspect of digital fabrication workflows.</p>
+                    <span class="status pipeline">In Development</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Products</h4>
+                                            <a href="../extensions/catalogue.html">FORM for SketchUp</a>
+                    <a href="#nestmate">NestMate</a>
+                    <a href="#roadmap">Coming Soon</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="../support/">Help Center</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#updates">Updates</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <a href="#forum">User Forum</a>
+                    <a href="#discord">Discord</a>
+                    <a href="#feedback">Feedback</a>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <a href="#story">My Story</a>
+                    <a href="#mission">Mission</a>
+                    <a href="#workshop">Workshop</a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 RunLemonade. Built with real workshop experience.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

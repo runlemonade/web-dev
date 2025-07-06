@@ -1,0 +1,174 @@
+/* Download Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    padding: 32px;
+    max-width: 480px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    text-align: center;
+    position: relative;
+    z-index: 10000;
+}
+
+.modal-overlay.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    margin-bottom: 24px;
+}
+
+.modal-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    box-shadow: none;
+    overflow: hidden;
+    position: relative;
+}
+
+.modal-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    padding: 12px;
+}
+
+
+
+.modal-icon img {
+    position: relative;
+    z-index: 1;
+}
+
+.modal-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.modal-subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.email-form-container {
+    margin: 24px 0;
+}
+
+.close-modal {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #8e8e93;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 10001;
+}
+
+
+
+.download-success {
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.download-success.show {
+    display: block;
+}
+
+.success-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background: #34d399;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    margin: 0 auto 16px;
+}
+
+.success-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.success-subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 20px;
+        padding: 24px;
+        max-width: none;
+        width: calc(100% - 40px);
+    }
+    
+    .modal-icon {
+        width: 64px;
+        height: 64px;
+    }
+    
+    .modal-icon img {
+        padding: 8px;
+    }
+    
+    .modal-title {
+        font-size: 20px;
+    }
+    
+    .modal-subtitle {
+        font-size: 14px;
+    }
+}

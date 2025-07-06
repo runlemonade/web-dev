@@ -1,0 +1,3140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM by runLemonade - The fastest way to model beautiful cabinets </title>
+    
+    <!-- External CSS Files for Modular Architecture -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/overlays.css">
+    <link rel="stylesheet" href="css/nestmate.css">
+    
+    <!-- External JavaScript Files for Modular Architecture -->
+    <script src="js/loader.js"></script>
+    <script src="js/license-manager.js"></script>
+    <script src="js/library-manager.js"></script>
+    <script src="js/beta-warning.js"></script>
+    <script src="js/nestmate.js"></script>
+    <script src="js/model-importer.js"></script>
+    <script src="js/app.js"></script>
+    
+    <!-- All styles now comapletely external - no embedded CSS to cause conflicts -->
+</head>
+<body class="library-mode">
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-logo" id="loadingLogo">
+            <div class="logo-container" id="logoContainer">
+                <img class="logo-image" id="logoImage" 
+                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQcAAAFyCAYAAAD4RB/VAAAFGWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS41LjAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICAgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIgogICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8iCiAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIgogICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIKICAgeG1wOkNyZWF0ZURhdGU9IjIwMjUtMDYtMTdUMTA6MDY6MjIrMDEwMCIKICAgeG1wOk1vZGlmeURhdGU9IjIwMjUtMDYtMTdUMTA6MDY6MzgrMDE6MDAiCiAgIHhtcDpNZXRhZGF0YURhdGU9IjIwMjUtMDYtMTdUMTA6MDY6MzgrMDE6MDAiCiAgIHBob3Rvc2hvcDpEYXRlQ3JlYXRlZD0iMjAyNS0wNi0xN1QxMDowNjoyMiswMTAwIgogICBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIgogICBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiCiAgIGV4aWY6UGl4ZWxYRGltZW5zaW9uPSIyNjMiCiAgIGV4aWY6UGl4ZWxZRGltZW5zaW9uPSIzNzAiCiAgIGV4aWY6Q29sb3JTcGFjZT0iMSIKICAgdGlmZjpJbWFnZVdpZHRoPSIyNjMiCiAgIHRpZmY6SW1hZ2VMZW5ndGg9IjM3MCIKICAgdGlmZjpSZXNvbHV0aW9uVW5pdD0iMiIKICAgdGlmZjpYUmVzb2x1dGlvbj0iOTYvMSIKICAgdGlmZjpZUmVzb2x1dGlvbj0iOTYvMSI+CiAgIDx4bXBNTTpIaXN0b3J5PgogICAgPHJkZjpTZXE+CiAgICAgPHJkZjpsaQogICAgICBzdEV2dDphY3Rpb249InByb2R1Y2VkIgogICAgICBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZmZpbml0eSBEZXNpZ25lciAyIDIuNi4zIgogICAgICBzdEV2dDp3aGVuPSIyMDI1LTA2LTE3VDEwOjA2OjM4KzAxOjAwIi8+CiAgICA8L3JkZjpTZXE+CiAgIDwveG1wTU06SGlzdG9yeT4KICA8L3JkZjpEZXNjcmlwdGlvbj4KIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+Cjw/eHBhY2tldCBlbmQ9InIiPz4gjf4wAAABf2lDQ1BzUkdCIElFQzYxOTY2LTIuMQAAKJF1kc8rRFEUxz9mMBMjxMLCYhJWQ36U2CgjDSVpjDLYzDxvZtTMeL03kyZbZasosfFrwV/AVlkrRaRkzZbYoOdcT41kzu3c87nfe8/p3nPBFUlrGau8CzLZnBkOBf0z0Vm/54lK6vHig5hmGUOTk+OUtLcbylS86lC1Sp/716oXdEuDMq/woGaYOeFR4fHlnKF4U7hRS8UWhI+FA6ZcUPha6XGHHxUnHf5QbEbCw+CqE/Ynf3H8F2spMyMsL6c1k85rP/dRL/Hp2ekpiS3izViECRHEzxgjDNNHNwMy99FBD52yokR+13f+BEuSq8lsUMBkkSQpcgREzUt1XWJCdF1GmoLq/9++WoneHqe6LwgVD7b90gaeDfhct+33fdv+PAD3PZxli/lLe9D/Kvp6UWvdhdpVODkvavEtOF2DpjsjZsa+Jbe4K5GA5yOoiULDJVTNOT372efwFiIr8lUXsL0D7XK+dv4L3VFnp2/7QxwAAAAJcEhZcwAADsQAAA7EAZUrDhsAACAASURBVHic7d17/GdTvcfx15phlFARkkU3JLnkFi0cU6jUcUK3w6mUk5wiM+63XEuIEBUKqUiESulm3FnE5JLLYNwttxC5M1jnj71+fr/5+X1/v+9l7/3Zl8/z8fg+hpnvd693mXnP/q6191qGlorevhF4K7DwBK9FgAWBycA86TV51I9D/zwZeBF4ZsTr2VH/PvR6CngQeCC9HgQeNC68UOj/cKW6ZKQDlCF6Oz+wKvABYM3047tFQ3X2KMNlMVQcdwOzgFuNC4/JRVNt0uhyiN5+ANgZ2Jzsb/cmeIRUFOnHoVcwLrwiGUw1S+PKIXo7CdgE2AVYVzhOmZ4lK4mZwBXAlcBsLQzVr0aUQ/R2KnA8sJxwlKp4HPgbWVFcCVxlXHhcNpKqi0aUQ/R2MvBNYF9gknCcqruFrCguA/5iXAjCeVRF1b4corbLAKcCH5POUlM3AH9Or8v1aokaUutyiN6uB5wJLCedpSGeAS4glYVx4U7hPEpQbcshersS2anxQtJZGuw2sqL4NeB1crNdalkO0du3kX1vXko6S4vcB5wOnAZca1yIwnlUwWpXDtHbBYBLyG5qUjJuIyuJ04wLt0qHUcWoVTmkqxK/Az4hnUW96jqyoviVceFe6TAqP3Urh62BE6VzqI7+AOxvXPi7dBA1uNqUQ/T29cBsYEnpLGpCvyMrieukg6j+1emGoR3QYqiLTwLXRm/Pjt6+XTqM6k8tzhyitwsDdwJvlM6ievYo8CnjwiXSQVRv6nLmsCdaDHX1FuD86O220kFUbyp/5pCetnwQvQuyCX4ETDcuzJEOoiZWhzOHVdFiaIqvAz+P3lb+LyVVj3LYWDqAytV/A9OlQ6iJ1aEcPi4dQOXusLT2hqqwSp/epasUj1GPElO9eQRY3bhwn3QQNbaq/6FblepnVP1ZFDhN5x+qq+p/8N4sHUAVzqFL/FVS1cvh9dIBVOE0dIm/Sqp6Oeiddmh/7SMdQDVVvRxW6T3SUZ7cj4J+BSJKmDCpN8jhyCsf/MqwFpVwl5VXO5xNDHpf7OX59DvGZBZqZOJ8f5w3tOoKhfv5KpqmncC/+zXm7u46HU9TH5vUj/VpN56uJhNpJNuV+1qTnEuXtQ+bN4dLt3lz2HK7gHRPP2rVNZ5q7l8bG1JNt9T1L7oWlCJJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJktRs58+fC0eCSkj4W6PWCQfpWBR2sD+nTeSq+rOpfH3/k2rDIrP7vNQoR2z1WR5Pxvu+oPPvdkdpKy8Qvlrx3jNNR23EqVN1fKqNNI6wvV4XXI8f7T5DfXS8+uZEJcmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJGnShOcKpwO7Bm6Wt8Xif+hP8O66m7eQf92qLT7VdvDJ43LZeI3SQzw8QJTO8HYGfZoZ4fP5fF7N/aw3+9b7F3KS7IlqQxcJHrKPpKlOSEJOEtgzePw8Ye1rvgN76l7yT4CJh7lf1Sf6A4Qd5v/mOc75fM3W7NE5ij+mT74VuUb1pvdEtVFnT3ztb9lAD7W3B2Zv5H5Vn+gPEHY4b3y+7HLRU0O3Sj8tLKHStnZ52kZtnfnGKw7LTD/vNbzEEG9F4sG3n9ykZ/i8lF/TdVW1XxY/Efj+y9lP5OnbQXodn+8zQ4Xf3G8JOGMZwNu9hGKvmQMXnxC47aWM3YYFPl80TpnA7N1W+ixn8Nm/MXPzbVPj6xJ1mTn91VdfsJkrmQPfZlmAqzVHbZrLwi4pHhO2UOlnu4gXGMJvOXvo3eww1VZtyN+UQKmwJ96/tWF7aU0VtuNxZU+0Xw8H3t/5fJ4Y+L7bh5kbjlGXmQMXnxAQ3yrydb/mTz47n5mL3qI5atNcFn4J8biyBUqpN7VgKO8sHlO2H/u5MNnDZhqztwQ8fKj7XWAOXnBCQHu+1s/z3DfpTz4w9+2Rq5kz3Y0LqJW/5rZwKGWCc7DJWGZe2P4v8TJHNH7LXC7eztfGJGl2PcKP2h+3kGkT3YULKBS4E0wdLtNbK4Y/Bgu9hUzr7wL/7XxQzqjLDIHKewsTKs99NlcN56v4RHjbHH9hX95ELHr7stYJKnfzYOYmRxOWJ7NJ1E4M17zSsJ01+oNXbqKmk2ZOqxXw4Ot8kI5VG7qwTqmcmWu1lYNUhAZYJVW5qotU1AcJNJkzJz4KF5wQBe6SkNtIJkPWwG5l9Z7AY8YCrg5q/Q3BPjH5YAqTz9AjYP2XwQ+JT+bKSZSMT4MHK7EpcJ+ZFLfHNdKLkUDLz5B6LxHm+dyfLGp7z1xrCpJKKD5DZHvS3hO4i2JW3JbAJLAdGQjq/Q3BPrFCLJwW+VQtP68b5xNBwJGfD+CdDzxqJG6+6Xl14A7L+k/ZaYR6qH5uQvAZItu74zVvr0KdQckYtekLhI1k3t8J8qmHtBsJ4Aj1kPYrGDhC1qf9p+w0Qj00PzchzZ5Sn0eK6WsNcksG/2z1R1JYK3rGFJpTHZy99E4uc6Y7LvKZM2y6XWt9TtVWXaTaPlhP3z9+HLa7JfT1fE5eKONpuKKZtD+H1fpZqvT1oG8yHYPwG4lBM3ftLm0pBQ7a8TzlnftAqq3K9wVJkiZNkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkqTe+7+C9QEQpRlvqAAAAABJRU5ErkJggg=="
+                     alt="runLemonade logo"
+                     onerror="this.parentElement.classList.add('logo-error'); console.log('Logo failed to load');"
+                     onload="console.log('Logo loaded successfully');">
+            </div>
+        </div>
+        <div class="loading-brand">
+                                <div class="brand-title"><span class="product-name">FORM</span> <span class="brand-suffix">by runLemonade</span></div>
+            <div class="brand-subtitle">Professional Woodworking Suite for SketchUp</div>
+        </div>
+        <div class="loading-progress">
+            <div class="loading-progress-bar" id="loadingProgressBar"></div>
+        </div>
+        <div class="loading-text" id="loadingText">Initializing Application...</div>
+        <div class="loading-details" id="loadingDetails">Please wait while we prepare your workspace</div>
+    </div>
+
+    <!-- Main Application -->
+    <div class="app-container">
+        <!-- Header Bar -->
+        <div class="header-bar">
+                            <div class="app-title"><span class="product-name">FORM</span> <span class="brand-suffix">by runLemonade</span></div>
+            <div class="header-controls">
+                <div class="mode-toggle">
+                    <button class="mode-button active" data-mode="library">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px; margin-right: 6px;">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                        Library
+                    </button>
+                    <button class="mode-button" data-mode="nesting">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px; margin-right: 6px;">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <rect x="7" y="7" width="4" height="6"></rect>
+                            <rect x="13" y="7" width="4" height="3"></rect>
+                            <rect x="13" y="12" width="4" height="5"></rect>
+                        </svg>
+                        NestMate
+                        <span class="beta-badge">BETA</span>
+                    </button>
+                </div>
+                <button class="minimize-btn" onclick="console.log('🔘 MINIMIZE BUTTON CLICKED!'); minimizeWindow();">−</button>
+                
+            </div>
+        </div>
+
+        <div class="app-main">
+            <!-- Middle Container - New layout wrapper -->
+            <div class="middle-container">
+                <!-- Quick Access & Search (was sidebar-left) -->
+                <div class="sidebar-left force-expanded" id="sidebarLeft">
+                    <div class="sidebar-toggle" onclick="toggleSidebar('left')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="sidebar-content">
+                        <!-- Quick Links Panel -->
+                        <div class="panel library-only">
+                            <div class="panel-title">Quick Access</div>
+                            <div class="quick-links-container">
+                                <a href="https://www.runlemonade.com/docs/" target="_blank" class="quick-link">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="quick-link-icon">
+                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                    </svg>
+                                    <span>Docs</span>
+                                </a>
+                                <a href="https://discord.com/channels/1384828504670998569/1388522469656236257" target="_blank" class="quick-link">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="quick-link-icon">
+                                        <path d="M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 0 0-.0785-.0371c-1.4712.2492-3.0056.8227-4.8852 1.5152a.0699.0699 0 0 0-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 0 0 .0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 0 0 .0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 0 0-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 0 1-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 0 1 .0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 0 1 .0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 0 1-.0066.1276c-.598.3428-1.2205.6447-1.8733.8923a.0766.0766 0 0 0-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 0 0 .0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 0 0 .0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6601a.061.061 0 0 0-.0312-.0286ZM8.02 15.3312c-1.1835 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.4189 0 1.3333-.9555 2.419-2.1569 2.419Zm7.9748 0c-1.1835 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.4189 0 1.3333-.946 2.419-2.1568 2.419Z"/>
+                                    </svg>
+                                    <span>Discord</span>
+                                </a>
+                                <a href="#" onclick="showLicenseManager()" class="quick-link">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="quick-link-icon">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                        <circle cx="12" cy="16" r="1"></circle>
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                    </svg>
+                                    <span>License</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Search Panel -->
+                        <div class="panel library-only">
+                            <div class="panel-title">Search & Filter</div>
+                            <div class="form-group">
+                                <input type="text" id="searchInput" placeholder="Search components..." 
+                                       oninput="handleSearchInput()" onkeyup="handleSearchInput()" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Space</label>
+                                <select class="form-select" id="spaceFilter" onchange="applyFilters()">
+                                    <option>All Spaces</option>
+                                    <option>Kitchen</option>
+                                    <option>Bathroom</option>
+                                    <option>Office</option>
+                                    <option>Living Room</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Category</label>
+                                <select class="form-select" id="filterFilter" onchange="applyFilters()">
+                                    <option>All Categories</option>
+                                    <option>Base Cabinets</option>
+                                    <option>Wall Cabinets</option>
+                                    <option>Tall Cabinets</option>
+                                    <option>Accessories</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Type</label>
+                                <select class="form-select" id="typeFilter" onchange="applyFilters()">
+                                    <option>All Types</option>
+                                    <option>Standard</option>
+                                    <option>Corner</option>
+                                    <option>Storage</option>
+                                    <option>Hardware</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-secondary" onclick="clearAllFilters()">Clear Filters</button>
+                        </div>
+                        
+                        <!-- Save Location Panel -->
+                        <div class="panel library-only">
+                            <div class="panel-title">Save Location</div>
+                            <div class="form-group">
+                                <div class="save-location-display" id="saveLocationDisplay">
+                                    <div class="save-location-text" id="saveLocationText">No location set</div>
+                                    <div class="save-location-status" id="saveLocationStatus">⚠️ Components will be saved to default location</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary" id="selectFolderBtn" onclick="console.log('🔘 Select Folder button clicked'); selectSaveLocation();">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px; margin-right: 6px;">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14,2 14,8 20,8"></polyline>
+                                        <path d="M12 18v-6"></path>
+                                        <path d="M9 15l3 3 3-3"></path>
+                                    </svg>
+                                    Navigate to Output Folder
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-secondary" onclick="openSaveLocation()" id="openLocationBtn" style="display: none;">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px; margin-right: 6px;">
+                                        <path d="M3 15v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4"></path>
+                                        <polyline points="7,10 12,15 17,10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                    Open Folder
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Search Parts Panel (Nesting Mode) -->
+                        <div class="panel nesting-only">
+                            <div class="panel-title">Parts</div>
+                            <div id="partsList">
+                                <!-- Will be populated dynamically with search card or parts list -->
+                                <div class="search-parts-card">
+                                    <div class="search-parts-header">
+                                        <div class="search-parts-title">Search Parts</div>
+                                        <div class="search-parts-subtitle">Find parts in your project</div>
+                                    </div>
+                                    <div class="search-parts-form">
+                                        <input type="text" id="partsSearchInput" placeholder="Search for parts..." 
+                                               class="form-input search-parts-input" 
+                                               oninput="nestMate.searchParts(this.value)">
+                                        <div class="search-parts-results" id="searchPartsResults">
+                                            <div class="search-parts-empty">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px; margin-bottom: 8px;">
+                                                    <circle cx="11" cy="11" r="8"></circle>
+                                                    <path d="M21 21l-4.35-4.35"></path>
+                                                </svg>
+                                                <div>No search results</div>
+                                                <div style="font-size: 11px; color: #8e8e93;">Import parts to search</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Nesting Controls -->
+                        <div class="panel nesting-only">
+                            <div class="panel-title">Nest Settings</div>
+                            <div class="form-group">
+                                <label class="form-label">Sheet Size (mm)</label>
+                                <div style="display: flex; gap: 8px;">
+                                    <input type="number" placeholder="2440" class="form-input" style="flex: 1;">
+                                    <span style="align-self: center; color: #8e8e93;">×</span>
+                                    <input type="number" placeholder="2440" class="form-input" style="flex: 1;">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Kerf Width (mm)</label>
+                                <input type="number" placeholder="3.2" step="0.1" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Margin (mm)</label>
+                                <input type="number" placeholder="10" class="form-input">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Central Content Wrapper -->
+                <div class="central-content">
+                    <!-- Compact Search Bar (minimized mode only) -->
+                    <div class="compact-search-bar" style="display: none;">
+                        <!-- Search header with input and minimize button -->
+                        <div class="compact-search-header">
+                            <input type="text" class="search-input-compact" placeholder="Search..." id="compactSearchInput" />
+                            <button class="minimize-btn" onclick="minimizeWindow()" style="width: 32px; height: 32px; padding: 0; font-size: 12px; border-radius: 6px; flex-shrink: 0;">□</button>
+                        </div>
+                        
+                        <!-- Library card -->
+                        <div class="visual-card-compact" id="compactVisualCard">
+                            <div class="compact-card-image">
+                                <div class="fallback-text">FORM</div>
+                            </div>
+                            <div class="compact-card-info">
+                                <div class="compact-card-title">Select a component</div>
+                                <div class="compact-card-details">Search to find components</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Library Grid (main content) -->
+                    <div class="main-content">
+                        <!-- Library Mode Content -->
+                        <div class="library-container library-only">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-shrink: 0;">
+                                <div id="resultsCount" style="color: #8e8e93; font-size: 12px;">Loading components...</div>
+                                <div style="display: flex; gap: 8px;">
+                                    <button class="btn btn-secondary">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                            <polyline points="7,10 12,15 17,10"></polyline>
+                                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                                        </svg>
+                                        Export List
+                                    </button>
+                                    <button class="btn btn-primary" onclick="showQRCodePopup()">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                                            <rect x="3" y="3" width="7" height="7"></rect>
+                                            <rect x="14" y="3" width="7" height="7"></rect>
+                                            <rect x="14" y="14" width="7" height="7"></rect>
+                                            <rect x="3" y="14" width="7" height="7"></rect>
+                                        </svg>
+                                        View Catalogue
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="library-grid" id="libraryGrid">
+                                <!-- Library items will be populated dynamically from SketchUp data -->
+                                <div class="no-items" id="loadingMessage">
+                                    🔄 Loading components from SketchUp...<br>
+                                    <small style="color: #8e8e93;">If this message persists, check the Ruby console for errors</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Nesting Mode Content -->
+                        <!-- Nesting Content Area - Dynamic based on parts -->
+                        <div class="nesting-content nesting-only" id="nestingContent">
+                            <!-- Default state: No parts imported -->
+                            <div id="nestingEmptyState" style="display: flex; align-items: center; justify-content: center; height: 100%; text-align: center; color: #8e8e93; flex-direction: column; gap: 16px;">
+                                <div style="font-size: 18px; font-weight: 500;">NestMate</div>
+                                <div style="font-size: 14px;">Import parts to begin nesting</div>
+                            </div>
+                            
+                            <!-- Parts imported state: Show nesting workspace -->
+                            <div id="nestingWorkspace" style="display: none; height: 100%; padding: 20px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                    <div id="nestingModeToggle" style="display: flex; gap: 12px; align-items: center;">
+                                        <span style="font-size: 14px; color: #8e8e93;">Nesting Mode:</span>
+                                        <button class="nesting-mode-btn active" data-mode="panel-saw" onclick="nestMate.setNestingMode('panel-saw')">Panel Saw</button>
+                                        <button class="nesting-mode-btn" data-mode="cnc" onclick="nestMate.setNestingMode('cnc')">CNC</button>
+                                    </div>
+                                    <button class="btn btn-blue" id="runNestBtn" onclick="nestMate.runGeneralNest()">Nest</button>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                    <h3 style="margin: 0; font-size: 18px; font-weight: 600;">Nesting Workspace</h3>
+                                    <div id="nestingStats" style="display: flex; gap: 20px; font-size: 12px;">
+                                        <div>Parts: <span id="partsCount">0</span></div>
+                                        <div>Total Area: <span id="totalArea">0 m²</span></div>
+                                    </div>
+                                </div>
+                                
+                                <div id="nestingCanvas" style="flex: 1; background: #f8f9fa; border: 2px dashed #e0e0e0; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #8e8e93;">
+                                    <div style="text-align: center;">
+                                        <div style="font-size: 16px; margin-bottom: 8px;">🔧 Ready for Nesting</div>
+                                        <div style="font-size: 13px;">Nesting algorithm will be implemented here</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar -->
+                <div class="sidebar-right force-expanded" id="sidebarRight">
+                <div class="sidebar-toggle" onclick="toggleSidebar('right')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+                <div class="sidebar-content">
+                    <!-- Component Details (Library Mode) -->
+                    <div class="panel library-only">
+                        <div class="panel-title">Component Details</div>
+                        <div id="componentDetails" style="text-align: center; color: #8e8e93; font-size: 13px; padding: 20px 0;">
+                            Select a component to view details
+                        </div>
+                    </div>
+
+                    <!-- Recently Used (Library Mode) -->
+                    <div class="panel library-only">
+                        <div class="panel-title">Recently Used</div>
+                        <div id="recentlyUsedContainer" style="display: flex; flex-direction: column; gap: 8px;">
+                            <div style="text-align: center; color: #8e8e93; font-size: 13px; padding: 20px 0;">
+                                No recently used components
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Import Options (NestMate Only) -->
+                    <div class="panel nesting-only" style="order: -1;">
+                        <div class="panel-title">Import Options</div>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <button class="btn btn-blue" id="importSketchUpBtn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14,2 14,8 20,8"></polyline>
+                                    <line x1="12" y1="18" x2="12" y2="12"></line>
+                                    <line x1="9" y1="15" x2="12" y2="12"></line>
+                                    <line x1="15" y1="15" x2="12" y2="12"></line>
+                                </svg>
+                                Import SketchUp File
+                            </button>
+                            <div style="font-size: 11px; color: #8e8e93; text-align: center; margin-top: 4px;">
+                                Import parts by material selection
+                            </div>
+                            
+                            <button class="btn btn-green" id="addManualPartBtn" onclick="showAddManualPartPopup()">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                                Add Manual Part
+                            </button>
+                            
+                            <button class="btn btn-secondary" id="importCsvBtn" onclick="showImportCsvPopup()">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14,2 14,8 20,8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10,9 9,9 8,9"></polyline>
+                                </svg>
+                                Import CSV
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Export Options (Nesting Mode) -->
+                    <div class="panel nesting-only">
+                        <div class="panel-title">Export Options</div>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <button class="btn btn-green">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14,2 14,8 20,8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10,9 9,9 8,9"></polyline>
+                                </svg>
+                                PDF Report
+                            </button>
+                            <button class="btn btn-secondary coming-soon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                                    <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"></path>
+                                    <polyline points="17,21 17,13 7,13 7,21"></polyline>
+                                    <polyline points="7,3 7,8 15,8"></polyline>
+                                </svg>
+                                Save Project
+                            </button>
+                            <button class="btn btn-secondary coming-soon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14,2 14,8 20,8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10,9 9,9 8,9"></polyline>
+                                </svg>
+                                Load Project
+                            </button>
+                            <button class="btn btn-secondary coming-soon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                                    <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                                </svg>
+                                Sync with SketchUp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-logo" id="footerLogo">
+                <img id="footerLogoImage" alt="runLemonade logo">
+            </div>
+            <div class="footer-content">
+                © 2025 runLemonade. All rights reserved. This product and all content are protected by copyright law. Unauthorized use or reproduction is prohibited. This does not affect your use of the application.
+            </div>
+        </footer>
+    </div>
+
+    <!-- QR Code Popup Overlay -->
+    <div class="qr-popup-overlay" id="qrPopupOverlay">
+        <div class="qr-popup-container">
+            <div class="qr-popup-header">
+                <h3>Mobile Catalogue</h3>
+                <button class="qr-popup-close" onclick="hideQRCodePopup()">×</button>
+            </div>
+            <div class="qr-popup-content">
+                <div class="qr-code-container">
+                    <img id="qrCodeImage" src="form_mobile_catalogue_qr.png" alt="QR Code for Mobile Catalogue" 
+                         onerror="this.style.display='none'; document.getElementById('qrCodeError').style.display='block';"
+                         onload="document.getElementById('qrCodeError').style.display='none';">
+                    <div id="qrCodeError" style="display: none; text-align: center; color: #8e8e93; padding: 20px;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 48px; height: 48px; margin-bottom: 10px;">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                        </svg>
+                        <div>QR Code Image Not Found</div>
+                        <div style="font-size: 12px; margin-top: 8px;">Please ensure the QR code image is available</div>
+                    </div>
+                </div>
+                <div class="qr-popup-text">
+                    <h4>Scan to Access Mobile Catalogue</h4>
+                    <p>Use your mobile device to scan this QR code and access the FORM mobile catalogue for easy browsing and selection.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Beta Warning Overlay for NestMate -->
+    <div class="beta-warning-overlay" id="betaWarningOverlay">
+        <div class="beta-warning-container">
+            <div class="beta-warning-header">
+                <div class="beta-warning-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px;">
+                        <path d="M9 11a3 3 0 1 1 6 0c0 .83-.84 1.5-2 2.5v2.5h-2v-2.5c-1.16-1-2-1.67-2-2.5z"></path>
+                        <path d="M7 21h10"></path>
+                        <path d="M12 3v6"></path>
+                        <path d="M7 7l5-5 5 5"></path>
+                    </svg>
+                </div>
+                                    <h2 class="beta-warning-title">FORM Beta</h2>
+                <p class="beta-warning-subtitle">Experimental Feature - Use at Your Own Risk</p>
+            </div>
+            
+            <div class="beta-warning-content">
+                <div class="beta-warning-message">
+                    <p><strong>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;">
+                            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+                            <path d="M12 9v4"></path>
+                            <path d="m12 17 .01 0"></path>
+                        </svg>
+                        Important Notice:</strong></p>
+                    <ul>
+                        <li>FORM nesting feature is currently in <strong>Beta testing</strong></li>
+                        <li>Please verify all measurements and settings before cutting</li>
+                        <li>Double-check your material specifications and kerf settings</li>
+                        <li>Test on scrap material first when possible</li>
+                        <li>This feature will become a <strong>paid subscription</strong> in future releases</li>
+                    </ul>
+                    
+                    <div class="beta-warning-highlight">
+                        <p><strong>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                            Always verify your settings and measurements before processing!</strong></p>
+                    </div>
+                </div>
+                
+                <div class="beta-warning-actions">
+                    <button class="beta-warning-btn beta-warning-btn-primary" onclick="acceptBetaWarning()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; margin-right: 8px;">
+                            <path d="M9 12l2 2 4-4"></path>
+                            <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"></path>
+                        </svg>
+                        I Understand - Continue to Beta
+                    </button>
+                    <button class="beta-warning-btn beta-warning-btn-secondary" onclick="hideBetaWarning()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; margin-right: 8px;">
+                            <path d="M18 6L6 18"></path>
+                            <path d="M6 6l12 12"></path>
+                        </svg>
+                        Go Back to Library
+                    </button>
+                </div>
+                
+                <div class="beta-warning-footer">
+                    <p class="beta-warning-note">
+                        <small>
+                            By continuing, you acknowledge that FORM nesting is in beta and agree to use it responsibly. 
+                            This feature will be available as a separate subscription in future releases.
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Missing Models Modal (App Style) -->
+    <div id="missingModelsModal" class="popup-overlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.4); z-index:9999; display:flex; align-items:center; justify-content:center; padding:20px; box-sizing:border-box;">
+        <style>
+            #missingModelsModal .btn:hover:not(:disabled) { 
+                transform: translateY(-1px); 
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+            }
+            #missingModelsModal .btn:active:not(:disabled) { 
+                transform: translateY(0); 
+            }
+            #missingModelsModal #downloadYesBtn:hover:not(:disabled) { 
+                background: #0056b3; 
+            }
+            #missingModelsModal #downloadNoBtn:hover:not(:disabled) { 
+                border-color: #a1a1aa; 
+                color: #3f3f46; 
+            }
+            @media (max-width: 480px) {
+                #missingModelsModal .popup-container {
+                    padding: 24px 20px !important;
+                    margin: 10px !important;
+                    border-radius: 12px !important;
+                }
+                #missingModelsModal h2 {
+                    font-size: 20px !important;
+                }
+                #missingModelsModal #missingModelsButtons {
+                    flex-direction: column !important;
+                }
+                #missingModelsModal .btn {
+                    width: 100% !important;
+                }
+            }
+        </style>
+        <div class="popup-container" style="min-width:320px; max-width:480px; width:100%; text-align:center; background:white; border-radius:16px; padding:32px; box-shadow:0 20px 40px rgba(0,0,0,0.15); position:relative; max-height:90vh; overflow-y:auto;">
+            <button onclick="document.getElementById('missingModelsModal').style.display='none'" style="position:absolute; top:16px; right:16px; width:32px; height:32px; border:none; background:transparent; cursor:pointer; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#999; font-size:18px; font-weight:500; transition:all 0.2s ease;" onmouseover="this.style.background='#f0f0f0'; this.style.color='#666'" onmouseout="this.style.background='transparent'; this.style.color='#999'">×</button>
+            <div style="margin-bottom:32px;">
+                <h2 style="margin:0 0 12px 0; font-size:24px; font-weight:700; color:#1d1d1f; line-height:1.2;">New Models Available</h2>
+                <p style="margin:0; color:#666; font-size:16px; line-height:1.4;">There are new models available for download. Would you like to download them now?</p>
+            </div>
+            <div id="downloadProgressContainer" style="display:none; margin-bottom:32px; padding:24px; background:#f8f9fa; border-radius:12px;">
+                <div style="width:64px; height:64px; position:relative; margin:0 auto 16px auto;">
+                    <svg viewBox="0 0 40 40" width="64" height="64">
+                        <circle cx="20" cy="20" r="18" stroke="#007aff" stroke-width="3" fill="none" opacity="0.2"/>
+                        <circle id="circularProgressBar" cx="20" cy="20" r="18" stroke="#007aff" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="113" stroke-dashoffset="113"/>
+                    </svg>
+                    <div id="progressPercent" style="position:absolute; top:0; left:0; width:64px; height:64px; display:flex; align-items:center; justify-content:center; font-weight:600; color:#007aff; font-size:14px;">0%</div>
+                </div>
+                <div id="downloadStatusMsg" style="color:#666; font-size:15px; font-weight:500;">Downloading...</div>
+            </div>
+            <div id="missingModelsButtons" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+                <button id="downloadYesBtn" class="btn btn-primary" style="min-width:120px; padding:12px 24px; font-size:15px; font-weight:600; border-radius:8px; border:none; background:#007aff; color:white; cursor:pointer; transition:all 0.2s ease;">Yes, Download</button>
+                <button id="downloadNoBtn" class="btn btn-secondary" style="min-width:120px; padding:12px 24px; font-size:15px; font-weight:600; border-radius:8px; border:1px solid #d1d1d6; background:white; color:#666; cursor:pointer; transition:all 0.2s ease;">No, Thanks</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Missing Models Modal JavaScript - Runs after modal HTML exists -->
+    <script>
+        // === MISSING MODELS MODAL LOGIC ===
+        function showMissingModelsModal(missingList) {
+          console.log('🔧 showMissingModelsModal called with:', missingList);
+          
+          const modal = document.getElementById('missingModelsModal');
+          console.log('🔧 Modal element found:', !!modal);
+          
+          if (!modal) {
+            console.error('❌ Missing models modal not found in DOM!');
+            return;
+          }
+          
+          const progressContainer = document.getElementById('downloadProgressContainer');
+          const buttons = document.getElementById('missingModelsButtons');
+          const statusMsg = document.getElementById('downloadStatusMsg');
+          const percent = document.getElementById('progressPercent');
+          const progressBar = document.getElementById('circularProgressBar');
+          
+          console.log('🔧 Modal elements found - container:', !!progressContainer, 'buttons:', !!buttons, 'progress:', !!percent);
+          
+          modal.style.display = 'flex';
+          progressContainer.style.display = 'none';
+          buttons.style.display = 'flex';
+          statusMsg.style.display = 'none';
+          percent.textContent = '0%';
+          progressBar.setAttribute('stroke-dashoffset', '113');
+          
+          // Debug: Check if buttons exist
+          const yesBtn = document.getElementById('downloadYesBtn');
+          const noBtn = document.getElementById('downloadNoBtn');
+          console.log('🔧 Button elements found - Yes:', !!yesBtn, 'No:', !!noBtn);
+          
+          if (!yesBtn || !noBtn) {
+            console.error('❌ Button elements not found!');
+            return;
+          }
+          
+          // Yes button
+          yesBtn.onclick = function(e) {
+            console.log('✅ Yes button clicked!');
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Prevent double-clicks by checking if already processing
+            if (yesBtn.disabled) {
+              console.log('⚠️ Button already disabled, ignoring click');
+              return;
+            }
+            
+            // Disable both buttons immediately
+            yesBtn.disabled = true;
+            noBtn.disabled = true;
+            yesBtn.style.pointerEvents = 'none';
+            noBtn.style.pointerEvents = 'none';
+            
+            // Hide buttons and show progress
+            buttons.style.display = 'none';
+            progressContainer.style.display = 'block';
+            statusMsg.style.display = 'none';
+            
+            // Add visual feedback
+            yesBtn.style.opacity = '0.5';
+            noBtn.style.opacity = '0.5';
+            
+            if (window.sketchup && window.sketchup.download_missing_models) {
+              console.log('🔄 Calling download_missing_models with:', missingList);
+              window.sketchup.download_missing_models(JSON.stringify(missingList));
+            } else {
+              console.error('❌ download_missing_models not available');
+              // Re-enable buttons if download function not available
+              yesBtn.disabled = false;
+              noBtn.disabled = false;
+              yesBtn.style.pointerEvents = 'auto';
+              noBtn.style.pointerEvents = 'auto';
+              yesBtn.style.opacity = '1';
+              noBtn.style.opacity = '1';
+              buttons.style.display = 'flex';
+              progressContainer.style.display = 'none';
+            }
+          };
+          
+          // No button
+          noBtn.onclick = function(e) {
+            console.log('❌ No button clicked!');
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Prevent double-clicks
+            if (noBtn.disabled) {
+              console.log('⚠️ No button already disabled, ignoring click');
+              return;
+            }
+            
+            // Disable both buttons to prevent double-clicks
+            yesBtn.disabled = true;
+            noBtn.disabled = true;
+            yesBtn.style.pointerEvents = 'none';
+            noBtn.style.pointerEvents = 'none';
+            
+            // Hide modal
+            modal.style.display = 'none';
+            
+            // Reset buttons for next time (after a short delay to prevent immediate re-showing)
+            setTimeout(() => {
+              yesBtn.disabled = false;
+              noBtn.disabled = false;
+              yesBtn.style.pointerEvents = 'auto';
+              noBtn.style.pointerEvents = 'auto';
+              yesBtn.style.opacity = '1';
+              noBtn.style.opacity = '1';
+            }, 100);
+          };
+          
+          console.log('✅ Button handlers attached successfully');
+        }
+
+        // Called by Ruby after checking for missing models
+        window.onMissingModelsChecked = function(missingList) {
+          console.log('📥 onMissingModelsChecked called with:', missingList);
+          console.log('📊 Missing models count:', missingList ? missingList.length : 'null/undefined');
+          
+          if (missingList && missingList.length > 0) {
+            console.log('🚨 Missing models found! Showing modal...');
+            showMissingModelsModal(missingList);
+          } else {
+            console.log('✅ No missing models found');
+          }
+        };
+
+        // Called by Ruby to update download progress
+        window.updateDownloadProgress = function(progress, filename) {
+          const percent = document.getElementById('progressPercent');
+          const progressBar = document.getElementById('circularProgressBar');
+          percent.textContent = progress + '%';
+          // 113 is the circumference for r=18
+          const offset = 113 - (progress / 100) * 113;
+          progressBar.setAttribute('stroke-dashoffset', offset);
+        };
+
+        // Called by Ruby when download is complete
+        window.onDownloadComplete = function() {
+          const modal = document.getElementById('missingModelsModal');
+          const progressContainer = document.getElementById('downloadProgressContainer');
+          const statusMsg = document.getElementById('downloadStatusMsg');
+          const buttons = document.getElementById('missingModelsButtons');
+          const yesBtn = document.getElementById('downloadYesBtn');
+          const noBtn = document.getElementById('downloadNoBtn');
+          
+          progressContainer.style.display = 'none';
+          statusMsg.textContent = 'Download complete!';
+          statusMsg.style.display = 'block';
+          
+          // Re-enable buttons for next time
+          yesBtn.disabled = false;
+          noBtn.disabled = false;
+          yesBtn.style.pointerEvents = 'auto';
+          noBtn.style.pointerEvents = 'auto';
+          yesBtn.style.opacity = '1';
+          noBtn.style.opacity = '1';
+          
+          setTimeout(() => {
+            modal.style.display = 'none';
+            buttons.style.display = 'flex';
+            statusMsg.style.display = 'none';
+          }, 1200);
+        };
+
+        // Manual test function for missing models check
+        window.testMissingModelsCheck = function() {
+          console.log('🧪 Manual missing models check triggered...');
+          if (window.sketchup && window.sketchup.check_missing_models) {
+            console.log('🧪 Calling check_missing_models manually...');
+            window.sketchup.check_missing_models();
+          } else {
+            console.log('❌ SketchUp bridge or check_missing_models not available');
+            console.log('Available SketchUp methods:', window.sketchup ? Object.keys(window.sketchup) : 'window.sketchup is null');
+          }
+        };
+
+        // Manual test function to show modal with test data
+        window.testMissingModelsModal = function() {
+          console.log('🧪 Testing missing models modal with fake data...');
+          const testMissingModels = ['FRM_FLT_0001.skp', 'FRM_FLT_0002.skp', 'FRM_FLT_0003.skp'];
+          showMissingModelsModal(testMissingModels);
+        };
+        
+        // Debug function to test button clicks directly
+        window.debugButtonClicks = function() {
+          console.log('🔍 Debugging button clicks...');
+          const yesBtn = document.getElementById('downloadYesBtn');
+          const noBtn = document.getElementById('downloadNoBtn');
+          
+          console.log('🔍 Yes button found:', !!yesBtn);
+          console.log('🔍 No button found:', !!noBtn);
+          
+          if (yesBtn) {
+            console.log('🔍 Yes button styles:', {
+              display: yesBtn.style.display,
+              visibility: yesBtn.style.visibility,
+              pointerEvents: yesBtn.style.pointerEvents,
+              zIndex: yesBtn.style.zIndex,
+              position: yesBtn.style.position
+            });
+            
+            // Test direct click
+            yesBtn.addEventListener('click', function(e) {
+              console.log('🎯 Direct click event on Yes button!');
+              e.stopPropagation();
+            });
+          }
+          
+          if (noBtn) {
+            noBtn.addEventListener('click', function(e) {
+              console.log('🎯 Direct click event on No button!');
+              e.stopPropagation();
+            });
+          }
+        };
+
+        // Test function for AWS update checking
+        window.testAWSUpdateCheck = function() {
+          console.log('🧪 Testing AWS update checking...');
+          if (window.sketchup && window.sketchup.check_missing_models) {
+            console.log('✅ Triggering Ruby-side missing models check...');
+            window.sketchup.check_missing_models();
+          } else {
+            console.log('❌ check_missing_models not available. Available methods:');
+            if (window.sketchup) {
+              console.log(Object.keys(window.sketchup));
+            } else {
+              console.log('window.sketchup is null');
+            }
+          }
+        };
+    </script>
+
+    <script>
+        // Ensure setLicenseStatus function is available early
+        window.setLicenseStatus = function(status) {
+            console.log('🔐 setLicenseStatus called before full initialization:', status);
+            // Store the status for later processing
+            window.pendingLicenseStatus = status;
+        };
+        
+        // Main minimize function - creates compact search bar interface
+        window.minimizeWindow = function() {
+            console.log('🔧 minimizeWindow() called!');
+            const appContainer = document.querySelector('.app-container');
+            const minimizeBtn = document.querySelector('.minimize-btn');
+            
+            if (appContainer) {
+                const isMinimized = appContainer.classList.contains('minimized');
+                console.log('📏 Current state:', isMinimized ? 'MINIMIZED' : 'EXPANDED');
+                
+                if (isMinimized) {
+                    // Expand back to full interface
+                    console.log('🔄 EXPANDING...');
+                    appContainer.classList.remove('minimized');
+                    if (minimizeBtn) {
+                        minimizeBtn.textContent = '−';
+                        minimizeBtn.title = 'Minimize';
+                        minimizeBtn.style.backgroundColor = '';
+                        minimizeBtn.style.color = '';
+                    }
+                    
+                    // Tell SketchUp to resize window to full size
+                    console.log('🔧 Attempting to resize SketchUp window to full size...');
+                    if (window.sketchup) {
+                        try {
+                            window.sketchup.resize_window(1400, 900);
+                            console.log('✅ Window expand request sent to 1400x900');
+                        } catch(e) {
+                            console.log('❌ Window expand failed:', e);
+                        }
+                    } else {
+                        console.log('❌ SketchUp bridge not available');
+                    }
+                    
+                    // CRITICAL FIX: Reset library grid layout after expanding
+                    setTimeout(() => {
+                        console.log('🔧 Resetting library grid layout for responsive view...');
+                        const libraryGrid = document.getElementById('libraryGrid');
+                        if (libraryGrid) {
+                            // Clear any inline styles that might be overriding the responsive CSS
+                            libraryGrid.style.gridTemplateColumns = '';
+                            console.log('✅ Grid inline styles cleared');
+                            
+                            // Force recalculate the grid layout
+                            updateGridLayout();
+                            console.log('✅ Grid layout recalculated for full view');
+                        }
+                    }, 300);
+                    
+                } else {
+                    // Minimize to compact search bar
+                    console.log('🔄 MINIMIZING...');
+                    appContainer.classList.add('minimized');
+                    if (minimizeBtn) {
+                        minimizeBtn.textContent = '□';
+                        minimizeBtn.title = 'Expand';
+                        minimizeBtn.style.backgroundColor = '#007AFF';
+                        minimizeBtn.style.color = 'white';
+                    }
+                    
+                    // Tell SketchUp to resize window to compact card size
+                    console.log('🔧 Attempting to resize SketchUp window to 220x400...');
+                    if (window.sketchup) {
+                        try {
+                            // Use the action callback method
+                            window.sketchup.resize_window(220, 400);
+                            console.log('✅ Window resize request sent to 220x400');
+                        } catch(e) {
+                            console.log('❌ Window resize failed:', e);
+                        }
+                    } else {
+                        console.log('❌ SketchUp bridge not available');
+                    }
+                    
+                    // Update compact card immediately
+                    setTimeout(() => {
+                        updateCompactCard();
+                        console.log('🔄 Updated compact card after minimize');
+                    }, 100);
+                }
+                
+                // Debug final state
+                setTimeout(() => {
+                    const finalHeight = window.getComputedStyle(appContainer).height;
+                    console.log('📐 Final computed height:', finalHeight);
+                    console.log('📐 Final classList:', Array.from(appContainer.classList));
+                }, 200);
+            }
+        };
+        
+        // Connect compact search to main search functionality
+        function connectCompactSearch() {
+            const compactInput = document.getElementById('compactSearchInput');
+            const mainSearchInput = document.getElementById('searchInput');
+            
+            if (compactInput && mainSearchInput) {
+                compactInput.addEventListener('input', function() {
+                    mainSearchInput.value = this.value;
+                    // Trigger the main search function
+                    if (typeof handleSearchInput === 'function') {
+                        handleSearchInput();
+                    }
+                    // Update compact card based on search
+                    updateCompactCard();
+                });
+                
+                // Also sync in reverse
+                mainSearchInput.addEventListener('input', function() {
+                    compactInput.value = this.value;
+                    updateCompactCard();
+                });
+            }
+        }
+        
+        // Update the compact visual card with current library data (REAL library data)
+        function updateCompactCard() {
+            const compactCard = document.getElementById('compactVisualCard');
+            if (!compactCard) {
+                console.log('❌ Compact card element not found');
+                return;
+            }
+            
+            // Get current search term
+            const searchTerm = document.getElementById('compactSearchInput')?.value || '';
+            console.log('🔍 Updating compact card, search term:', searchTerm);
+            
+            // Use the SAME library data as the main interface (not test data)
+            let displayItem = null;
+            let availableData = libraryData; // Use the REAL library data from the main interface
+            
+            if (!availableData || availableData.length === 0) {
+                console.log('❌ No real library data yet, checking global libraryData...');
+                availableData = window.libraryData || [];
+            }
+            
+            if (availableData && availableData.length > 0) {
+                console.log('📚 Using REAL library data:', availableData.length, 'items (same as main interface)');
+                
+                if (searchTerm) {
+                    // Use the SAME filtering logic as the main library
+                    const filtered = availableData.filter(item => 
+                        (item.label && item.label.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                        (item.filename && item.filename.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                        (item.space && item.space.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                        (item.filter && item.filter.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                        (item.type && item.type.toLowerCase().includes(searchTerm.toLowerCase()))
+                    );
+                    displayItem = filtered[0] || availableData[0];
+                    console.log('🎯 Found', filtered.length, 'matching items from REAL library, using:', displayItem?.label);
+                } else {
+                    // Use first item from real library
+                    displayItem = availableData[0];
+                    console.log('📦 Using first REAL library item:', displayItem?.label);
+                }
+            } else {
+                console.log('❌ No library data available yet');
+            }
+            
+            if (displayItem && displayItem.thumbnail) {
+                const thumbnailPath = `../thumbnails/${displayItem.thumbnail}`;
+                const itemName = displayItem.label || displayItem.name || 'Item';
+                console.log('🖼️ Setting REAL thumbnail:', thumbnailPath, 'for:', itemName);
+                
+                // Make the card clickable and set up import functionality
+                compactCard.onclick = () => {
+                    console.log('🖱️ Compact card clicked - importing:', displayItem.filename);
+                    if (window.sketchup && window.sketchup.insert_model) {
+                        window.sketchup.insert_model(displayItem.filename);
+                    } else {
+                        console.log('⚠️ SketchUp insert_model not available');
+                    }
+                };
+                
+                compactCard.innerHTML = `
+                    <div class="compact-card-image">
+                        <img src="${thumbnailPath}" alt="${itemName}" 
+                             onerror="console.log('❌ Thumbnail failed to load: ${thumbnailPath}'); this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';">
+                    </div>
+                    <div class="compact-card-fallback" style="display: none;">
+                        <div class="fallback-text">${itemName.substring(0, 8)}</div>
+                    </div>
+                    <div class="compact-card-info">
+                        <div class="compact-card-title">${itemName}</div>
+                        <div class="compact-card-details">${displayItem.space} • ${displayItem.filter} • ${displayItem.type}</div>
+                    </div>
+                `;
+            } else {
+                console.log('⚠️ Using fallback - no library data or thumbnail');
+                compactCard.innerHTML = `
+                    <div class="compact-card-image">
+                        <div class="fallback-text">FORM</div>
+                    </div>
+                    <div class="compact-card-info">
+                        <div class="compact-card-title">Select a component</div>
+                        <div class="compact-card-details">Search to find components</div>
+                    </div>
+                `;
+            }
+        }
+        
+        // Initialize compact search connection when DOM loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                connectCompactSearch();
+                updateCompactCard();
+            }, 500);
+        });
+        
+        // Update compact card when library data changes
+        window.updateCompactCardFromLibrary = function() {
+            setTimeout(updateCompactCard, 100);
+        };
+        
+        // Simple test function you can call from console
+        window.testMinimize = function() {
+            console.log('🧪 Testing minimize from console...');
+            const appContainer = document.querySelector('.app-container');
+            if (appContainer) {
+                console.log('📦 App container found, current classes:', Array.from(appContainer.classList));
+                appContainer.classList.toggle('minimized');
+                console.log('🔄 Toggled minimized class, new classes:', Array.from(appContainer.classList));
+                
+                setTimeout(() => {
+                    const height = window.getComputedStyle(appContainer).height;
+                    console.log('📐 Current height:', height);
+                    updateCompactCard();
+                }, 100);
+            } else {
+                console.error('❌ App container not found');
+            }
+        };
+        
+
+
+        // Hook for populateLibrary to automatically update compact card
+        window.updateCompactCardFromLibrary = updateCompactCard;
+        
+        // Global state management
+        let currentMode = 'library';
+        let libraryData = [];
+        let partsData = [];
+        let selectedComponent = null;
+        let recentlyUsed = []; // Array to store recently used components
+        let licenseStatus = null; // License status from Ruby
+        let accessGranted = false; // Whether user has access to the app
+
+        let licenseTimeout = null;
+        let globalLicenseTimeout = null;
+
+        // --- Loading Progress Bar Logic (real-time ready) ---
+        function updateLoadingProgress(progress, text, details) {
+            const progressBar = document.getElementById('loadingProgressBar');
+            const loadingText = document.getElementById('loadingText');
+            const loadingDetails = document.getElementById('loadingDetails');
+            if (progressBar) progressBar.style.width = progress + '%';
+            if (loadingText) loadingText.textContent = text;
+            if (loadingDetails) loadingDetails.textContent = details;
+        }
+
+        function hideLoadingScreen() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            loadingScreen.classList.add('hidden');
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 500);
+        }
+
+        // Debug script to check modelImporter availability
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🔍 DOM Content Loaded - Checking modelImporter availability...');
+            setTimeout(function() {
+                if (window.modelImporter) {
+                    console.log('✅ modelImporter is available:', window.modelImporter);
+                } else {
+                    console.error('❌ modelImporter is NOT available');
+                    console.log('Available window properties:', Object.keys(window).filter(k => k.includes('model') || k.includes('Importer')));
+                }
+            }, 100);
+        });
+
+        // Logo handling functions - with error handling
+        window.setLogo = function(logoDataUrl) {
+            try {
+                console.log('🖼️ setLogo called with:', logoDataUrl ? 'data received (' + logoDataUrl.length + ' chars)' : 'no data');
+                
+                const logoImg = document.getElementById('logoImage');
+                const logoContainer = document.getElementById('logoContainer');
+                const footerLogoImg = document.getElementById('footerLogoImage');
+                const footerLogo = document.getElementById('footerLogo');
+                const licenseLogoImg = document.getElementById('licenseLogoImage');
+                const licenseLogoContainer = document.getElementById('licenseLogoContainer');
+                
+                if (logoDataUrl && logoImg) {
+                    logoImg.onload = function() {
+                        try {
+                            console.log('✅ Logo image loaded successfully');
+                            logoImg.style.display = 'block';
+                            logoContainer.classList.add('logo-loaded');
+                            logoContainer.classList.remove('logo-failed');
+                            
+                            // Also update footer logo
+                            if (footerLogoImg && footerLogo) {
+                                footerLogoImg.src = logoDataUrl;
+                                footerLogoImg.onload = function() {
+                                    footerLogo.classList.add('logo-loaded');
+                                    footerLogo.classList.remove('logo-failed');
+                                };
+                            }
+                            
+                            // Also update license logo
+                            if (licenseLogoImg && licenseLogoContainer) {
+                                licenseLogoImg.src = logoDataUrl;
+                                licenseLogoImg.onload = function() {
+                                    licenseLogoImg.style.display = 'block';
+                                    licenseLogoContainer.classList.add('logo-loaded');
+                                    licenseLogoContainer.classList.remove('logo-failed');
+                                };
+                                licenseLogoImg.onerror = function() {
+                                    licenseLogoContainer.classList.add('logo-failed');
+                                    licenseLogoContainer.classList.remove('logo-loaded');
+                                };
+                            }
+                        } catch (e) {
+                            console.error('Error in logo onload:', e);
+                        }
+                    };
+                    
+                    logoImg.onerror = function() {
+                        try {
+                            console.log('❌ Logo image failed to load');
+                            logoContainer.classList.add('logo-failed');
+                            logoContainer.classList.remove('logo-loaded');
+                            
+                            // Also update footer logo
+                            if (footerLogo) {
+                                footerLogo.classList.add('logo-failed');
+                                footerLogo.classList.remove('logo-loaded');
+                            }
+                            
+                            // Also update license logo
+                            if (licenseLogoContainer) {
+                                licenseLogoContainer.classList.add('logo-failed');
+                                licenseLogoContainer.classList.remove('logo-loaded');
+                            }
+                        } catch (e) {
+                            console.error('Error in logo onerror:', e);
+                        }
+                    };
+                    
+                    logoImg.src = logoDataUrl;
+                } else {
+                    console.log('⚠️ No logo data or img element not found');
+                    if (logoContainer) {
+                        logoContainer.classList.add('logo-failed');
+                    }
+                    if (footerLogo) {
+                        footerLogo.classList.add('logo-failed');
+                    }
+                    if (licenseLogoContainer) {
+                        licenseLogoContainer.classList.add('logo-failed');
+                    }
+                }
+            } catch (error) {
+                console.error('Error in setLogo function:', error);
+                const logoContainer = document.getElementById('logoContainer');
+                const footerLogo = document.getElementById('footerLogo');
+                const licenseLogoContainer = document.getElementById('licenseLogoContainer');
+                if (logoContainer) {
+                    logoContainer.classList.add('logo-failed');
+                }
+                if (footerLogo) {
+                    footerLogo.classList.add('logo-failed');
+                }
+                if (licenseLogoContainer) {
+                    licenseLogoContainer.classList.add('logo-failed');
+                }
+            }
+        };
+
+        // Request logo from Ruby - with error handling
+        function requestLogo() {
+            try {
+                console.log('📡 Requesting logo from Ruby...');
+                if (window.sketchup && window.sketchup.get_logo) {
+                    window.sketchup.get_logo();
+                    
+                    // Timeout fallback - if no logo received in 5 seconds, show fallback
+                    setTimeout(function() {
+                        try {
+                            const logoContainer = document.getElementById('logoContainer');
+                            const footerLogo = document.getElementById('footerLogo');
+                            if (logoContainer && !logoContainer.classList.contains('logo-loaded') && !logoContainer.classList.contains('logo-failed')) {
+                                console.log('⏰ Logo request timeout - showing fallback');
+                                logoContainer.classList.add('logo-failed');
+                            }
+                            if (footerLogo && !footerLogo.classList.contains('logo-loaded') && !footerLogo.classList.contains('logo-failed')) {
+                                footerLogo.classList.add('logo-failed');
+                            }
+                        } catch (e) {
+                            console.error('Error in timeout fallback:', e);
+                        }
+                    }, 5000);
+                } else {
+                    console.log('❌ SketchUp bridge not available for logo');
+                    const logoContainer = document.getElementById('logoContainer');
+                    const footerLogo = document.getElementById('footerLogo');
+                    if (logoContainer) {
+                        logoContainer.classList.add('logo-failed');
+                    }
+                    if (footerLogo) {
+                        footerLogo.classList.add('logo-failed');
+                    }
+                }
+            } catch (error) {
+                console.error('Error in requestLogo function:', error);
+                const logoContainer = document.getElementById('logoContainer');
+                const footerLogo = document.getElementById('footerLogo');
+                if (logoContainer) {
+                    logoContainer.classList.add('logo-failed');
+                }
+                if (footerLogo) {
+                    footerLogo.classList.add('logo-failed');
+                }
+            }
+        }
+
+        // --- Library Data & Thumbnail Management ---
+        let thumbnailCache = {};
+        let loadingStates = {
+            libraryLoaded: false,
+            thumbnailsLoaded: false,
+            totalThumbnails: 0,
+            loadedThumbnails: 0
+        };
+
+        // Request library data from SketchUp
+        function requestLibraryData() {
+            updateLoadingProgress(10, 'Connecting to SketchUp...', 'Establishing communication');
+            if (window.sketchup && window.sketchup.get_library_data) {
+                window.sketchup.get_library_data();
+            } else {
+                updateLoadingProgress(0, 'Connection Failed', 'Unable to connect to SketchUp');
+                // Optionally show fallback UI
+            }
+        }
+
+        // Callback functions for the new Parts List interface
+        window.onCabinetryImportResult = function(result) {
+            console.log('📥 Cabinetry import result:', result);
+            if (window.modelImporter) {
+                window.modelImporter.handleImportResult(result);
+            }
+        };
+        
+        window.onComponentRenameResult = function(result) {
+            console.log('🏷️ Component rename result:', result);
+            if (window.modelImporter) {
+                window.modelImporter.handleRenameResult(result);
+            }
+        };
+        
+        window.onPartsExtractionResult = function(result) {
+            console.log('📏 Parts extraction result:', result);
+            if (window.modelImporter) {
+                window.modelImporter.handlePartsExtractionResult(result);
+            }
+        };
+
+        // Called by SketchUp with library data (array of items)
+        window.populateLibrary = function(data) {
+            console.log('📚 populateLibrary called with:', data.length, 'items');
+            console.log('📋 First item:', data[0]);
+            
+            updateLoadingProgress(20, 'Loading Library Data...', 'Processing ' + data.length + ' components');
+            
+            // Hide loading message
+            const loadingMessage = document.getElementById('loadingMessage');
+            if (loadingMessage) {
+                loadingMessage.style.display = 'none';
+            }
+            
+            // Clean thumbnail paths
+            for (let i = 0; i < data.length; i++) {
+                let item = data[i];
+                if (item.thumbnail && item.thumbnail.indexOf('/') !== -1) {
+                    let parts = item.thumbnail.split('/');
+                    item.thumbnail = parts[parts.length - 1];
+                }
+            }
+            libraryData = data;
+            loadingStates.libraryLoaded = true;
+            loadingStates.totalThumbnails = data.filter(item => item.thumbnail).length;
+            
+            // Update compact card with new library data
+            if (typeof updateCompactCardFromLibrary === 'function') {
+                updateCompactCardFromLibrary();
+            }
+            
+            console.log('🎯 About to populate dropdowns and apply filters...');
+            populateDropdowns();
+            updateLoadingProgress(40, 'Rendering Components...', 'Setting up user interface');
+            setTimeout(() => {
+                applyFilters();
+                // Note: Thumbnails are now pre-cached before library population
+                // No need to request thumbnails here anymore
+            }, 100);
+        };
+
+        // Display library grid dynamically
+        function displayLibrary(data) {
+            console.log('🎨 displayLibrary called with:', data.length, 'items');
+            const container = document.getElementById('libraryGrid') || document.getElementById('library');
+            if (!container) {
+                console.error('❌ Library grid container not found!');
+                return;
+            }
+            console.log('✅ Library grid container found:', container);
+            
+            if (data.length === 0) {
+                container.innerHTML = '<div class="no-items">No components found</div>';
+                console.log('⚠️ No components to display');
+                return;
+            }
+            
+            let html = '';
+            let cachedCount = 0;
+            let totalWithThumbnails = 0;
+            
+            for (let i = 0; i < data.length; i++) {
+                let item = data[i];
+                if (item.thumbnail) totalWithThumbnails++;
+                
+                let thumbnailUrl = thumbnailCache[item.thumbnail] || '';
+                if (thumbnailUrl) cachedCount++;
+                
+                let backgroundStyle = thumbnailUrl ? 'background-image: url(' + thumbnailUrl + ')' : '';
+                let thumbnailClass = 'item-thumbnail';
+                
+                // Since thumbnails are pre-cached, no loading state needed
+                html += '<div class="library-item" onclick="handleLibraryItemClick(\'' + item.filename + '\')" tabindex="0" role="button" aria-label="Insert ' + item.label + '">';
+                html += '<div class="' + thumbnailClass + '" data-thumbnail="' + (item.thumbnail || '') + '" style="' + backgroundStyle + '">';
+                html += '</div>';
+                html += '<div class="item-label">' + item.label + '</div>';
+                html += '<div class="item-details">' + item.space + ' • ' + item.filter + ' • ' + item.type + '</div>';
+                html += '</div>';
+            }
+            container.innerHTML = html;
+            console.log('✅ Library grid populated with', data.length, 'items');
+            console.log('📦 Thumbnails cached:', cachedCount + '/' + totalWithThumbnails, '(' + Math.round((cachedCount/totalWithThumbnails)*100) + '%)');
+        }
+
+        // Handle library item clicks - show details and insert component
+        function handleLibraryItemClick(filename) {
+            console.log('🖱️ Library item clicked:', filename);
+            
+            // Show component details
+            updateComponentDetails(filename);
+            
+            // Insert the component
+            insertModel(filename);
+        }
+
+        // Request all thumbnails for persistent loading (fallback for legacy loading)
+        function requestAllThumbnails() {
+            // Check if pre-caching already handled all thumbnails
+            let uncachedFilenames = [];
+            for (let i = 0; i < libraryData.length; i++) {
+                let item = libraryData[i];
+                if (item.thumbnail && !thumbnailCache[item.thumbnail]) {
+                    uncachedFilenames.push(item.thumbnail);
+                }
+            }
+            
+            if (uncachedFilenames.length > 0) {
+                console.log('🔄 Loading remaining thumbnails via legacy method:', uncachedFilenames.length);
+                uncachedFilenames.forEach(filename => setThumbnailLoading(filename, true));
+                if (window.sketchup && window.sketchup.get_thumbnail_batch) {
+                    requestThumbnailBatch(uncachedFilenames);
+                } else {
+                    uncachedFilenames.forEach(filename => {
+                        if (window.sketchup && window.sketchup.get_thumbnail) {
+                            window.sketchup.get_thumbnail(filename);
+                        }
+                    });
+                }
+            } else {
+                console.log('✅ All thumbnails already cached via pre-caching');
+                loadingStates.thumbnailsLoaded = true;
+                updateLoadingProgress(100, 'Complete!', 'Ready to use - thumbnails pre-cached');
+                hideLoadingScreenWithMinimum();
+            }
+        }
+
+        // Batch thumbnail requesting
+        function requestThumbnailBatch(filenames) {
+            if (!filenames || filenames.length === 0) return;
+            if (window.sketchup && window.sketchup.get_thumbnail_batch) {
+                let filenamesJson = JSON.stringify(filenames);
+                window.sketchup.get_thumbnail_batch(filenamesJson);
+            } else {
+                filenames.forEach(filename => {
+                    if (window.sketchup && window.sketchup.get_thumbnail) {
+                        window.sketchup.get_thumbnail(filename);
+                    }
+                });
+            }
+        }
+
+        // Set thumbnail loading state
+        function setThumbnailLoading(filename, isLoading) {
+            let thumbnails = document.querySelectorAll('[data-thumbnail="' + filename + '"]');
+            for (let i = 0; i < thumbnails.length; i++) {
+                let thumb = thumbnails[i];
+                if (isLoading) {
+                    thumb.classList.add('loading');
+                    if (!thumb.querySelector('.thumbnail-spinner')) {
+                        let spinner = document.createElement('div');
+                        spinner.className = 'thumbnail-spinner';
+                        thumb.appendChild(spinner);
+                    }
+                } else {
+                    thumb.classList.remove('loading');
+                    let spinner = thumb.querySelector('.thumbnail-spinner');
+                    if (spinner) spinner.remove();
+                }
+            }
+        }
+
+        // Called by SketchUp with thumbnail data (legacy one-by-one loading)
+        window.receiveThumbnail = function(filename, dataUrl) {
+            thumbnailCache[filename] = dataUrl;
+            loadingStates.loadedThumbnails++;
+            let progress = 60 + (loadingStates.loadedThumbnails / loadingStates.totalThumbnails * 35);
+            updateLoadingProgress(progress, 'Loading Thumbnails...', loadingStates.loadedThumbnails + ' of ' + loadingStates.totalThumbnails + ' images loaded');
+            setThumbnailLoading(filename, false);
+            updateVisibleThumbnails(filename, dataUrl);
+            if (loadingStates.loadedThumbnails >= loadingStates.totalThumbnails) {
+                loadingStates.thumbnailsLoaded = true;
+                updateLoadingProgress(100, 'Complete!', 'Ready to use');
+                hideLoadingScreenWithMinimum();
+            }
+        };
+
+        // Called by SketchUp during pre-caching (new batch loading)
+        window.cacheThumbnail = function(filename, dataUrl) {
+            console.log('📦 Pre-caching thumbnail:', filename);
+            thumbnailCache[filename] = dataUrl;
+            // Note: Progress is now handled by Ruby side
+        };
+
+        // Called when thumbnail pre-caching is complete
+        window.onThumbnailPreCacheComplete = function() {
+            console.log('🔧 DEBUG: onThumbnailPreCacheComplete() called from Ruby');
+            console.log('✅ Thumbnail pre-caching complete - all thumbnails ready!');
+            loadingStates.thumbnailsLoaded = true;
+            updateLoadingProgress(100, 'Complete!', 'Ready to use - all thumbnails pre-cached');
+            
+            // Small delay to show completion message
+            setTimeout(function() {
+                console.log('🔧 DEBUG: About to call hideLoadingScreenWithMinimum() from onThumbnailPreCacheComplete');
+                console.log('🔧 DEBUG: hideLoadingScreenWithMinimum function exists:', typeof hideLoadingScreenWithMinimum);
+                console.log('🔧 DEBUG: window.loader exists:', typeof window.loader);
+                if (window.loader && window.loader.hideLoadingScreenWithMinimum) {
+                    console.log('🔧 DEBUG: Calling window.loader.hideLoadingScreenWithMinimum()');
+                    window.loader.hideLoadingScreenWithMinimum();
+                } else {
+                    console.log('🔧 DEBUG: Fallback - calling hideLoadingScreenWithMinimum() directly');
+                    hideLoadingScreenWithMinimum();
+                }
+            }, 200);
+        };
+
+        // Update all visible thumbnails for a filename
+        function updateVisibleThumbnails(filename, dataUrl) {
+            let thumbnails = document.querySelectorAll('[data-thumbnail="' + filename + '"]');
+            for (let i = 0; i < thumbnails.length; i++) {
+                let thumb = thumbnails[i];
+                if (dataUrl) {
+                    thumb.style.backgroundImage = 'url(' + dataUrl + ')';
+                    thumb.classList.remove('loading');
+                    let spinner = thumb.querySelector('.thumbnail-spinner');
+                    if (spinner) spinner.remove();
+                }
+            }
+        }
+
+        // Populate filter dropdowns based on loaded data
+        function populateDropdowns() {
+            let spaces = [], filters = [], types = [];
+            for (let i = 0; i < libraryData.length; i++) {
+                let item = libraryData[i];
+                if (item.space && spaces.indexOf(item.space) === -1) spaces.push(item.space);
+                if (item.filter && filters.indexOf(item.filter) === -1) filters.push(item.filter);
+                if (item.type && types.indexOf(item.type) === -1) types.push(item.type);
+            }
+            spaces.sort(); filters.sort(); types.sort();
+            let spaceSelect = document.getElementById('spaceFilter');
+            let filterSelect = document.getElementById('filterFilter');
+            let typeSelect = document.getElementById('typeFilter');
+            if (spaceSelect) {
+                spaceSelect.innerHTML = '<option value="">All Spaces</option>';
+                for (let i = 0; i < spaces.length; i++) {
+                    spaceSelect.innerHTML += '<option value="' + spaces[i] + '">' + spaces[i] + '</option>';
+                }
+            }
+            if (filterSelect) {
+                filterSelect.innerHTML = '<option value="">All Categories</option>';
+                for (let i = 0; i < filters.length; i++) {
+                    filterSelect.innerHTML += '<option value="' + filters[i] + '">' + filters[i] + '</option>';
+                }
+            }
+            if (typeSelect) {
+                typeSelect.innerHTML = '<option value="">All Types</option>';
+                for (let i = 0; i < types.length; i++) {
+                    typeSelect.innerHTML += '<option value="' + types[i] + '">' + types[i] + '</option>';
+                }
+            }
+        }
+
+        // --- Simulated Loading Steps (now using updateLoadingProgress) ---
+        function simulateLoading() {
+            // If real data is loading, skip simulation
+            if (window.sketchup && window.sketchup.get_library_data) return;
+            const steps = [
+                { progress: 20, text: 'Connecting to SketchUp...', details: 'Establishing communication bridge' },
+                { progress: 40, text: 'Loading Component Library...', details: 'Reading cabinet definitions' },
+                { progress: 60, text: 'Initializing NestMate...', details: 'Preparing nesting algorithms' },
+                { progress: 80, text: 'Setting up workspace...', details: 'Configuring user interface' },
+                { progress: 100, text: 'Ready!', details: 'Application loaded successfully' }
+            ];
+            let currentStep = 0;
+            function nextStep() {
+                if (currentStep < steps.length) {
+                    const step = steps[currentStep];
+                    updateLoadingProgress(step.progress, step.text, step.details);
+                    currentStep++;
+                    if (currentStep < steps.length) {
+                        setTimeout(nextStep, 800 + Math.random() * 400);
+                    } else {
+                        setTimeout(hideLoadingScreen, 500);
+                    }
+                }
+            }
+            setTimeout(nextStep, 500);
+        }
+
+        // --- Filtering Logic (to be implemented in next step) ---
+        let searchTimeout;
+        function applyFilters() {
+            if (!libraryData || libraryData.length === 0) return;
+            const searchInput = document.getElementById('searchInput');
+            const spaceFilter = document.getElementById('spaceFilter');
+            const filterFilter = document.getElementById('filterFilter');
+            const typeFilter = document.getElementById('typeFilter');
+            if (!searchInput || !spaceFilter || !filterFilter || !typeFilter) return;
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            const spaceValue = spaceFilter.value;
+            const filterValue = filterFilter.value;
+            const typeValue = typeFilter.value;
+            let filteredData = [];
+            for (let i = 0; i < libraryData.length; i++) {
+                const item = libraryData[i];
+                // Enhanced search - check multiple fields
+                const matchesSearch = !searchTerm ||
+                    (item.label && item.label.toLowerCase().indexOf(searchTerm) !== -1) ||
+                    (item.id && item.id.toLowerCase().indexOf(searchTerm) !== -1) ||
+                    (item.space && item.space.toLowerCase().indexOf(searchTerm) !== -1) ||
+                    (item.filter && item.filter.toLowerCase().indexOf(searchTerm) !== -1) ||
+                    (item.type && item.type.toLowerCase().indexOf(searchTerm) !== -1) ||
+                    (item.filename && item.filename.toLowerCase().indexOf(searchTerm) !== -1);
+                const matchesSpace = !spaceValue || item.space === spaceValue;
+                const matchesFilter = !filterValue || item.filter === filterValue;
+                const matchesType = !typeValue || item.type === typeValue;
+                if (matchesSearch && matchesSpace && matchesFilter && matchesType) {
+                    filteredData.push(item);
+                }
+            }
+            displayLibrary(filteredData);
+            updateResultsCount(filteredData.length);
+        }
+
+        function updateResultsCount(count) {
+            const resultsElement = document.getElementById('resultsCount');
+            if (!resultsElement) return;
+            if (count === libraryData.length) {
+                resultsElement.textContent = count + ' components';
+            } else {
+                resultsElement.textContent = count + ' of ' + libraryData.length + ' components';
+            }
+        }
+
+        // Debounced search input handler
+        function handleSearchInput() {
+            if (searchTimeout) clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                applyFilters();
+            }, 150);
+        }
+
+        // Clear all filters
+        function clearAllFilters() {
+            const searchInput = document.getElementById('searchInput');
+            const spaceFilter = document.getElementById('spaceFilter');
+            const filterFilter = document.getElementById('filterFilter');
+            const typeFilter = document.getElementById('typeFilter');
+            if (searchInput) searchInput.value = '';
+            if (spaceFilter) spaceFilter.selectedIndex = 0;
+            if (filterFilter) filterFilter.selectedIndex = 0;
+            if (typeFilter) typeFilter.selectedIndex = 0;
+            applyFilters();
+        }
+
+        // --- Insert Model (to be implemented in next step) ---
+        function insertModel(filename) {
+            if (window.sketchup && window.sketchup.insert_model) {
+                window.sketchup.insert_model(filename);
+            } else {
+                showNotification('Insert model: ' + filename, 'info');
+            }
+            
+            // Add to recently used
+            updateRecentlyUsed(filename);
+        }
+
+        // --- On Load: Check license first, then initialize app ---
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 FORM by runLemonade initializing...');
+            
+            // EMERGENCY FALLBACK - Show logo immediately to prevent invisible box
+            try {
+                console.log('DOM ready - applying emergency logo fallback');
+                const logoContainer = document.getElementById('logoContainer');
+                const footerLogo = document.getElementById('footerLogo');
+                const licenseLogoContainer = document.getElementById('licenseLogoContainer');
+                if (logoContainer) {
+                    // Show fallback immediately to eliminate invisible box
+                    logoContainer.classList.add('logo-failed');
+                    console.log('Emergency fallback applied - you should see golden logo now');
+                }
+                if (footerLogo) {
+                    footerLogo.classList.add('logo-failed');
+                    console.log('Footer logo fallback applied');
+                }
+                if (licenseLogoContainer) {
+                    licenseLogoContainer.classList.add('logo-failed');
+                    console.log('License logo fallback applied');
+                }
+            } catch (e) {
+                console.error('Even emergency fallback failed:', e);
+            }
+            
+            // Request logo with error handling
+            setTimeout(function() {
+                try {
+                    requestLogo();
+                } catch (e) {
+                    console.error('Error requesting logo:', e);
+                    const logoContainer = document.getElementById('logoContainer');
+                    if (logoContainer) {
+                        logoContainer.classList.add('logo-failed');
+                    }
+                }
+            }, 100);
+            
+            // Check license status first during splash screen
+            updateLoadingProgress(5, 'Checking License...', 'Verifying access permissions');
+            
+            // Wait a bit for SketchUp bridge to be available
+            setTimeout(function() {
+                if (window.sketchup && window.sketchup.get_license_status) {
+                    console.log('🔐 Checking license status...');
+                    try {
+                        window.sketchup.get_license_status();
+                        
+                        // Set a timeout in case the license check doesn't respond
+                        licenseTimeout = setTimeout(function() {
+                            if (!licenseStatus && !accessGranted) {
+                                console.log('⏰ License check timeout - showing license overlay');
+                                // Show license overlay if no response received
+                                showLicenseOverlay();
+                                updateLicenseContent();
+                            } else {
+                                console.log('⏰ License timeout cancelled - status already received');
+                            }
+                        }, 2000); // Increased timeout to 2 seconds to be safer
+                    } catch (e) {
+                        console.error('Error calling get_license_status:', e);
+                        // Show license overlay above the splash screen
+                        showLicenseOverlay();
+                        updateLicenseContent();
+                    }
+                } else {
+                    console.log('❌ SketchUp bridge not available for license check');
+                    console.log('Available methods:', Object.keys(window.sketchup || {}));
+                    // Show license overlay above the splash screen
+                    showLicenseOverlay();
+                    updateLicenseContent();
+                }
+            }, 500);
+            
+            // MANUAL TRIGGER: Request library data after 2 seconds if nothing loaded
+            setTimeout(function() {
+                if (libraryData.length === 0 && accessGranted) {
+                    console.log('🔄 Manually requesting library data...');
+                    requestLibraryData();
+                }
+            }, 2000);
+            
+            // Add test function to populate with sample data
+            window.testPopulateLibrary = function() {
+                console.log('🧪 Testing with sample data...');
+                const testData = [
+                    { id: 'test1', label: 'Test Cabinet 1', filename: 'test1.skp', space: 'Kitchen', filter: 'Base Cabinets', type: 'Standard', thumbnail: 'test1.jpg' },
+                    { id: 'test2', label: 'Test Cabinet 2', filename: 'test2.skp', space: 'Kitchen', filter: 'Wall Cabinets', type: 'Standard', thumbnail: 'test2.jpg' },
+                    { id: 'test3', label: 'Test Cabinet 3', filename: 'test3.skp', space: 'Kitchen', filter: 'Tall Cabinets', type: 'Storage', thumbnail: 'test3.jpg' }
+                ];
+                window.populateLibrary(testData);
+            };
+            
+            // Set up mode switching
+            document.querySelectorAll('.mode-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    switchMode(button.dataset.mode);
+                });
+            });
+            
+            // Set up responsive behavior
+            window.addEventListener('resize', handleWindowResize);
+            
+            // FIXED: Initialize with proper 3-column layout
+            setTimeout(() => {
+                updateSidebarStates();
+                updateGridLayout();
+                
+                // Force expand sidebars on wide screens
+                if (window.innerWidth > 1200) {
+                    const leftSidebar = document.getElementById('sidebarLeft');
+                    const rightSidebar = document.getElementById('sidebarRight');
+                    leftSidebar.classList.add('force-expanded');
+                    rightSidebar.classList.add('force-expanded');
+                }
+                
+                console.log('✅ 3-column layout initialized successfully');
+            }, 600);
+        });
+
+        // FIXED: Proper sidebar state management
+        function updateSidebarStates() {
+            const leftSidebar = document.getElementById('sidebarLeft');
+            const rightSidebar = document.getElementById('sidebarRight');
+            
+            // On mobile, always show sidebars
+            if (window.innerWidth <= 900) {
+                return;
+            }
+            
+            // On wide screens (>1200px), keep sidebars expanded by default
+            if (window.innerWidth > 1200) {
+                // Only collapse if explicitly collapsed by user
+                if (!leftSidebar.classList.contains('collapsed')) {
+                    leftSidebar.classList.add('force-expanded');
+                }
+                if (!rightSidebar.classList.contains('collapsed')) {
+                    rightSidebar.classList.add('force-expanded');
+                }
+            }
+        }
+
+        // FIXED: Enhanced mode switching with proper 3-column layout
+        function switchMode(mode) {
+            // Check for beta warning when switching to NestMate
+            if (mode === 'nesting' && !checkBetaWarning()) {
+                return; // Don't switch mode if beta warning is shown
+            }
+            
+            const body = document.body;
+            const buttons = document.querySelectorAll('.mode-button');
+            
+            // Update active button
+            buttons.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.mode === mode);
+            });
+            
+            // Update body class
+            body.className = mode + '-mode';
+            currentMode = mode;
+            
+            // Ensure 3-column layout on wide screens
+            if (window.innerWidth > 1200) {
+                const leftSidebar = document.getElementById('sidebarLeft');
+                const rightSidebar = document.getElementById('sidebarRight');
+                
+                // Force expand both sidebars unless manually collapsed
+                if (!leftSidebar.classList.contains('collapsed')) {
+                    leftSidebar.classList.add('force-expanded');
+                }
+                if (!rightSidebar.classList.contains('collapsed')) {
+                    rightSidebar.classList.add('force-expanded');
+                }
+            }
+            
+            updateResultsCount();
+            updateGridLayout();
+            
+            console.log('Switched to', mode, 'mode with 3-column layout');
+        }
+
+        // FIXED: Enhanced sidebar toggle that maintains 3-column layout
+        function toggleSidebar(side) {
+            // Don't allow toggle on mobile - sidebars are always visible
+            if (window.innerWidth <= 900) {
+                console.log('Sidebar toggle disabled on mobile - sidebars always visible');
+                return;
+            }
+            
+            const sidebar = side === 'left' ? document.getElementById('sidebarLeft') : document.getElementById('sidebarRight');
+            const isCurrentlyCollapsed = sidebar.classList.contains('collapsed');
+            
+            if (isCurrentlyCollapsed) {
+                // Expanding
+                sidebar.classList.remove('collapsed');
+                sidebar.classList.add('force-expanded', 'user-expanded');
+            } else {
+                // Collapsing
+                sidebar.classList.add('collapsed');
+                sidebar.classList.remove('force-expanded', 'user-expanded');
+            }
+            
+            updateGridLayout();
+            console.log(`${side} sidebar ${isCurrentlyCollapsed ? 'expanded' : 'collapsed'}`);
+        }
+
+        function updateGridLayout() {
+            const libraryGrid = document.getElementById('libraryGrid');
+            const appContainer = document.querySelector('.app-container');
+            
+            if (!libraryGrid || !appContainer) return;
+            
+            // Check if we're in minimized mode
+            const isMinimized = appContainer.classList.contains('minimized');
+            
+            if (isMinimized) {
+                // In minimized mode, don't change the grid - it's handled by compact view
+                return;
+            }
+            
+            // Clear any inline styles to let CSS media queries handle responsiveness
+            libraryGrid.style.gridTemplateColumns = '';
+            console.log('✅ Grid layout reset to use responsive CSS');
+        }
+
+        function handleWindowResize() {
+            updateSidebarStates();
+            updateGridLayout();
+            
+            // Force 3-column layout on wide screens
+            if (window.innerWidth > 1200) {
+                const leftSidebar = document.getElementById('sidebarLeft');
+                const rightSidebar = document.getElementById('sidebarRight');
+                
+                if (!leftSidebar.classList.contains('collapsed')) {
+                    leftSidebar.classList.add('force-expanded');
+                }
+                if (!rightSidebar.classList.contains('collapsed')) {
+                    rightSidebar.classList.add('force-expanded');
+                }
+            }
+            
+            // Ensure library grid is properly responsive after resize
+            const appContainer = document.querySelector('.app-container');
+            if (appContainer && !appContainer.classList.contains('minimized')) {
+                console.log('📐 Window resized - ensuring responsive grid layout');
+                setTimeout(() => updateGridLayout(), 100);
+            }
+        }
+
+        // Component interaction
+        function insertComponent(componentId) {
+            console.log('Inserting component:', componentId);
+            updateComponentDetails(componentId);
+            showNotification('Component inserted into SketchUp model', 'success');
+            updateRecentlyUsed(componentId);
+        }
+
+        function updateComponentDetails(componentId) {
+            const detailsContainer = document.getElementById('componentDetails');
+            console.log('🔍 Updating component details for:', componentId);
+            console.log('📚 Library data available:', libraryData.length, 'items');
+            
+            // Find the component in the real library data
+            const component = libraryData.find(item => 
+                item.filename === componentId || 
+                item.id === componentId || 
+                item.label === componentId
+            );
+            
+            console.log('🎯 Found component:', component);
+            
+            if (component) {
+                // Use real data from SketchUp with fallbacks
+                const dimensions = component.dimensions || component.size || 'Dimensions not specified';
+                const material = component.material || component.materials || 'Material not specified';
+                const style = component.style || component.design || component.type || 'Style not specified';
+                const hardware = component.hardware || component.hinges || component.drawers || 'Hardware not specified';
+                const description = component.description || component.notes || `${component.label} - ${component.space} ${component.filter}`;
+                const author = component.author || component.creator || 'Unknown';
+                const version = component.version || component.revision || '1.0';
+                const fileSize = component.fileSize || component.size || '';
+                const lastModified = component.lastModified || component.modified || '';
+                
+                // Build the details HTML
+                let detailsHTML = `
+                    <div style="text-align: left;">
+                        <div style="font-weight: 600; margin-bottom: 8px; color: #1d1d1f;">${component.label}</div>
+                        <div style="font-size: 11px; color: #8e8e93; margin-bottom: 4px;">Space: ${component.space}</div>
+                        <div style="font-size: 11px; color: #8e8e93; margin-bottom: 4px;">Category: ${component.filter}</div>
+                        <div style="font-size: 11px; color: #8e8e93; margin-bottom: 4px;">Type: ${component.type}</div>
+                `;
+                
+                // Add optional fields if they exist
+                if (dimensions !== 'Dimensions not specified') {
+                    detailsHTML += `<div style="font-size: 11px; color: #8e8e93; margin-bottom: 4px;">Dimensions: ${dimensions}</div>`;
+                }
+                if (material !== 'Material not specified') {
+                    detailsHTML += `<div style="font-size: 11px; color: #8e8e93; margin-bottom: 4px;">Material: ${material}</div>`;
+                }
+                if (style !== 'Style not specified') {
+                    detailsHTML += `<div style="font-size: 11px; color: #8e8e93; margin-bottom: 4px;">Style: ${style}</div>`;
+                }
+                if (hardware !== 'Hardware not specified') {
+                    detailsHTML += `<div style="font-size: 11px; color: #8e8e93; margin-bottom: 4px;">Hardware: ${hardware}</div>`;
+                }
+                if (author !== 'Unknown') {
+                    detailsHTML += `<div style="font-size: 11px; color: #8e8e93; margin-bottom: 4px;">Author: ${author}</div>`;
+                }
+                if (version !== '1.0') {
+                    detailsHTML += `<div style="font-size: 11px; color: #8e8e93; margin-bottom: 4px;">Version: ${version}</div>`;
+                }
+                if (fileSize) {
+                    detailsHTML += `<div style="font-size: 11px; color: #8e8e93; margin-bottom: 4px;">File Size: ${fileSize}</div>`;
+                }
+                if (lastModified) {
+                    detailsHTML += `<div style="font-size: 11px; color: #8e8e93; margin-bottom: 4px;">Modified: ${lastModified}</div>`;
+                }
+                
+                detailsHTML += `
+                        <div style="font-size: 12px; color: #1d1d1f; line-height: 1.4; margin-bottom: 12px;">${description}</div>
+                        <div style="font-size: 10px; color: #8e8e93; margin-bottom: 8px;">File: ${component.filename}</div>
+                        <button class="btn btn-primary" style="font-size: 11px; padding: 8px 12px;" onclick="insertModel('${component.filename}')">Insert into Model</button>
+                    </div>
+                `;
+                
+                detailsContainer.innerHTML = detailsHTML;
+            } else {
+                // Fallback for when component is not found
+                detailsContainer.innerHTML = `
+                    <div style="text-align: center; color: #8e8e93; font-size: 13px; padding: 20px 0;">
+                        Component not found: ${componentId}
+                    </div>
+                `;
+            }
+        }
+
+        function runDemoNest() {
+            const nestContent = document.getElementById('nestViewerContent');
+            nestContent.innerHTML = `
+                <div style="width: 100%; height: 400px; background: #f8f9fa; border-radius: 8px; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 10px; left: 10px; font-size: 12px; color: #6c757d; font-weight: 500;">Sheet 1 of 3 - 2440×1220mm</div>
+                    
+                    <div style="position: absolute; top: 30px; left: 20px; width: 180px; height: 120px; background: #ff6b6b; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 500;">Door Panel<br>600×400mm</div>
+                    
+                    <div style="position: absolute; top: 30px; left: 220px; width: 120px; height: 120px; background: #4ecdc4; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 500;">Shelf<br>400×400mm</div>
+                    
+                    <div style="position: absolute; top: 170px; left: 20px; width: 150px; height: 80px; background: #45b7d1; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 500;">Side Panel<br>500×300mm</div>
+                    
+                    <div style="position: absolute; top: 170px; left: 190px; width: 100px; height: 80px; background: #f7b731; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 500;">Back<br>350×300mm</div>
+                    
+                    <div style="position: absolute; top: 270px; left: 20px; width: 200px; height: 60px; background: #5f27cd; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 500;">Bottom Panel<br>600×200mm</div>
+                    
+                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 20px; border-bottom: 2px dashed #007aff; opacity: 0.3;"></div>
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 20px; border-top: 2px dashed #007aff; opacity: 0.3;"></div>
+                    <div style="position: absolute; top: 0; bottom: 0; left: 0; width: 10px; border-right: 2px dashed #007aff; opacity: 0.3;"></div>
+                    <div style="position: absolute; top: 0; bottom: 0; right: 0; width: 10px; border-left: 2px dashed #007aff; opacity: 0.3;"></div>
+                </div>
+                
+                <div style="margin-top: 16px; display: flex; gap: 8px; justify-content: center;">
+                    <button class="btn btn-secondary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                        Previous Sheet
+                    </button>
+                    <button class="btn btn-secondary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                        Next Sheet
+                    </button>
+                    <button class="btn btn-green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                            <path d="M20 6L9 17l-5-5"></path>
+                        </svg>
+                        Approve Layout
+                    </button>
+                </div>
+            `;
+            
+            showNotification('Demo nest complete: 3 sheets, 87% efficiency', 'success');
+        }
+
+        function toggleNestViewer() {
+            const nestViewer = document.getElementById('nestMateContent');
+            if (nestViewer) {
+                nestViewer.classList.toggle('minimized');
+                
+                // Update minimize button icon
+                const minimizeBtn = nestViewer.querySelector('.minimize-btn svg polyline');
+                if (minimizeBtn) {
+                    const isMinimized = nestViewer.classList.contains('minimized');
+                    minimizeBtn.setAttribute('points', isMinimized ? '6 9 12 15 18 9' : '18 15 12 9 6 15');
+                }
+            }
+        }
+
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 60px;
+                right: 20px;
+                background: ${type === 'success' ? '#34c759' : type === 'error' ? '#ff3b30' : '#007aff'};
+                color: white;
+                padding: 12px 16px;
+                border-radius: 8px;
+                font-size: 13px;
+                font-weight: 500;
+                z-index: 10001;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                max-width: 300px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        function minimizeWindow() {
+            showNotification('Minimizing window...', 'info');
+        }
+
+        function updateRecentlyUsed(componentId) {
+            // Find the component in library data
+            const component = libraryData.find(item => item.filename === componentId || item.id === componentId);
+            if (!component) {
+                console.log('Component not found for recently used:', componentId);
+                return;
+            }
+            
+            // Remove if already exists (to avoid duplicates)
+            recentlyUsed = recentlyUsed.filter(item => item.id !== component.id);
+            
+            // Add to beginning of array with timestamp
+            recentlyUsed.unshift({
+                id: component.id || component.filename,
+                label: component.label,
+                space: component.space,
+                filter: component.filter,
+                type: component.type,
+                filename: component.filename,
+                timestamp: Date.now()
+            });
+            
+            // Keep only last 5 items
+            if (recentlyUsed.length > 5) {
+                recentlyUsed = recentlyUsed.slice(0, 5);
+            }
+            
+            // Save to localStorage for persistence
+            try {
+                localStorage.setItem('recentlyUsedComponents', JSON.stringify(recentlyUsed));
+            } catch (e) {
+                console.log('Could not save recently used to localStorage:', e);
+            }
+            
+            // Update the UI
+            updateRecentlyUsedUI();
+            
+            console.log('Added to recently used:', component.label);
+        }
+
+        function updateRecentlyUsedUI() {
+            const container = document.getElementById('recentlyUsedContainer');
+            if (!container) return;
+            
+            if (recentlyUsed.length === 0) {
+                container.innerHTML = '<div style="text-align: center; color: #8e8e93; font-size: 13px; padding: 20px 0;">No recently used components</div>';
+                return;
+            }
+            
+            let html = '';
+            for (let i = 0; i < recentlyUsed.length; i++) {
+                const item = recentlyUsed[i];
+                const timeAgo = getTimeAgo(item.timestamp);
+                
+                html += `<div class="part-item" style="cursor: pointer;" onclick="insertModel('${item.filename}')">`;
+                html += `<div class="part-title">${item.label}</div>`;
+                html += `<div class="part-meta">${item.space} • ${item.filter} • Used ${timeAgo}</div>`;
+                html += '</div>';
+            }
+            
+            container.innerHTML = html;
+        }
+
+        function getTimeAgo(timestamp) {
+            const now = Date.now();
+            const diff = now - timestamp;
+            const minutes = Math.floor(diff / 60000);
+            const hours = Math.floor(diff / 3600000);
+            const days = Math.floor(diff / 86400000);
+            
+            if (minutes < 1) return 'just now';
+            if (minutes < 60) return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+            if (hours < 24) return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+            if (days < 7) return `${days} day${days > 1 ? 's' : ''} ago`;
+            return 'over a week ago';
+        }
+
+        function loadRecentlyUsed() {
+            try {
+                const saved = localStorage.getItem('recentlyUsedComponents');
+                if (saved) {
+                    recentlyUsed = JSON.parse(saved);
+                    // Filter out any items older than 30 days
+                    const thirtyDaysAgo = Date.now() - (30 * 24 * 60 * 60 * 1000);
+                    recentlyUsed = recentlyUsed.filter(item => item.timestamp > thirtyDaysAgo);
+                    updateRecentlyUsedUI();
+                }
+            } catch (e) {
+                console.log('Could not load recently used from localStorage:', e);
+                recentlyUsed = [];
+            }
+        }
+
+        // Event listeners with FIXED 3-column layout initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 FORM by runLemonade initializing...');
+            
+            // EMERGENCY FALLBACK - Show logo immediately to prevent invisible box
+            try {
+                console.log('DOM ready - applying emergency logo fallback');
+                const logoContainer = document.getElementById('logoContainer');
+                const footerLogo = document.getElementById('footerLogo');
+                if (logoContainer) {
+                    // Show fallback immediately to eliminate invisible box
+                    logoContainer.classList.add('logo-failed');
+                    console.log('Emergency fallback applied - you should see golden logo now');
+                }
+                if (footerLogo) {
+                    footerLogo.classList.add('logo-failed');
+                    console.log('Footer logo fallback applied');
+                }
+            } catch (e) {
+                console.error('Even emergency fallback failed:', e);
+            }
+            
+            // Load recently used components
+            loadRecentlyUsed();
+            
+            // Request logo with error handling
+            setTimeout(function() {
+                try {
+                    requestLogo();
+                } catch (e) {
+                    console.error('Error requesting logo:', e);
+                    const logoContainer = document.getElementById('logoContainer');
+                    if (logoContainer) {
+                        logoContainer.classList.add('logo-failed');
+                    }
+                }
+            }, 100);
+            
+            // License status is already checked during splash screen - don't check again
+            console.log('🔐 License status should already be checked during splash screen');
+            
+            // Only show overlay if we definitely don't have access yet
+            if (!accessGranted && (!licenseStatus || !licenseStatus.access_granted)) {
+                console.log('⚠️ No valid license found after initialization, showing overlay');
+                showLicenseOverlay();
+            } else {
+                console.log('✅ Valid license found, proceeding with main app');
+            }
+            
+            // Set up mode switching
+            document.querySelectorAll('.mode-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    switchMode(button.dataset.mode);
+                });
+            });
+            
+            // Set up responsive behavior
+            window.addEventListener('resize', handleWindowResize);
+            
+            // FIXED: Initialize with proper 3-column layout
+            setTimeout(() => {
+                updateSidebarStates();
+                updateGridLayout();
+                
+                // Force expand sidebars on wide screens
+                if (window.innerWidth > 1200) {
+                    const leftSidebar = document.getElementById('sidebarLeft');
+                    const rightSidebar = document.getElementById('sidebarRight');
+                    leftSidebar.classList.add('force-expanded');
+                    rightSidebar.classList.add('force-expanded');
+                }
+                
+                console.log('✅ 3-column layout initialized successfully');
+            }, 600);
+        });
+
+        // Enhanced keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === '1') {
+                e.preventDefault();
+                switchMode('library');
+            }
+            
+            if ((e.ctrlKey || e.metaKey) && e.key === '2') {
+                e.preventDefault();
+                switchMode('nesting');
+            }
+            
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput && currentMode === 'library') {
+                    const leftSidebar = document.getElementById('sidebarLeft');
+                    if (leftSidebar.classList.contains('collapsed')) {
+                        toggleSidebar('left');
+                    }
+                    setTimeout(() => {
+                        searchInput.focus();
+                        searchInput.select();
+                    }, 300);
+                }
+            }
+            
+            if ((e.ctrlKey || e.metaKey) && e.key === '[') {
+                e.preventDefault();
+                toggleSidebar('left');
+            }
+            
+            if ((e.ctrlKey || e.metaKey) && e.key === ']') {
+                e.preventDefault();
+                toggleSidebar('right');
+            }
+            
+            if ((e.ctrlKey || e.metaKey) && e.key === 'm') {
+                e.preventDefault();
+                minimizeWindow();
+            }
+        });
+
+        // License Management Functions
+        function showLicenseOverlay() {
+            console.log('showLicenseOverlay called. accessGranted:', accessGranted, 'licenseStatus:', licenseStatus);
+            
+            // CRITICAL: If access is already granted, NEVER show the overlay
+            if (accessGranted || (licenseStatus && licenseStatus.access_granted)) {
+                console.log('showLicenseOverlay: access already granted, BLOCKING overlay display');
+                const overlay = document.getElementById('licenseOverlay');
+                if (overlay) {
+                    overlay.classList.remove('show');
+                    overlay.style.display = 'none';
+                }
+                return;
+            }
+            
+            const overlay = document.getElementById('licenseOverlay');
+            if (overlay) {
+                overlay.style.display = 'block'; // Ensure it's visible first
+                overlay.classList.add('show');
+                updateLicenseContent();
+                console.log('🔐 License overlay shown above splash screen');
+            }
+        }
+
+        function hideLicenseOverlay() {
+            const overlay = document.getElementById('licenseOverlay');
+            if (overlay) {
+                overlay.classList.remove('show');
+                overlay.style.display = 'none'; // Force hide with display none
+                console.log('🔐 License overlay hidden');
+            }
+        }
+
+        function updateLicenseContent() {
+            const content = document.getElementById('licenseContent');
+            if (!content) return;
+
+            // If access is granted, always hide the overlay and return
+            if (accessGranted || (licenseStatus && licenseStatus.access_granted)) {
+                console.log('updateLicenseContent: access already granted, hiding overlay');
+                hideLicenseOverlay();
+                return;
+            }
+
+            console.log('updateLicenseContent: updating, licenseStatus:', licenseStatus);
+
+            // Show license input form if no license status OR if license exists but access is not granted
+            if (!licenseStatus || !licenseStatus.access_granted) {
+                let buyBtnText = 'Buy License';
+                let isTrialExpired = licenseStatus && licenseStatus.access_type === 'trial_expired';
+
+                if (isTrialExpired) {
+                    buyBtnText = 'Buy License (Trial Ended)';
+                }
+
+                let formContent = '';
+                if (isTrialExpired) {
+                    formContent = `
+                        <div class="license-status license-status-error">
+                            Your trial has expired. Please purchase a license to continue.
+                        </div>
+                        <button class="license-btn license-btn-primary" onclick="validateLicense()" id="validateBtn">
+                            Enter License Key
+                        </button>
+                    `;
+                } else {
+                    formContent = `
+                        <input type="text" class="license-input" id="licenseKey" 
+                               placeholder="Enter license key..." 
+                               maxlength="50">
+                        <div class="license-format-help">
+                            Accepts various formats: XXXX-XXXX-XXXX or XXXXXX-XXXXXX-XXXXXX
+                        </div>
+                        <div id="licenseStatusMessage" class="license-status"></div>
+                        <button class="license-btn license-btn-primary" onclick="validateLicense()" id="validateBtn">
+                            Validate License
+                        </button>
+                        <button class="license-btn license-btn-secondary" onclick="startTrial()">
+                            Start 7-Day Trial Instead
+                        </button>
+                    `;
+                }
+
+                content.innerHTML = `
+                    <div class="license-form">
+                        ${formContent}
+                        <button class="license-btn license-btn-yellow${isTrialExpired ? ' disabled' : ''}" ${isTrialExpired ? 'disabled' : ''} onclick="if(!this.disabled) window.open('https://www.runlemonade.com/#/portal/signup/684f36db39d04f0001f114fe/monthly','_blank');">
+                            ${buyBtnText}
+                        </button>
+                    </div>
+
+                `;
+                return;
+            }
+
+            // If we reach here, something unexpected happened - hide overlay
+            console.log('🔐 Unexpected license state - hiding overlay');
+            hideLicenseOverlay();
+        }
+
+        function validateLicense() {
+            const licenseKey = document.getElementById('licenseKey')?.value?.trim();
+            if (!licenseKey) {
+                showLicenseError('Please enter a license key');
+                return;
+            }
+
+            showLicenseValidating();
+            
+            if (window.sketchup && window.sketchup.validate_license) {
+                window.sketchup.validate_license(licenseKey);
+            } else {
+                showLicenseError('SketchUp bridge not available');
+            }
+        }
+
+        function startTrial() {
+            showLicenseValidating('Starting trial...');
+            
+            if (window.sketchup && window.sketchup.start_trial) {
+                window.sketchup.start_trial();
+            } else {
+                showLicenseError('SketchUp bridge not available');
+            }
+        }
+
+        function showLicenseForm() {
+            updateLicenseContent();
+        }
+
+        function showLicenseValidating(message = 'Validating license...') {
+            const statusEl = document.getElementById('licenseStatusMessage');
+            if (statusEl) {
+                statusEl.className = 'license-status license-status-validating';
+                statusEl.style.display = 'block';
+                statusEl.innerHTML = `<span class="license-spinner"></span>${message}`;
+            }
+        }
+
+        function showLicenseSuccess(message) {
+            const statusEl = document.getElementById('licenseStatusMessage');
+            if (statusEl) {
+                statusEl.className = 'license-status license-status-success';
+                statusEl.style.display = 'block';
+                statusEl.textContent = message;
+            }
+        }
+
+        function showLicenseError(message) {
+            const statusEl = document.getElementById('licenseStatusMessage');
+            if (statusEl) {
+                statusEl.className = 'license-status license-status-error';
+                statusEl.style.display = 'block';
+                statusEl.textContent = message;
+            }
+        }
+
+        function grantAccess() {
+            accessGranted = true;
+            hideLicenseOverlay();
+            
+            // Continue with normal app initialization
+            updateLoadingProgress(10, 'Loading Library...', 'Preparing component library');
+            
+            // Load recently used components
+            loadRecentlyUsed();
+            
+            // Request library data or simulate loading
+            if (window.sketchup && window.sketchup.get_library_data) {
+                requestLibraryData();
+            } else {
+                simulateLoading();
+            }
+        }
+
+        function manageLicense() {
+            if (window.sketchup && window.sketchup.manage_license) {
+                window.sketchup.manage_license();
+            }
+        }
+
+        function openLicensePortal() {
+            window.open('https://www.runlemonade.com/#/portal/account/profile', '_blank');
+        }
+
+        function purchaseLicense() {
+            if (window.sketchup && window.sketchup.purchase_license) {
+                window.sketchup.purchase_license();
+            } else {
+                window.open('https://buy.stripe.com/00w28qcmYf5B5Q0dwdc7u00', '_blank');
+            }
+        }
+
+        function resetTrial() {
+            if (window.sketchup && window.sketchup.reset_trial) {
+                window.sketchup.reset_trial();
+            }
+        }
+
+        // QR Code Popup Functions
+        function showQRCodePopup() {
+            const overlay = document.getElementById('qrPopupOverlay');
+            if (overlay) {
+                overlay.classList.add('show');
+                console.log('📱 QR Code popup shown');
+            }
+        }
+
+        function hideQRCodePopup() {
+            const overlay = document.getElementById('qrPopupOverlay');
+            if (overlay) {
+                overlay.classList.remove('show');
+                console.log('📱 QR Code popup hidden');
+            }
+        }
+
+        // Close QR popup when clicking outside
+        document.addEventListener('DOMContentLoaded', function() {
+            const qrOverlay = document.getElementById('qrPopupOverlay');
+            if (qrOverlay) {
+                qrOverlay.addEventListener('click', function(e) {
+                    if (e.target === qrOverlay) {
+                        hideQRCodePopup();
+                    }
+                });
+            }
+        });
+
+        // License callback functions (called from Ruby)
+        window.setLicenseStatus = function(status) {
+            console.log('🔐 Setting license status:', status);
+            
+            // Prevent multiple calls with the same status
+            if (window.lastLicenseStatus && JSON.stringify(window.lastLicenseStatus) === JSON.stringify(status)) {
+                console.log('🔐 License status unchanged - skipping update');
+                return;
+            }
+            window.lastLicenseStatus = status;
+            
+            // Clear any existing timeouts
+            if (licenseTimeout) {
+                clearTimeout(licenseTimeout);
+                licenseTimeout = null;
+            }
+            if (globalLicenseTimeout) {
+                clearTimeout(globalLicenseTimeout);
+                globalLicenseTimeout = null;
+            }
+            
+            console.log('🔐 License status received:', status);
+            licenseStatus = status;
+            
+            // Update centralized license manager if available
+            if (window.centralizedLicenseManager) {
+                window.centralizedLicenseManager.updateLicenseStatus(status);
+            }
+            
+            if (status.access_granted) {
+                console.log('✅ Access granted - proceeding to main app');
+                accessGranted = true;
+                
+                // Hide centralized license manager if visible
+                if (window.centralizedLicenseManager && window.centralizedLicenseManager.isVisible) {
+                    window.centralizedLicenseManager.hide();
+                }
+                
+                // FORCE hide overlay immediately - this is the critical fix
+                const overlay = document.getElementById('licenseOverlay');
+                if (overlay) {
+                    overlay.classList.remove('show');
+                    overlay.style.display = 'none'; // Force hide with display none as well
+                    console.log('🔐 License overlay FORCE HIDDEN');
+                }
+                
+                // Simplified access granted handling - just hide overlays and let the app continue
+                console.log('✅ License access granted - UI should now be functional');
+            } else {
+                console.log('❌ Access denied - showing license overlay');
+                showLicenseOverlay();
+                updateLicenseContent();
+            }
+        };
+        
+        // Process any pending license status that was received before full initialization
+        if (window.pendingLicenseStatus) {
+            console.log('🔐 Processing pending license status:', window.pendingLicenseStatus);
+            window.setLicenseStatus(window.pendingLicenseStatus);
+            delete window.pendingLicenseStatus;
+        }
+
+        window.onLicenseValidationResult = function(success, message) {
+            if (success) {
+                showLicenseSuccess(message || 'License validated successfully!');
+                
+                // Automatically proceed to main app after successful validation
+                setTimeout(function() {
+                    console.log('✅ License validated - proceeding to main app');
+                    accessGranted = true;
+                    
+                    // CRITICAL: Set license status to prevent re-prompting
+                    licenseStatus = { access_granted: true, access_type: 'licensed', message: message };
+                    
+                    // Force hide overlay
+                    const overlay = document.getElementById('licenseOverlay');
+                    if (overlay) {
+                        overlay.classList.remove('show');
+                        overlay.style.display = 'none';
+                        console.log('🔐 License overlay FORCE HIDDEN after validation');
+                    }
+                    
+                    // Hide the loading screen since we have access
+                    hideLoadingScreenWithMinimum();
+                    
+                    // Continue with normal app initialization
+                    updateLoadingProgress(10, 'Loading Library...', 'Preparing component library');
+                    
+                    // Load recently used components
+                    loadRecentlyUsed();
+                    
+                    // Request library data or simulate loading
+                    if (window.sketchup && window.sketchup.get_library_data) {
+                        requestLibraryData();
+                    } else {
+                        simulateLoading();
+                    }
+                }, 1500); // Small delay to show success message
+            } else {
+                showLicenseError(message || 'License validation failed');
+            }
+        };
+
+        window.onTrialStarted = function(success, message) {
+            if (success) {
+                showLicenseSuccess(message || 'Trial started successfully!');
+                
+                // Automatically proceed to main app after successful trial start
+                setTimeout(function() {
+                    console.log('✅ Trial started - proceeding to main app');
+                    accessGranted = true;
+                    hideLicenseOverlay();
+                    
+                    // Hide the loading screen since we have access
+                    hideLoadingScreenWithMinimum();
+                    
+                    // Continue with normal app initialization
+                    updateLoadingProgress(10, 'Loading Library...', 'Preparing component library');
+                    
+                    // Load recently used components
+                    loadRecentlyUsed();
+                    
+                    // Request library data or simulate loading
+                    if (window.sketchup && window.sketchup.get_library_data) {
+                        requestLibraryData();
+                    } else {
+                        simulateLoading();
+                    }
+                }, 1500); // Small delay to show success message
+            } else {
+                showLicenseError(message || 'Failed to start trial');
+            }
+        };
+
+        // Additional callback functions for Ruby integration
+        window.onLicenseError = function(message) {
+            showLicenseError(message || 'License operation failed');
+        };
+
+        window.onLicenseSuccess = function(message) {
+            showLicenseSuccess(message || 'License operation successful');
+        };
+
+        window.onTrialExpired = function() {
+            if (licenseStatus) {
+                licenseStatus.access_type = 'trial_expired';
+                updateLicenseContent();
+            }
+        };
+
+        window.onLicenseExpired = function() {
+            if (licenseStatus) {
+                licenseStatus.access_granted = false;
+                accessGranted = false;
+                showLicenseOverlay();
+            }
+        };
+
+        // Test function for the new middle container layout
+        window.testLayoutStructure = function() {
+            console.log('🧪 Testing Middle Container Layout Structure...');
+            
+            const containers = {
+                'app-container': document.querySelector('.app-container'),
+                'app-main': document.querySelector('.app-main'),
+                'middle-container': document.querySelector('.middle-container'),
+                'central-content': document.querySelector('.central-content'),
+                'main-content': document.querySelector('.main-content'),
+                'library-container': document.querySelector('.library-container'),
+                'library-grid': document.querySelector('.library-grid')
+            };
+            
+            let allFound = true;
+            
+            for (const [name, element] of Object.entries(containers)) {
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    console.log(`✅ ${name}: Found (${rect.width.toFixed(0)}×${rect.height.toFixed(0)}px)`);
+                    
+                    // Add temporary visual indicator
+                    element.style.outline = '2px solid #007aff';
+                    element.style.outlineOffset = '2px';
+                    setTimeout(() => {
+                        element.style.outline = '';
+                        element.style.outlineOffset = '';
+                    }, 2000);
+                } else {
+                    console.log(`❌ ${name}: Not found!`);
+                    allFound = false;
+                }
+            }
+            
+            if (allFound) {
+                console.log('🎉 All layout containers found! Middle container structure is working.');
+                
+                // Test scrolling areas
+                const scrollAreas = [
+                    { name: 'Library Grid', element: containers['library-grid'] },
+                    { name: 'Main Content', element: containers['main-content'] },
+                    { name: 'Left Sidebar', element: document.querySelector('.sidebar-left .sidebar-content') },
+                    { name: 'Right Sidebar', element: document.querySelector('.sidebar-right .sidebar-content') }
+                ];
+                
+                console.log('\n📊 Scrolling Areas:');
+                scrollAreas.forEach(area => {
+                    if (area.element) {
+                        const hasScroll = area.element.scrollHeight > area.element.clientHeight;
+                        console.log(`${hasScroll ? '📜' : '📄'} ${area.name}: ${hasScroll ? 'Scrollable' : 'No scroll needed'}`);
+                    }
+                });
+            }
+            
+            return allFound;
+        };
+
+        function initializeApp() {
+            console.log('🚀 Continuing app initialization after license check');
+            // This function is now called after license validation
+            // The main initialization happens in setLicenseStatus callback
+        }
+
+        // Global fallback timeout - ensure app doesn't get stuck if no license response
+        globalLicenseTimeout = setTimeout(function() {
+            if (!accessGranted && !licenseStatus) {
+                console.log('🚨 Global fallback timeout - no license response received');
+                console.log('🚨 Showing license overlay as fallback');
+                showLicenseOverlay();
+                updateLicenseContent();
+            } else {
+                console.log('🚨 Global timeout cancelled - license status already received or access granted');
+            }
+        }, 8000); // Longer timeout to allow for proper license checking
+
+        // Beta Warning System
+        function showBetaWarning() {
+            const overlay = document.getElementById('betaWarningOverlay');
+            if (overlay) {
+                overlay.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        function hideBetaWarning() {
+            const overlay = document.getElementById('betaWarningOverlay');
+            if (overlay) {
+                overlay.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        }
+        
+        function acceptBetaWarning() {
+            betaWarningAccepted = true;
+            
+            // Store acceptance in localStorage
+            localStorage.setItem('nestmate_beta_accepted', 'true');
+            
+            hideBetaWarning();
+            
+            // Switch to nesting mode
+            switchMode('nesting');
+        }
+        
+        function checkBetaWarning() {
+            // Check if user has already accepted the beta warning
+            const accepted = localStorage.getItem('nestmate_beta_accepted') === 'true';
+            
+            if (!accepted) {
+                showBetaWarning();
+                return false;
+            }
+            
+            return true;
+        }
+
+        let splashStartTime = Date.now();
+        const MIN_SPLASH_TIME = 3000; // 3 seconds
+
+        function hideLoadingScreenWithMinimum() {
+            console.log('🔧 DEBUG: Global hideLoadingScreenWithMinimum() called');
+            const elapsed = Date.now() - splashStartTime;
+            console.log('🔧 DEBUG: Elapsed time:', elapsed, 'ms, MIN_SPLASH_TIME:', MIN_SPLASH_TIME, 'ms');
+            if (elapsed >= MIN_SPLASH_TIME) {
+                console.log('🔧 DEBUG: Hiding loading screen immediately (global function)');
+                hideLoadingScreen();
+                triggerMissingModelsCheck();
+            } else {
+                console.log('🔧 DEBUG: Waiting', MIN_SPLASH_TIME - elapsed, 'ms before hiding loading screen (global function)');
+                setTimeout(() => {
+                    console.log('🔧 DEBUG: Hiding loading screen after delay (global function)');
+                    hideLoadingScreen();
+                    triggerMissingModelsCheck();
+                }, MIN_SPLASH_TIME - elapsed);
+            }
+        }
+        
+        function triggerMissingModelsCheck() {
+            console.log('🔄 Splash screen complete - triggering missing models check in 2 seconds...');
+            setTimeout(() => {
+                console.log('🔍 Checking for missing models after splash screen...');
+                if (window.sketchup && window.sketchup.check_missing_models) {
+                    console.log('✅ Calling check_missing_models...');
+                    window.sketchup.check_missing_models();
+                } else {
+                    console.log('❌ Cannot check for missing models - SketchUp bridge not available');
+                }
+            }, 2000); // 2-second delay after splash screen
+        }
+
+        // Initialize Import SketchUp File button when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🔧 DOM loaded, setting up Import SketchUp File button...');
+            
+            const importBtn = document.getElementById('importSketchUpBtn');
+            if (importBtn) {
+                importBtn.addEventListener('click', function() {
+                    console.log('🖱️ Import SketchUp File button clicked');
+                    
+                    if (window.modelImporter && typeof window.modelImporter.startImport === 'function') {
+                        console.log('✅ modelImporter found, starting import...');
+                        window.modelImporter.startImport();
+                    } else {
+                        console.error('❌ modelImporter not available:', window.modelImporter);
+                        alert('Model Importer not loaded properly. Please refresh the page and try again.\n\nDebug info: ' + (window.modelImporter ? 'Object exists but missing startImport method' : 'Object not found'));
+                    }
+                });
+                console.log('✅ Import button event listener attached');
+            } else {
+                console.error('❌ Import SketchUp File button not found');
+            }
+            
+            // Debug: Check if modelImporter is available
+            setTimeout(function() {
+                console.log('🔍 Checking modelImporter availability after 1 second...');
+                console.log('window.modelImporter:', window.modelImporter);
+                if (window.modelImporter) {
+                    console.log('modelImporter methods:', Object.getOwnPropertyNames(window.modelImporter));
+                }
+            }, 1000);
+        });
+        
+        // Global callback functions for SketchUp integration
+        window.onCabinetryImportResult = function(result) {
+            console.log('📥 Cabinetry import result received:', result);
+            if (window.modelImporter && window.modelImporter.handleImportResult) {
+                window.modelImporter.handleImportResult(result);
+            } else {
+                console.error('❌ modelImporter not available for import result');
+            }
+        };
+        
+        // Material-led import callbacks
+        window.onMaterialPartsDiscoveryResult = function(result) {
+            console.log('🔍 Material parts discovery result received:', result);
+            if (window.modelImporter && window.modelImporter.handleMaterialPartsDiscoveryResult) {
+                window.modelImporter.handleMaterialPartsDiscoveryResult(result);
+            } else {
+                console.error('❌ modelImporter not available for material discovery result');
+            }
+        };
+        
+        window.onMaterialImportResult = function(result) {
+            console.log('📦 Material import result received:', result);
+            if (window.modelImporter && window.modelImporter.handleMaterialImportResult) {
+                window.modelImporter.handleMaterialImportResult(result);
+            } else {
+                console.error('❌ modelImporter not available for material import result');
+            }
+        };
+
+        window.onComponentRenameResult = function(result) {
+            console.log('🏷️ Component rename result received:', result);
+            if (window.modelImporter && window.modelImporter.handleRenameResult) {
+                window.modelImporter.handleRenameResult(result);
+            } else {
+                console.error('❌ modelImporter not available for rename result');
+            }
+        };
+
+        window.onPartsExtractionResult = function(result) {
+            console.log('📦 Parts extraction result received:', result);
+            if (window.modelImporter && window.modelImporter.handlePartsExtractionResult) {
+                window.modelImporter.handlePartsExtractionResult(result);
+            } else {
+                console.error('❌ modelImporter not available for parts extraction result');
+            }
+        };
+
+        // Initialize the model importer when the script loads
+        console.log('📁 Initializing ModelImporterManager...');
+        if (typeof ModelImporterManager !== 'undefined') {
+            window.modelImporter = new ModelImporterManager();
+            console.log('✅ ModelImporterManager initialized:', window.modelImporter);
+        } else {
+            console.error('❌ ModelImporterManager class not found');
+        }
+
+        // Initialize NestMate when the script loads
+        console.log('📁 Initializing NestMateManager...');
+        if (typeof NestMateManager !== 'undefined') {
+            window.nestMate = new NestMateManager();
+            console.log('✅ NestMateManager initialized:', window.nestMate);
+            // Initialize the parts UI to show the search card
+            setTimeout(() => {
+                if (window.nestMate && window.nestMate.updatePartsUI) {
+                    window.nestMate.updatePartsUI();
+                    console.log('✅ Parts UI initialized with search card');
+                }
+            }, 100);
+        } else {
+            console.error('❌ NestMateManager class not found');
+        }
+        
+        // Manual Part and CSV Import Functions
+        function showAddManualPartPopup() {
+            const popup = document.createElement('div');
+            popup.className = 'popup-overlay';
+            popup.innerHTML = `
+                <div class="popup-container">
+                    <div class="popup-header">
+                        <h3>Add Manual Part</h3>
+                        <button class="popup-close" onclick="this.closest('.popup-overlay').remove()">×</button>
+                    </div>
+                    <div class="popup-content">
+                        <div class="form-group">
+                            <label class="form-label">Part Name</label>
+                            <input type="text" id="manualPartName" placeholder="Enter part name" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Dimensions (mm)</label>
+                            <div style="display: flex; gap: 8px;">
+                                <input type="number" id="manualPartWidth" placeholder="Width" class="form-input">
+                                <input type="number" id="manualPartHeight" placeholder="Height" class="form-input">
+                                <input type="number" id="manualPartThickness" placeholder="Thickness" class="form-input">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Material</label>
+                            <select id="manualPartMaterial" class="form-select">
+                                <option>Birch Plywood</option>
+                                <option>MDF</option>
+                                <option>Pine</option>
+                                <option>Oak</option>
+                                <option>Melamine</option>
+                                <option>Custom</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Quantity</label>
+                            <input type="number" id="manualPartQuantity" placeholder="1" value="1" min="1" class="form-input">
+                        </div>
+                    </div>
+                    <div class="popup-footer">
+                        <button class="btn btn-secondary" onclick="this.closest('.popup-overlay').remove()">Cancel</button>
+                        <button class="btn btn-green" onclick="addManualPart()">Add Part</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(popup);
+        }
+        
+        function showImportCsvPopup() {
+            const popup = document.createElement('div');
+            popup.className = 'popup-overlay';
+            popup.innerHTML = `
+                <div class="popup-container">
+                    <div class="popup-header">
+                        <h3>Import CSV Parts List</h3>
+                        <button class="popup-close" onclick="this.closest('.popup-overlay').remove()">×</button>
+                    </div>
+                    <div class="popup-content">
+                        <div class="form-group">
+                            <label class="form-label">CSV File</label>
+                            <input type="file" id="csvFileInput" accept=".csv" class="form-input" onchange="previewCsvFile(this)">
+                            <div style="font-size: 11px; color: #8e8e93; margin-top: 4px;">
+                                Expected format: Name, Width, Height, Thickness, Material, Quantity
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Preview</label>
+                            <div id="csvPreview" style="background: #f8f9fa; border-radius: 8px; padding: 12px; font-family: monospace; font-size: 12px; max-height: 200px; overflow-y: auto;">
+                                Select a CSV file to preview
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popup-footer">
+                        <button class="btn btn-secondary" onclick="this.closest('.popup-overlay').remove()">Cancel</button>
+                        <button class="btn btn-green" onclick="importCsvParts()" id="importCsvConfirm" disabled>Import Parts</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(popup);
+        }
+        
+        function addManualPart() {
+            const name = document.getElementById('manualPartName').value;
+            const width = document.getElementById('manualPartWidth').value;
+            const height = document.getElementById('manualPartHeight').value;
+            const thickness = document.getElementById('manualPartThickness').value;
+            const material = document.getElementById('manualPartMaterial').value;
+            const quantity = document.getElementById('manualPartQuantity').value || 1;
+            
+            if (!name || !width || !height || !thickness) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Add to nestMate parts list
+            if (window.nestMate) {
+                window.nestMate.addPart(name, width, height, thickness, material, quantity);
+                showNotification('Manual part added successfully!', 'success');
+            }
+            
+            document.querySelector('.popup-overlay').remove();
+        }
+        
+        function previewCsvFile(input) {
+            const file = input.files[0];
+            const preview = document.getElementById('csvPreview');
+            const importBtn = document.getElementById('importCsvConfirm');
+            
+            if (!file) {
+                preview.textContent = 'Select a CSV file to preview';
+                importBtn.disabled = true;
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const csv = e.target.result;
+                const lines = csv.split('\n').slice(0, 10); // Preview first 10 lines
+                preview.innerHTML = lines.map(line => 
+                    line.split(',').map(cell => `<span style="margin-right: 20px;">${cell.trim()}</span>`).join('')
+                ).join('<br>');
+                importBtn.disabled = false;
+            };
+            reader.readAsText(file);
+        }
+        
+        function importCsvParts() {
+            const fileInput = document.getElementById('csvFileInput');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                alert('Please select a CSV file');
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const csv = e.target.result;
+                const lines = csv.split('\n').filter(line => line.trim());
+                
+                let imported = 0;
+                lines.forEach((line, index) => {
+                    if (index === 0) return; // Skip header
+                    
+                    const cells = line.split(',').map(cell => cell.trim());
+                    if (cells.length >= 6) {
+                        const [name, width, height, thickness, material, quantity] = cells;
+                        if (window.nestMate) {
+                            window.nestMate.addPart(name, width, height, thickness, material, quantity);
+                            imported++;
+                        }
+                    }
+                });
+                
+                showNotification(`Imported ${imported} parts from CSV!`, 'success');
+                document.querySelector('.popup-overlay').remove();
+            };
+            reader.readAsText(file);
+        }
+
+        // License Manager Functions - Now handled by app.js
+
+
+
+    </script>
+
+
+</body>
+</html>

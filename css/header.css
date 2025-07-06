@@ -1,0 +1,254 @@
+/* Header Styles */
+.header {
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    margin-right: 12px;
+}
+
+.company-name {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: var(--font-size-base);
+    margin-left: var(--spacing-sm);
+    transition: all 0.3s ease;
+}
+
+.logo:hover .company-name {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    background: rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.mobile-menu-btn span {
+    width: 100%;
+    height: 3px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: right 0.3s ease;
+    padding: 80px 20px 20px;
+    overflow-y: auto;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu-links li {
+    margin-bottom: 1rem;
+}
+
+.mobile-menu-links a {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 1.1rem;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+}
+
+.mobile-menu-links a:hover {
+    background: var(--background-light);
+    color: var(--primary-color);
+}
+
+/* App Store Style Header (for extension page) */
+.top-nav {
+    background: rgba(248, 248, 248, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0;
+    gap: 2rem;
+}
+
+.nav-tabs {
+    display: flex;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: var(--radius-xl);
+    padding: 4px;
+    gap: 0;
+}
+
+.nav-tab {
+    padding: 8px 16px;
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.2s ease;
+}
+
+.nav-tab.active {
+    background: white;
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.search-icon {
+    color: var(--primary-color);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.get-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius-lg);
+    padding: 8px 16px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* Responsive Header */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: flex;
+    }
+    
+    .nav-content {
+        gap: 1rem;
+    }
+    
+    .nav-tabs {
+        display: none;
+    }
+    
+    .logo img {
+        height: 32px;
+        margin-right: 8px;
+    }
+    
+    .company-name {
+        font-size: 1.2rem;
+    }
+} 
