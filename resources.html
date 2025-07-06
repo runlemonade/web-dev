@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - runLemonade</title>
+    <link rel="stylesheet" href="styles/common.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Top Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid #e5e8eb;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: #f4d03f;
+            border-radius: 6px;
+            margin-right: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2c3e50;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #333;
+            border: 2px solid #e5e8eb;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            border-color: #f4d03f;
+            color: #f4d03f;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f4d03f, #f7dc6f);
+            color: #2c3e50;
+            box-shadow: 0 4px 20px rgba(244, 208, 63, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(244, 208, 63, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f4d03f 0%, #f7dc6f 25%, #f39c12 75%, #e67e22 100%);
+            min-height: 50vh;
+            position: relative;
+            overflow: hidden;
+            padding-top: 70px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #f4d03f 0%, #f7dc6f 25%, #f39c12 75%, #e67e22 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: white;
+            clip-path: polygon(0 100%, 100% 100%, 100% 0);
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* Quick Navigation */
+        .quick-nav {
+            background: white;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e5e8eb;
+            position: sticky;
+            top: 140px;
+            z-index: 100;
+        }
+
+        .quick-nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .quick-nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .quick-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #666;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .quick-nav-item:hover {
+            background: #f8f9fa;
+            color: #333;
+            border-color: #f4d03f;
+        }
+
+        .quick-nav-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #f4d03f, #f7dc6f);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Video Tutorials Icon */
+        .video-icon::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 8px solid #2c3e50;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            margin-left: 2px;
+        }
+
+        /* Guide Icon */
+        .guide-icon::before {
+            content: '';
+            width: 12px;
+            height: 16px;
+            border: 2px solid #2c3e50;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .guide-icon::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 1px;
+            background: #2c3e50;
+            top: 6px;
+            left: 5px;
+            box-shadow: 0 3px 0 #2c3e50, 0 6px 0 #2c3e50;
+        }
+
+        /* Help Icon */
+        .help-icon::before {
+            content: '?';
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+
+        /* Community Icon */
+        .community-icon::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            border: 2px solid #2c3e50;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .community-icon::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border: 2px solid #2c3e50;
+            border-radius: 50%;
+            top: 8px;
+            left: 8px;
+        }
+
+        /* Section header styles (kept for other sections) */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            color: #666;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Resources Section */
+        .resources-section {
+            padding: 5rem 0;
+            background: #f8f9fa;
+            position: relative;
+        }
+
+        .resources-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(244, 208, 63, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .resources-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-category {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5e8eb;
+            transition: all 0.3s ease;
+        }
+
+        .resource-category:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .category-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #f4d03f, #f7dc6f);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .resource-list {
+            list-style: none;
+        }
+
+        .resource-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e5e8eb;
+        }
+
+        .resource-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .resource-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .resource-link:hover {
+            color: #f4d03f;
+        }
+
+        .resource-description {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        /* Support Section */
+        .support-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .support-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .support-card {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5e8eb;
+            transition: all 0.3s ease;
+        }
+
+        .support-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .support-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f4d03f, #f7dc6f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .support-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .support-description {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .support-button {
+            background: linear-gradient(135deg, #f4d03f, #f7dc6f);
+            color: #2c3e50;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .support-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(244, 208, 63, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-section a:hover {
+            color: #f4d03f;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .quick-nav-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .paths-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Add padding for fixed header -->
+    <div style="height: 70px;"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Resources</h1>
+            <p class="hero-subtitle">Comprehensive resources, tutorials, and documentation to help you get the most out of FORM and all runLemonade tools</p>
+        </div>
+    </section>
+
+    <!-- Quick Navigation -->
+    <section class="quick-nav">
+        <div class="quick-nav-container">
+            <div class="quick-nav-grid">
+                <a href="#quickstart" class="quick-nav-item">
+                    <div class="quick-nav-icon guide-icon"></div>
+                    <span>Quickstart Guide</span>
+                </a>
+                <a href="#help" class="quick-nav-item">
+                    <div class="quick-nav-icon help-icon"></div>
+                    <span>Online Help</span>
+                </a>
+                <a href="#community" class="quick-nav-item">
+                    <div class="quick-nav-icon community-icon"></div>
+                    <span>Community</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Resources Section -->
+    <section class="resources-section" id="help">
+        <div class="resources-container">
+            <div class="section-header">
+                <h2 class="section-title">Documentation & Resources</h2>
+                <p class="section-subtitle">Everything you need to master FORM and optimize your digital fabrication workflow</p>
+            </div>
+            
+            <div class="resources-grid">
+                <!-- Getting Started -->
+                <div class="resource-category">
+                    <h3 class="category-title">
+                        <div class="category-icon guide-icon"></div>
+                        Getting Started
+                    </h3>
+                    <ul class="resource-list">
+                        <li class="resource-item">
+                            <a href="quickstart.html" class="resource-link">Quickstart Guide</a>
+                            <p class="resource-description">The perfect place to start for those new to FORM for SketchUp, featuring an overview of the extension, its user interface, and key features.</p>
+                        </li>
+                        <li class="resource-item">
+                            <a href="shortcuts.html" class="resource-link">Keyboard Shortcuts</a>
+                            <p class="resource-description">Speed up your workflow with these time-saving keyboard shortcut cheat-sheets. Your time is precious – make the most of it.</p>
+                        </li>
+                        <li class="resource-item">
+                            <a href="requirements.html" class="resource-link">System Requirements</a>
+                            <p class="resource-description">Check if your system meets the requirements to run FORM for SketchUp smoothly and get optimal performance.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Documentation -->
+                <div class="resource-category">
+                    <h3 class="category-title">
+                        <div class="category-icon help-icon"></div>
+                        Documentation
+                    </h3>
+                    <ul class="resource-list">
+                        <li class="resource-item">
+                            <a href="help.html" class="resource-link">Online Help</a>
+                            <p class="resource-description">Available online or from within FORM for SketchUp, our help resources give you an in-depth explanation of every feature and tool.</p>
+                        </li>
+                        <li class="resource-item">
+                            <a href="api.html" class="resource-link">API Documentation</a>
+                            <p class="resource-description">For developers interested in extending FORM's functionality with custom scripts and plugins.</p>
+                        </li>
+                        <li class="resource-item">
+                            <a href="releases.html" class="resource-link">Release Notes</a>
+                            <p class="resource-description">Stay up to date with the latest features, improvements and bug fixes in each FORM update.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Community Resources -->
+                <div class="resource-category">
+                    <h3 class="category-title">
+                        <div class="category-icon community-icon"></div>
+                        Community
+                    </h3>
+                    <ul class="resource-list">
+                        <li class="resource-item">
+                            <a href="https://forum.runlemonade.com" class="resource-link">Community Forum</a>
+                            <p class="resource-description">Connect with other FORM users, ask questions, share tips and get help from the community.</p>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://feedback.runlemonade.com" class="resource-link">Feature Requests</a>
+                            <p class="resource-description">Have an idea for a new feature? Let us know what would make FORM even better for your workflow.</p>
+                        </li>
+                        <li class="resource-item">
+                            <a href="knowledge-base.html" class="resource-link">Knowledge Base</a>
+                            <p class="resource-description">Browse our comprehensive knowledge base for answers to frequently asked questions and common issues.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="support-section" id="community">
+        <div class="support-container">
+            <div class="section-header">
+                <h2 class="section-title">Need More Help?</h2>
+                <p class="section-subtitle">Get direct support from our team and community when you need it most</p>
+            </div>
+            
+            <div class="support-grid">
+                <!-- Contact Support -->
+                <div class="support-card">
+                    <div class="support-icon">
+                        <div style="width: 20px; height: 16px; border: 2px solid var(--secondary-color); border-radius: 4px; position: relative;">
+                            <div style="position: absolute; top: -8px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 8px solid var(--secondary-color);"></div>
+                        </div>
+                    </div>
+                    <h3 class="support-title">Contact Support</h3>
+                    <p class="support-description">Get direct help from our support team for any questions or issues you can't resolve on your own.</p>
+                    <a href="mailto:support@runlemonade.com" class="support-button">Email Support</a>
+                </div>
+
+                <!-- Live Chat -->
+                <div class="support-card">
+                    <div class="support-icon">
+                        <div style="width: 18px; height: 12px; border: 2px solid var(--secondary-color); border-radius: 8px; position: relative;">
+                            <div style="position: absolute; bottom: -6px; left: 4px; width: 6px; height: 6px; background: var(--secondary-color); border-radius: 50%;"></div>
+                        </div>
+                    </div>
+                    <h3 class="support-title">Live Chat</h3>
+                    <p class="support-description">Chat with our support team in real-time for immediate assistance during business hours.</p>
+                    <a href="https://chat.runlemonade.com" class="support-button">Start Chat</a>
+                </div>
+
+                <!-- Bug Reports -->
+                <div class="support-card">
+                    <div class="support-icon">
+                        <div style="width: 16px; height: 16px; border: 2px solid var(--secondary-color); border-radius: 50%; position: relative;">
+                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 2px; height: 2px; background: var(--secondary-color); border-radius: 50%;"></div>
+                        </div>
+                    </div>
+                    <h3 class="support-title">Bug Reports</h3>
+                    <p class="support-description">Found a bug? Help us improve FORM by reporting any issues you encounter.</p>
+                    <a href="https://support.runlemonade.com" class="support-button">Report Bug</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Component Loader -->
+    <script src="js/components.js"></script>
+
+    <script>
+        // Page-specific JavaScript
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.resource-category, .support-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Quick navigation active states
+        const quickNavItems = document.querySelectorAll('.quick-nav-item');
+        const sections = document.querySelectorAll('section[id]');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            quickNavItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Enhanced hover effects for cards
+        document.querySelectorAll('.resource-category, .support-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Button click animations
+        document.querySelectorAll('.start-button, .support-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = button.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.position = 'absolute';
+                ripple.style.background = 'rgba(255, 255, 255, 0.4)';
+                ripple.style.borderRadius = '50%';
+                ripple.style.pointerEvents = 'none';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                
+                button.style.position = 'relative';
+                button.style.overflow = 'hidden';
+                button.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add ripple animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            
+            .quick-nav-item.active {
+                background: var(--primary-color);
+                color: var(--secondary-color);
+                border-color: var(--primary-color);
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add loading states for better UX
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            
+            // Stagger animation of cards
+            const cards = document.querySelectorAll('.resource-category, .support-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('fade-in');
+                }, index * 100);
+            });
+        });
+
+        // Track external link clicks
+        document.querySelectorAll('a[href^="http"], a[href^="mailto:"]').forEach(link => {
+            link.addEventListener('click', () => {
+                // Add analytics tracking here if needed
+                console.log('External link clicked:', link.href);
+            });
+        });
+    </script>
+</body>
+</html>
