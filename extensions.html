@@ -1362,7 +1362,6 @@
                             </div>
                             <div class="extension-actions">
                                 <button class="purchase-licence-button" data-extension="form">Purchase Licence</button>
-                                <a href="/" class="download-button">Download</a>
                                 <button class="see-more-button" data-extension="form">See More</button>
                             </div>
                         </div>
@@ -1402,7 +1401,6 @@
                                 <span class="extension-price price-free">Free Beta</span>
                             </div>
                             <div class="extension-actions">
-                                <a href="#" class="download-button">Download</a>
                                 <button class="see-more-button" data-extension="nestmate">See More</button>
                             </div>
                         </div>
@@ -1493,16 +1491,13 @@
     <div id="downloadModal" class="modal">
         <div class="modal-content download-modal-content">
             <div class="modal-header">
-                <h2>Download FORM</h2>
+                <h2>Get FORM for SketchUp</h2>
                 <span class="close-modal" id="downloadModalClose">&times;</span>
             </div>
             <div class="modal-body">
                 <div class="download-hero">
-                    <h3>Get FORM for SketchUp</h3>
-                    <p>Download the latest version of FORM and start streamlining your SketchUp workflow today.</p>
-                    <button id="startDownloadBtn" class="download-btn">
-                        <span class="download-icon">⬇</span> Download FORM V1.0.8
-                    </button>
+                    <p>Download the latest version of FORM and start streamlining your SketchUp workflow today.<br>Please check your emails (and Spam folder) for SketchUp extension download. You will have to verify your email before receiving download link.</p>
+                    <div style="min-height: 58px;max-width: 440px;margin: 0 auto;width: 100%"><script src="https://cdn.jsdelivr.net/ghost/signup-form@~0.2/umd/signup-form.min.js" data-button-color="#FEC51D" data-button-text-color="#000000" data-site="https://www.runlemonade.com/" data-locale="en" async></script></div>
                 </div>
                 <div class="install-video-section">
                     <h4>How to Install FORM Extension</h4>
@@ -1556,10 +1551,8 @@
                 specifications: {
                     developer: "runLemonade",
                     language: "EN",
-                    size: "15.2 MB [ Total size on model download 512MB +]",
-                    compatibility: "SketchUp 2022+",
-                    ageRating: "4+",
-                    inAppPurchases: "No. Licence Purchased Outside of App"
+                    size: "15.2 MB [ downloaded 512mb ]",
+                    compatibility: "SketchUp 2022+"
                 },
                 whatsNew: {
                     version: "1.0.8",
@@ -1766,36 +1759,6 @@
             }
         }
 
-            // Download button functionality
-            const downloadButton = document.getElementById('startDownloadBtn');
-            if (downloadButton) {
-                downloadButton.addEventListener('click', () => {
-                    // Start download
-                    const downloadUrl = 'https://github.com/runlemonade/web-dev/releases/download/V1.0.8/FORM_byrunLemonade_V1.0.8.rbz';
-                    const link = document.createElement('a');
-                    link.href = downloadUrl;
-                    link.download = 'FORM_byrunLemonade_V1.0.8.rbz';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                    
-                    // Update button text
-                    downloadButton.innerHTML = '<span class="download-icon">✓</span>Download Started';
-                    downloadButton.disabled = true;
-                    
-                    // Close modal after a delay
-                    setTimeout(() => {
-                        downloadModal.style.display = 'none';
-                        // Reset button
-                        setTimeout(() => {
-                            downloadButton.innerHTML = '<span class="download-icon">⬇</span>Download FORM V1.0.8';
-                            downloadButton.disabled = false;
-                            downloadButton.style.display = 'none';
-                        }, 2000);
-                    }, 2000);
-                });
-            }
-
         function openModal(extension, scrollToSection = null) {
             document.getElementById('modalTitle').textContent = extension.title;
             document.getElementById('modalPreview').innerHTML = `<img src="${extension.modalImage}" alt="${extension.title}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">`;
@@ -1951,10 +1914,6 @@
                         });
                     }
                 }, 100); // Small delay to ensure modal is fully rendered
-            }
-            // Add Subscribe and Download buttons for FORM
-            if (extension.title === "FORM for SketchUp") {
-                document.getElementById('modalTrial').innerHTML += `<br><button class='subscribe-btn' style='margin: 1rem 0 0 0; background: #FEC51D; color: #000; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; padding: 12px 24px;' onclick="window.open('https://buy.stripe.com/00w28qcmYf5B5Q0dwdc7u00', '_blank')">Subscribe</button><br><button class='download-btn' style='margin: 1rem 0 0 0; background: #FEC51D; color: #000; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; padding: 12px 24px;' onclick=\"window.open('${extension.downloadUrl}', '_blank')\"><span class='download-icon'>⬇</span> Download FORM V1.0.8</button>`;
             }
         }
 
