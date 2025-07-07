@@ -293,6 +293,7 @@ body {
     z-index: 1101;
     transition: background 0.2s;
     border-radius: 8px;
+    margin-left: auto;
 }
 .hamburger:focus, .hamburger:hover {
     background: #f8f9fa;
