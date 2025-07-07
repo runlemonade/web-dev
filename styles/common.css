@@ -339,6 +339,7 @@ body {
         gap: 0;
         position: relative;
     }
+    /* Always hide nav-links on mobile unless .active is present */
     .nav-links {
         display: none !important;
         position: fixed;
@@ -357,7 +358,7 @@ body {
         animation: fadeInUp 0.3s;
     }
     .nav-links.active {
-        display: flex;
+        display: flex !important;
     }
     .hamburger {
         display: flex;
