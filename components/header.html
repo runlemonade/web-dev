@@ -2,9 +2,15 @@
 <header class="header">
     <nav class="nav">
         <a href="/" class="logo">
-            <img src="images/logo.png" alt="runLemonade logo" style="height: 36px; width: auto; display: block;" />
+            <img src="/images/logo.png" alt="runLemonade logo" style="height: 36px; width: auto; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';" />
+            <span style="display: none; font-weight: bold; font-size: 1.2rem;">runLemonade</span>
         </a>
-        <ul class="nav-links">
+        <button class="hamburger" id="hamburgerMenu" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
             <li><a href="/" class="nav-link">Home</a></li>
             <li><a href="/extensions.html" class="nav-link">Extensions</a></li>
             <li><a href="/resources.html" class="nav-link">Resources</a></li>

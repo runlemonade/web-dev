@@ -157,6 +157,23 @@ class ComponentLoader {
             });
         }
 
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburgerMenu');
+        const navLinks = document.getElementById('navLinks');
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                const isActive = navLinks.classList.toggle('active');
+                hamburger.setAttribute('aria-expanded', isActive);
+            });
+            // Close menu when a nav link is clicked (mobile UX)
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
         // Set active navigation link
         this.setActiveNavLink();
         

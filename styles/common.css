@@ -50,16 +50,14 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(248, 249, 250, 0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: #fff;
     border-bottom: 1px solid var(--border);
     z-index: 1000;
     transition: all 0.3s ease;
 }
 
 .header.scrolled {
-    background: rgba(248, 249, 250, 0.95);
+    background: #fff;
     box-shadow: 0 2px 20px var(--shadow);
 }
 
@@ -281,24 +279,58 @@ body {
     transform: translateY(-2px);
 }
 
-/* Responsive Design */
+/* Hamburger styles */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+}
+.hamburger-bar {
+    width: 24px;
+    height: 3px;
+    background: #2c3e50;
+    margin: 3px 0;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
 @media (max-width: 768px) {
+    .nav {
+        flex-direction: row;
+        height: 70px;
+        padding: 0 var(--spacing-md);
+        gap: 0;
+    }
     .nav-links {
         display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md) 0;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 4px 20px var(--shadow);
+        z-index: 1001;
     }
-
+    .nav-links.active {
+        display: flex;
+    }
+    .hamburger {
+        display: flex;
+    }
     .nav-buttons {
         gap: var(--spacing-xs);
-    }
-
-    .btn {
-        padding: 6px 12px;
-        font-size: 12px;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
     }
 }
 

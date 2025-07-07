@@ -18,7 +18,7 @@
             line-height: 1.6;
         }
 
-        /* Header styles are now in common.css */
+        /* Remove custom header/nav/button styles here */
         
         /* Modal close button styles */
         .close {
@@ -1272,6 +1272,7 @@
 <body>
     <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
+    <script src="js/components.js"></script>
     
     <!-- Add padding for fixed header -->
     <div style="height: 70px;"></div>
@@ -1344,14 +1345,14 @@
                         </div>
                         
                         <p class="extension-description">
-                            Advanced parametric modeling and digital fabrication toolkit. Streamlines the entire workflow from design to machine-ready output.
+                            FORM for SketchUp is a productivity extension designed to streamline your workflow and boost efficiency. Cutting cabinet design time within SketchUp up to 80% FORM enables you to get to the solution and sign off faster.
                         </p>
                         
                         <ul class="extension-features">
-                            <li>Parametric component libraries</li>
-                            <li>CNC toolpath generation</li>
-                            <li>Real-time material optimization</li>
-                            <li>Professional documentation output</li>
+                            <li>200+ Click & place dynamic SketchUp cabinets</li>
+                            <li>Monthly cabinet additions & updates</li>
+                            <li>Custom model requests - tell me what you need & I'll build it</li>
+                            <li>Professional documentation</li>
                         </ul>
                         
                         <div class="extension-footer">
@@ -1386,12 +1387,12 @@
                         </div>
                         
                         <p class="extension-description">
-                            Advanced nesting algorithms for optimal material utilization. Automatically arrange parts to minimize waste and maximize efficiency.
+                            Please note that NestMate Beta is only available to a select few via the app. What is in-app is placeholder and very minimal part function.
                         </p>
                         
                         <ul class="extension-features">
-                            <li>Intelligent part arrangement</li>
-                            <li>Waste minimization algorithms</li>
+                            <li>Intelligent part arrangement algorithms</li>
+                            <li>Waste minimization and optimization</li>
                             <li>Multiple material support</li>
                             <li>Export to CNC machines</li>
                         </ul>
@@ -1421,33 +1422,19 @@
             
             <div class="roadmap-timeline">
                 <div class="timeline-item">
-                    <div class="timeline-marker">Q2</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">SmartCNC Pro</h3>
-                        <p class="timeline-description">
-                            Advanced CNC programming suite with multi-axis support and intelligent toolpath optimization.
-                        </p>
-                        <ul class="timeline-features">
-                            <li>5-axis machining support</li>
-                            <li>Tool library management</li>
-                            <li>Simulation and verification</li>
-                            <li>G-code post-processing</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
                     <div class="timeline-marker">Q3</div>
                     <div class="timeline-content">
-                        <h3 class="timeline-title">CollabSpace</h3>
+                        <h3 class="timeline-title">NestMate</h3>
                         <p class="timeline-description">
-                            Real-time collaboration platform for distributed design teams working on SketchUp projects.
+                            Panel Saw Nesting for saw efficiency and CNC Nesting Algorithm for material efficiency.
                         </p>
                         <ul class="timeline-features">
-                            <li>Live co-editing capabilities</li>
-                            <li>Version control and branching</li>
-                            <li>Comment and review system</li>
-                            <li>Cloud synchronization</li>
+                            <li>Panel Saw Nesting for saw efficiency</li>
+                            <li>Panel Saw Cut Lists</li>
+                            <li>CNC Nesting Algorithm for material efficiency</li>
+                            <li>Small Parts Rule, No small parts on perimeter if less than 200mm x 200mm squares. Solves Vacuum pump issues.</li>
+                            <li>CNC Export to DXF for Nests and single parts</li>
+                            <li>Part list export for management</li>
                         </ul>
                     </div>
                 </div>
@@ -1455,15 +1442,15 @@
                 <div class="timeline-item">
                     <div class="timeline-marker">Q4</div>
                     <div class="timeline-content">
-                        <h3 class="timeline-title">AR Preview</h3>
+                        <h3 class="timeline-title">Production Fixtures</h3>
                         <p class="timeline-description">
-                            Augmented reality visualization tool for presenting designs in real-world contexts.
+                            Alpha Release of Production Fixtures - Automate fixtures and fittings within SketchUp.
                         </p>
                         <ul class="timeline-features">
-                            <li>Mobile AR compatibility</li>
-                            <li>Scale and placement tools</li>
-                            <li>Material and lighting preview</li>
-                            <li>Client presentation mode</li>
+                            <li>Automate fixtures and fittings within SketchUp</li>
+                            <li>Dominos, biscuits, lamellos and screws</li>
+                            <li>3mm, 5mm and 8mm Holes</li>
+                            <li>32mm multibore spacers</li>
                         </ul>
                     </div>
                 </div>
@@ -1506,40 +1493,20 @@
     <div id="downloadModal" class="modal">
         <div class="modal-content download-modal-content">
             <div class="modal-header">
-                <h2>Download FORM for SketchUp</h2>
+                <h2>Download FORM</h2>
                 <span class="close-modal" id="downloadModalClose">&times;</span>
             </div>
             <div class="modal-body">
                 <div class="download-hero">
-                    <h3>Try Fully Featured FORM for SketchUp for 7 days.</h3>
-                    <p style="text-align: center; color: #666; margin-bottom: 2rem;">
-                        No credit card required. Access all features and start saving time today!
-                    </p>
-                </div>
-                
-                <div class="email-signup-section">
-                    <h4>Enter your email below to start the download</h4>
-                    <p style="color: #666; margin-bottom: 1.5rem;">
-                        Then follow the install extension video below to show how to install
-                    </p>
-                    <div style="min-height: 58px;max-width: 440px;margin: 0 auto;width: 100%">
-                        <script src="https://cdn.jsdelivr.net/ghost/signup-form@~0.2/umd/signup-form.min.js" data-button-color="#FEC51D" data-button-text-color="#000000" data-site="https://www.runlemonade.com/" data-locale="en" async></script>
-                    </div>
-                </div>
-                
-                <div class="download-section" style="text-align: center; margin-top: 2rem;">
-                    <button id="startDownloadBtn" class="download-btn" style="display: none;">
-                        <span class="download-icon">⬇</span>
-                        Download FORM V1.0.8
+                    <h3>Get FORM for SketchUp</h3>
+                    <p>Download the latest version of FORM and start streamlining your SketchUp workflow today.</p>
+                    <button id="startDownloadBtn" class="download-btn">
+                        <span class="download-icon">⬇</span> Download FORM V1.0.8
                     </button>
-                    <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
-                        Version 1.0.8 • 15.2 MB • Compatible with SketchUp 2020+
-                    </p>
                 </div>
-                
-                <div class="install-video-section" style="margin-top: 2rem;">
-                    <h4 style="text-align: center; margin-bottom: 1rem;">How to Install FORM Extension</h4>
-                    <div style="position: relative; width: 100%; max-width: 600px; margin: 0 auto;">
+                <div class="install-video-section">
+                    <h4>How to Install FORM Extension</h4>
+                    <div class="video-container">
                         <iframe 
                             width="100%" 
                             height="315" 
@@ -1547,8 +1514,7 @@
                             title="How to Install FORM Extension" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen
-                            style="border-radius: 12px;">
+                            allowfullscreen>
                         </iframe>
                     </div>
                 </div>
@@ -1558,10 +1524,6 @@
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
-
-    <!-- Component Loader -->
-    <script src="js/components.js"></script>
-    <script src="components/download-modal.js"></script>
 
     <script>
         // Page-specific JavaScript
@@ -1578,26 +1540,31 @@
                 ratingCount: "10 Ratings",
                 price: "£49.99/Month",
                 trial: "7 day trial, no credit card required",
-                description: "RunLemonade Pro is a premium productivity extension designed to streamline your workflow and boost efficiency. With advanced features and intuitive design, it transforms how you work across all your favorite browsers.",
+                description: "FORM for SketchUp is a productivity extension designed to streamline your workflow and boost efficiency. Cutting cabinet design time within SketchUp up to 80% FORM enables you to get to the solution and sign off faster.",
                 longDescription: "Take control of your digital workspace with smart automation, beautiful interfaces, and powerful collaboration tools.",
                 features: [
-                    "Parametric component libraries with intelligent constraints",
-                    "CNC toolpath generation with advanced optimization",
-                    "Real-time material optimization and waste calculation",
-                    "Professional documentation output and cut lists",
-                    "Assembly planning and 3D visualization",
-                    "Multi-format export for various CNC machines",
-                    "Smart nesting algorithms for sheet goods",
-                    "Technical drawing generation with annotations"
+                    "200+ Click & place dynamic SketchUp cabinets",
+                    "Monthly cabinet additions & updates",
+                    "Custom model requests - tell me what you need & I'll build it",
+                    "Professional documentation",
+                    "Access the mobile catalogue with AR cabinets, handy numbering system and tool tips",
+                    "Beta access to NestMate - FORM's Nesting Extension",
+                    "Blueprint drawings - pre designed in Layout, PDF'd without branding",
+                    "Drag and drop simplicity"
                 ],
                 details: "FORM seamlessly integrates with SketchUp to provide professional-grade digital fabrication capabilities that scale with your projects. From concept to CNC-ready output, FORM streamlines every step of your digital fabrication workflow.",
                 specifications: {
                     developer: "runLemonade",
                     language: "EN",
-                    size: "15.2 MB",
-                    compatibility: "SketchUp 2020+",
+                    size: "15.2 MB [ Total size on model download 512MB +]",
+                    compatibility: "SketchUp 2022+",
                     ageRating: "4+",
-                    inAppPurchases: "Yes"
+                    inAppPurchases: "No. Licence Purchased Outside of App"
+                },
+                whatsNew: {
+                    version: "1.0.8",
+                    date: "7th July",
+                    description: "Public Issued Release of the FORM for SketchUp Extension. 200 Dynamic cabinet designs click and place. Features include proxy models, a replace unit feature and dynamically controlled cabinets. Improved workflow from the manual download library. Available for Windows & Mac"
                 },
                 subscriptions: [
                     {
@@ -1664,13 +1631,7 @@
                         answer: "FORM supports SketchUp 2020 and newer versions. We regularly update compatibility with new SketchUp releases."
                     }
                 ],
-                whatsNew: {
-                    version: "2.4.1",
-                    date: "1w ago",
-                    description: "Enhanced AI suggestions engine with improved accuracy and faster response times. New dark mode interface and better team collaboration features."
-                },
-                downloadUrl: "/",
-                demoUrl: "https://www.youtube.com/@runlemonade",
+                downloadUrl: "https://github.com/runlemonade/web-dev/releases/download/V1.0.8/FORM_byrunLemonade_V1.0.8.rbz",
                 modalImage: 'images/hero-product-for-colour.png'
             },
             nestmate: {
@@ -1680,7 +1641,7 @@
                 statusClass: "status-beta",
                 rating: "No reviews yet",
                 price: "Free Beta",
-                description: "Advanced nesting algorithms for optimal material utilization. Automatically arrange parts to minimize waste and maximize efficiency.",
+                description: "Please note that NestMate Beta is only available to a select few via the app. What is in-app is placeholder and very minimal part function.",
                 features: [
                     "Intelligent part arrangement algorithms",
                     "Waste minimization and optimization",
@@ -1691,14 +1652,11 @@
                     "Batch processing capabilities",
                     "Detailed waste reports"
                 ],
-                details: "NestMate is a powerful nesting solution designed specifically for digital fabrication workflows. It uses advanced algorithms to automatically arrange parts on sheet goods, minimizing waste and maximizing material efficiency.",
+                details: "Advanced nesting algorithms for optimal material utilization. Automatically arrange parts to minimize waste and maximize efficiency.",
                 specifications: {
                     developer: "runLemonade",
                     language: "EN",
-                    size: "8.7 MB",
-                    compatibility: "SketchUp 2020+",
-                    ageRating: "4+",
-                    inAppPurchases: "No"
+                    size: "8.7 MB"
                 },
                 downloadUrl: "#",
                 demoUrl: "https://www.youtube.com/@runlemonade",
@@ -1788,19 +1746,13 @@
         // Initialize download modal when a modal is opened
         let downloadModalInitialized = false;
 
-
-
         function initializeDownloadModal() {
             const downloadBtn = document.getElementById('startDownloadBtn');
             
             console.log('Initializing download modal, download button:', downloadBtn);
             
-
-            
             let hasSubscribed = false;
             let emailEntered = false;
-            
-
             
             function showDownloadButton() {
                 console.log('showDownloadButton called');
@@ -1999,6 +1951,10 @@
                         });
                     }
                 }, 100); // Small delay to ensure modal is fully rendered
+            }
+            // Add Subscribe and Download buttons for FORM
+            if (extension.title === "FORM for SketchUp") {
+                document.getElementById('modalTrial').innerHTML += `<br><button class='subscribe-btn' style='margin: 1rem 0 0 0; background: #FEC51D; color: #000; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; padding: 12px 24px;' onclick="window.open('https://buy.stripe.com/00w28qcmYf5B5Q0dwdc7u00', '_blank')">Subscribe</button><br><button class='download-btn' style='margin: 1rem 0 0 0; background: #FEC51D; color: #000; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; padding: 12px 24px;' onclick=\"window.open('${extension.downloadUrl}', '_blank')\"><span class='download-icon'>⬇</span> Download FORM V1.0.8</button>`;
             }
         }
 
