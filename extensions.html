@@ -1267,6 +1267,20 @@
                 padding: 0.75rem 1rem;
             }
         }
+
+        /* Add at the end of the <style> block: */
+        .status-custom-catalogues {
+            background: linear-gradient(135deg, #3498db, #5dade2);
+            color: white;
+        }
+        .purchase-licence-button.custom-catalogues-btn {
+            background: linear-gradient(135deg, #3498db, #5dade2);
+            color: #fff;
+        }
+        .purchase-licence-button.custom-catalogues-btn:hover {
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -1402,6 +1416,48 @@
                             </div>
                             <div class="extension-actions">
                                 <button class="see-more-button" data-extension="nestmate">See More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Catalogues Extension -->
+                <div class="extension-card interactive-element" data-category="modeling workflow" data-status="available custom-catalogues">
+                    <div class="extension-preview">
+                        <img src="images/logo.png" alt="Custom Catalogues">
+                        <div class="extension-status status-custom-catalogues">On Request</div>
+                    </div>
+                    <div class="extension-content">
+                        <div class="extension-header">
+                            <div>
+                                <h3 class="extension-title">Custom Catalogues</h3>
+                                <p class="extension-category">Modeling • Workflow</p>
+                            </div>
+                            <!-- No rating for Custom Catalogues -->
+                        </div>
+                        
+                        <p class="extension-description">
+                            Bespoke SketchUp catalogues tailored to your specific business needs. Custom dynamic models, workflows, and branding designed exclusively for your team.
+                        </p>
+                        <p style="color:#b8860b;font-size:13px;margin-top:0.5em;">
+                            <strong>Tip:</strong> Most users find FORM meets their needs. <a href="#" class="see-more-button" data-extension="form" style="display:inline;padding:2px 8px;font-size:12px;">See FORM</a> before requesting a custom catalogue.
+                        </p>
+                        
+                        <ul class="extension-features">
+                            <li>100+ dynamic models minimum per project</li>
+                            <li>Custom branding and interface design</li>
+                            <li>Tailored workflow integration</li>
+                            <li>Dedicated support and maintenance</li>
+                        </ul>
+                        
+                        <div class="extension-footer">
+                            <div class="extension-pricing">
+                                <span class="extension-price">£4,000</span>
+                                <span class="extension-trial">Minimum Project Cost</span>
+                            </div>
+                            <div class="extension-actions">
+                                <a href="mailto:support@runlemonade.com?subject=Custom Catalogue Inquiry" class="purchase-licence-button custom-catalogues-btn" style="text-align:center;display:block;">Get Quote</a>
+                                <button class="see-more-button" data-extension="custom-catalogues">See More</button>
                             </div>
                         </div>
                     </div>
@@ -1552,7 +1608,7 @@
                     developer: "runLemonade",
                     language: "EN",
                     size: "15.2 MB [ downloaded 512mb ]",
-                    compatibility: "SketchUp 2024/2025"
+                    compatibility: "SketchUp 2024/25"
                 },
                 whatsNew: {
                     version: "1.0.8",
@@ -1621,7 +1677,7 @@
                     },
                     {
                         question: "What SketchUp versions are supported?",
-                        answer: "FORM supports SketchUp 2024 and newer versions. We regularly update compatibility with new SketchUp releases."
+                        answer: "FORM supports SketchUp 2024 and 2025. We regularly update compatibility with new SketchUp releases."
                     }
                 ],
                 downloadUrl: "https://github.com/runlemonade/web-dev/releases/download/V1.0.8/FORM_byrunLemonade_V1.0.8.rbz",
@@ -1654,6 +1710,82 @@
                 downloadUrl: "#",
                 demoUrl: "https://www.youtube.com/@runlemonade",
                 modalImage: 'images/NestMate_ExtensionSingle.png'
+            },
+            'custom-catalogues': {
+                title: "Custom Catalogues",
+                subtitle: "Bespoke SketchUp catalogues tailored to your business",
+                status: "On Request",
+                statusClass: "status-custom-catalogues",
+                // No rating or reviews for this extension
+                price: "£4,000",
+                trial: "Minimum Project Cost",
+                description: "Bespoke SketchUp catalogues tailored to your specific business needs. Custom dynamic models, workflows, and branding designed exclusively for your team.",
+                longDescription: "<div style='background:#fff9e5;border-radius:8px;padding:1em 1.5em;margin-bottom:1em;border:1px solid #ffe58f;color:#b8860b;font-weight:500;'>Before requesting a custom catalogue, I recommend trying <a href='#' onclick=\"openModal(extensionData['form'])\" style='color:#b8860b;text-decoration:underline;'>FORM for SketchUp</a> first. FORM covers most workflows and is much faster to get started with!</div>Transform your SketchUp workflow with a custom catalogue designed specifically for your business requirements. From concept to deployment, I work closely with you to create a solution that perfectly fits your workflow.",
+                features: [
+                    "100+ dynamic models minimum per project",
+                    "Custom branding and interface design",
+                    "Tailored workflow integration",
+                    "Dedicated support and maintenance",
+                    "Custom model development and optimization",
+                    "Integration with your existing systems and processes",
+                    "Comprehensive documentation and training",
+                    "Ongoing updates and feature additions",
+                    "White-label solutions available",
+                    "API integration capabilities"
+                ],
+                details: "My custom catalogue service delivers enterprise-grade SketchUp extensions that are built specifically for your business needs. I work closely with you to understand your workflow, requirements, and goals to create a solution that drives efficiency and productivity.",
+                specifications: {
+                    developer: "runLemonade",
+                    language: "EN",
+                    size: "Custom",
+                    compatibility: "SketchUp 2024/2025",
+                    "development time": "6-10 weeks",
+                    "minimum models": "100+",
+                    "payment terms": "50% deposit, 50% on deployment"
+                },
+                whatsNew: {
+                    version: "Custom",
+                    date: "Ongoing",
+                    description: "Custom catalogue development is an ongoing process tailored to each client's specific needs. I work iteratively to ensure the final product exceeds expectations and delivers measurable business value."
+                },
+                subscriptions: [
+                    {
+                        name: "Custom Development",
+                        description: "Complete custom catalogue development with 100+ dynamic models, custom branding, and tailored workflow integration.",
+                        price: "£4,000",
+                        action: "One-time payment for basic custom catalogue"
+                    },
+                    {
+                        name: "Ongoing Maintenance",
+                        description: "Optional maintenance package for regular updates, new model additions, technical support, and feature enhancements.",
+                        price: "£89.99/Month",
+                        action: "Optional maintenance package"
+                    }
+                ],
+                faqs: [
+                    {
+                        question: "What's included in a custom catalogue?",
+                        answer: "Each custom catalogue includes a minimum of 100 dynamic models, custom branding, tailored workflow integration, comprehensive documentation, and dedicated support. The exact scope is determined by your specific requirements."
+                    },
+                    {
+                        question: "How long does development take?",
+                        answer: "Typical development time is 6-10 weeks depending on the complexity and number of models required. I work iteratively with you to ensure the final product meets all your needs."
+                    },
+                    {
+                        question: "Can you integrate with our existing systems?",
+                        answer: "Yes, I can integrate custom catalogues with your existing systems, databases, and workflows. I'll work with you or your technical contact to ensure seamless integration."
+                    },
+                    {
+                        question: "Do you provide ongoing support?",
+                        answer: "Yes, I offer ongoing maintenance packages that include regular updates, new model additions, technical support, and feature enhancements to keep your catalogue current and optimized."
+                    },
+                    {
+                        question: "What if we need changes after delivery?",
+                        answer: "I offer flexible maintenance packages that allow for ongoing modifications, additions, and improvements. I'm committed to ensuring your catalogue continues to meet your evolving needs."
+                    }
+                ],
+                downloadUrl: "mailto:contact@runlemonade.com?subject=Custom Catalogue Inquiry",
+                modalImage: 'images/logo.png'
             }
         };
 
@@ -1759,7 +1891,7 @@
             }
         }
 
-        function openModal(extension, scrollToSection = null) {
+        function openModal(extension, scrollToSection = null, extensionKey = null) {
             document.getElementById('modalTitle').textContent = extension.title;
             document.getElementById('modalPreview').innerHTML = `<img src="${extension.modalImage}" alt="${extension.title}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">`;
             document.getElementById('modalStatus').textContent = extension.status;
@@ -1781,7 +1913,7 @@
             document.getElementById('modalPrice').textContent = extension.price;
             document.getElementById('modalTrial').textContent = extension.trial || '';
             document.getElementById('modalDescription').textContent = extension.description;
-            document.getElementById('modalLongDescription').textContent = extension.longDescription || '';
+            document.getElementById('modalLongDescription').innerHTML = typeof extension.longDescription === 'string' ? extension.longDescription : '';
             
             // Populate What's New
             if (extension.whatsNew) {
@@ -1855,8 +1987,12 @@
                         subscribeButton = '<button class="subscribe-btn" onclick="window.open(\'https://buy.stripe.com/00w28qcmYf5B5Q0dwdc7u00\', \'_blank\')">Subscribe</button>';
                     } else if (sub.name === 'Yearly Subscription') {
                         subscribeButton = '<button class="subscribe-btn" onclick="window.open(\'https://buy.stripe.com/14A4gyev6bTp2DO8bTc7u01\', \'_blank\')">Subscribe</button>';
+                    } else if (sub.name === 'Custom Development' || sub.name === 'Enterprise Solution') {
+                        subscribeButton = '<a href="mailto:support@runlemonade.com?subject=Custom Catalogue Inquiry" class="subscribe-btn contact-btn" style="text-align:center;display:block;">' + (sub.name === 'Custom Development' ? 'Get Quote' : 'Contact Us') + '</a>';
+                    } else if (sub.name === 'Ongoing Maintenance') {
+                        subscribeButton = '<a href="mailto:support@runlemonade.com?subject=Maintenance Package Inquiry" class="subscribe-btn contact-btn" style="text-align:center;display:block;">Contact Us</a>';
                     } else {
-                        subscribeButton = '<button class="subscribe-btn contact-btn" onclick="window.open(\'mailto:contact@runlemonade.com?subject=Studio Pricing Inquiry\', \'_blank\')">Contact Us</button>';
+                        subscribeButton = '<a href="mailto:support@runlemonade.com?subject=Studio Pricing Inquiry" class="subscribe-btn contact-btn" style="text-align:center;display:block;">Contact Us</a>';
                     }
                     
                     return `
@@ -1870,13 +2006,13 @@
                     `;
                 }).join('');
                 document.getElementById('modalSubscriptions').innerHTML = `
-                    <h3>Subscriptions</h3>
+                    <h3>Pricing Options</h3>
                     <div class="subscription-cards">${subscriptionCards}</div>
                 `;
             }
             
             // Populate reviews
-            if (extension.reviews) {
+            if (extension.reviews && extensionKey !== 'custom-catalogues') {
                 const reviewsList = extension.reviews.map(review => `
                     <div class="review-item">
                         <div class="review-header">
@@ -2079,7 +2215,7 @@
                 e.preventDefault();
                 const extensionId = button.getAttribute('data-extension');
                 if (extensionId && extensionData[extensionId]) {
-                    openModal(extensionData[extensionId]);
+                    openModal(extensionData[extensionId], null, extensionId);
                 }
             });
         });
