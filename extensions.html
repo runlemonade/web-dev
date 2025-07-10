@@ -1311,6 +1311,7 @@
                         <a href="#" class="filter-pill" data-filter="fabrication">Fabrication</a>
                         <a href="#" class="filter-pill" data-filter="workflow">Workflow</a>
                         <a href="#" class="filter-pill" data-filter="utilities">Utilities</a>
+                        <a href="#" class="filter-pill" data-filter="sketchup">SketchUp</a>
                     </div>
                 </div>
                 
@@ -1340,7 +1341,7 @@
             
             <div class="extensions-grid">
                 <!-- FORM Extension -->
-                <div class="extension-card interactive-element" data-category="modeling fabrication" data-status="available">
+                <div class="extension-card interactive-element" data-category="modeling fabrication sketchup" data-status="available">
                     <div class="extension-preview">
                         <img src="images/hero-product-for-colour.png" alt="FORM Extension">
                         <div class="extension-status status-available">Available</div>
@@ -1376,7 +1377,7 @@
                             </div>
                             <div class="extension-actions">
                                 <button class="purchase-licence-button" data-extension="form">Purchase Licence</button>
-                                <button class="download-button" id="freeTrialBtn" style="background:linear-gradient(135deg,#f4d03f,#f7dc6f);color:#2c3e50;">7 Day Free Trial</button>
+                                <a class="download-button" id="freeTrialBtn" href="https://runlemonade.net/extensions.html?openDownloadModal=true" target="_blank" rel="noopener" style="background:linear-gradient(135deg,#f4d03f,#f7dc6f);color:#2c3e50;display:inline-block;text-align:center;">7 Day Free Trial</a>
                                 <button class="see-more-button" data-extension="form">See More</button>
                             </div>
                         </div>
@@ -1384,7 +1385,7 @@
                 </div>
 
                 <!-- NestMate Extension -->
-                <div class="extension-card interactive-element" data-category="fabrication utilities" data-status="beta">
+                <div class="extension-card interactive-element" data-category="fabrication utilities sketchup" data-status="beta">
                     <div class="extension-preview">
                         <img src="images/NestMate_ExtensionSingle.png" alt="NestMate Extension">
                         <div class="extension-status status-beta">Beta</div>
@@ -1423,7 +1424,7 @@
                 </div>
 
                 <!-- Custom Catalogues Extension -->
-                <div class="extension-card interactive-element" data-category="modeling workflow" data-status="available custom-catalogues">
+                <div class="extension-card interactive-element" data-category="modeling workflow sketchup" data-status="available custom-catalogues">
                     <div class="extension-preview">
                         <img src="images/logo.png" alt="Custom Catalogues">
                         <div class="extension-status status-custom-catalogues">On Request</div>
@@ -1980,4 +1981,8 @@
             document.getElementById('modalFeatures').innerHTML = `
                 <h3>Key Features</h3>
                 <ul>${featuresList}</ul>
-            `
+            `;
+        }
+    </script>
+</body>
+</html>
