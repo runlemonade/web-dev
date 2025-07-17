@@ -132,9 +132,11 @@
             width: 100%;
             z-index: 1000;
             height: 72px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(18px) saturate(180%);
+            -webkit-backdrop-filter: blur(18px) saturate(180%);
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
             display: flex;
             align-items: center;
         }
@@ -1059,6 +1061,12 @@
             .footer {
                 padding-left: 16px;
                 padding-right: 16px;
+            }
+            .hero-video-large-content {
+                margin-bottom: 24px !important;
+            }
+            .hero-video-large-content + .hero-video-large-content {
+                margin-top: 24px !important;
             }
         }
     </style>
