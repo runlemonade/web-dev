@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Developer - runLemonade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,500,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+            font-size: 15px;
+        }
+        body {
+            font-family: 'Nunito', Arial, sans-serif !important;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #3A3328 !important;
+            background: #ffffff;
+        }
+        h1, h2, h3, h4, h5, h6, p, span, a, li, button, label, input, textarea, th, td, caption, figcaption, strong, em, b, i, small, .overline, .caption {
+            font-family: 'Nunito', Arial, sans-serif !important;
+            color: #3A3328 !important;
+        }
+        h2 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            line-height: 1.2;
+        }
+        .developer-section {
+            background: #ffffff;
+            padding: 120px 32px;
+            margin-top: 72px;
+        }
+        .developer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .developer-content h2 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #3A3328;
+            margin-bottom: 24px;
+            text-align: center;
+            line-height: 1.2;
+        }
+        .developer-tagline {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #F5C125;
+            margin-bottom: 32px;
+            font-style: italic;
+            text-align: center;
+        }
+        .developer-intro {
+            font-size: 1.125rem;
+            color: #6b7280;
+            margin-bottom: 48px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 64px;
+        }
+        .credential-item {
+            background: #fafafa;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .credential-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+            border-color: rgba(245, 193, 37, 0.3);
+        }
+        .credential-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #F5C125;
+            margin-bottom: 8px;
+        }
+        .credential-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #3A3328;
+            margin-bottom: 8px;
+        }
+        .credential-description {
+            font-size: 0.95rem;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+        button:not(.download-badge), .btn:not(.download-badge) {
+            text-decoration: none !important;
+            text-align: center !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .mobile-menu-toggle {
+            display: none !important;
+        }
+        @media (max-width: 1024px) {
+            .mobile-menu-toggle {
+                display: flex !important;
+            }
+        }
+        @media (max-width: 768px) {
+            .developer-section {
+                padding: 80px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-include"></div>
+    <section class="developer-section">
+        <div class="developer-content">
+            <h2>Meet the Developer</h2>
+            <p class="developer-tagline">"When life gives you lemons, runLemonade"</p>
+            <p class="developer-intro">Hey, I'm Toby and I started with one simple mission in mind... To lower the entry barrier into digital fabrication for makers. So you can spend more time making, building, and spending time with loved ones. Every tool I build comes from real world experience. I've walked the same path you're on, faced the same challenges, and created solutions that actually work in practice. runLemonade is entirely self funded. It's just me, my MacBook, and my knowledge after years of running my own cabinetry shop. I shut the doors in Jan 2025 and the applications and extensions that I am building now are my way of giving back to the making industry.<br><br>If you like the apps and extensions that I've built then please share them with your friends, colleagues, and other businesses.</p>
+            <div class="credentials-grid">
+                <div class="credential-item">
+                    <div class="credential-number">15+</div>
+                    <div class="credential-label">Years Using SketchUp</div>
+                    <div class="credential-description">From basic modeling to complex parametric designs, I've explored every corner of SketchUp's capabilities.</div>
+                </div>
+                <div class="credential-item">
+                    <div class="credential-number">8+</div>
+                    <div class="credential-label">Years Programming CNCs</div>
+                    <div class="credential-description">From simple 2D cuts to complex 3D machining, I understand what it takes to get designs from screen to machine.</div>
+                </div>
+                <div class="credential-item">
+                    <div class="credential-number">10+</div>
+                    <div class="credential-label">Years Drafting Bespoke Joinery</div>
+                    <div class="credential-description">Creating detailed technical drawings for custom furniture and architectural joinery with precision focus.</div>
+                </div>
+                <div class="credential-item">
+                    <div class="credential-number">5+</div>
+                    <div class="credential-label">Years Using Fusion360</div>
+                    <div class="credential-description">Advanced CAD/CAM workflows, parametric modeling, and manufacturing preparation experience.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="footer-include"></div>
+    <script>
+        // Header/Footer includes
+        function includeHTML(id, file) {
+            fetch(file).then(res => res.text()).then(data => {
+                document.getElementById(id).innerHTML = data;
+                if (id === 'header-include') window.dispatchEvent(new Event('header-loaded'));
+                if (id === 'footer-include') window.dispatchEvent(new Event('footer-loaded'));
+            });
+        }
+        includeHTML('header-include', 'header.html');
+        includeHTML('footer-include', 'footer.html');
+    </script>
+</body>
+</html> 

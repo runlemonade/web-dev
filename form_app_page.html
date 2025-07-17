@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM for SketchUp - Professional Cabinet Design Extension</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+            font-size: 14px;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #5C5042;
+            background: #ffffff;
+        }
+
+        h1, .hero-title {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            line-height: 1.2;
+        }
+        h2, .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 0 24px 0;
+            line-height: 1.2;
+        }
+        h3, .bento-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0 0 12px 0;
+        }
+        .section-subtitle, .hero-subtitle {
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 32px;
+            max-width: 600px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            height: 72px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 32px;
+            height: 100%;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #23272a;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 28px;
+            width: auto;
+            border-radius: 6px;
+            display: inline-block;
+            vertical-align: middle;
+            background: none !important;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu > li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            color: #23272a;
+            text-decoration: none;
+            font-size: 0.94rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-menu > li > a:hover {
+            color: #F5C125;
+        }
+
+        .dropdown-arrow {
+            font-size: 0.7rem;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-menu > li:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 16px;
+            min-width: 280px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .nav-menu > li:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #23272a;
+            transition: background-color 0.2s ease;
+            margin-bottom: 4px;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(245, 193, 37, 0.1);
+        }
+
+        .dropdown-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .dropdown-content {
+            flex: 1;
+        }
+
+        .dropdown-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #23272a;
+            margin-bottom: 2px;
+        }
+
+        .dropdown-subtitle {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin: 0;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 8px;
+            gap: 4px;
+            background: none;
+            border: none;
+        }
+
+        .hamburger-line {
+            width: 24px;
+            height: 2px;
+            background: #23272a;
+            transition: 0.3s;
+            border-radius: 1px;
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Mobile Full Screen Menu */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #ffffff;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 80px 32px 32px;
+            overflow-y: auto;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-content {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .mobile-menu-section {
+            margin-bottom: 48px;
+        }
+
+        .mobile-menu-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #23272a;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu-item {
+            display: block;
+            padding: 16px 0;
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 1.125rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: color 0.2s ease;
+        }
+
+        .mobile-menu-item:hover {
+            color: #F5C125;
+        }
+
+        .mobile-menu-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Buttons */
+        .btn, .btn-primary, .btn-secondary, .btn-beta, .btn-large {
+            border-radius: 14px !important;
+            padding: 16px 32px !important;
+            font-size: 1.1rem !important;
+            min-width: 200px !important;
+        }
+
+        .btn-primary {
+            background: #F5C125;
+            color: #ffffff;
+            border: none;
+        }
+        .btn-primary:hover, .btn-primary:focus {
+            background: #D4A91E;
+            color: #ffffff;
+            box-shadow: 0 4px 16px rgba(245,193,37,0.25), 0 2px 8px rgba(0,0,0,0.08);
+            transform: translateY(-1px) scale(1.01);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #23272a;
+            border: 1.5px solid rgba(0,0,0,0.15);
+        }
+        .btn-secondary:hover, .btn-secondary:focus {
+            border-color: #F5C125;
+            color: #F5C125;
+            background: rgba(245,193,37,0.08);
+            transform: translateY(-1px) scale(1.01);
+        }
+
+        .btn-large {
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            min-width: 200px;
+        }
+
+        /* Page Layout */
+        .page-container {
+            padding-top: 72px;
+        }
+
+        .section {
+            padding: 60px 32px; /* reduced top and bottom padding from 80px to 60px */
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-overline {
+            font-size: 0.8rem;
+            color: #F5C125;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 120px 32px 32px; /* reduced bottom padding from 80px to 32px */
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            color: #23272a;
+            margin-bottom: 24px;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #6b7280;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            background: #e5e7eb;
+            border-radius: 16px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            font-size: 1.125rem;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Version Badge */
+        .version-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(245, 193, 37, 0.1);
+            border: 1px solid rgba(245, 193, 37, 0.3);
+            padding: 8px 16px;
+            border-radius: 24px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #F5C125;
+            margin-bottom: 24px;
+            width: fit-content;
+        }
+
+        /* Bento Grid Layouts */
+        .bento-grid {
+            display: grid;
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .features-grid {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+
+        .pricing-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .reviews-grid {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+
+        .specs-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .bento-card {
+            background: #fafafa;
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+            border-color: rgba(245, 193, 37, 0.3);
+        }
+
+        .bento-card.featured {
+            background: rgba(245, 193, 37, 0.05);
+            border-color: rgba(245, 193, 37, 0.3);
+            position: relative;
+        }
+
+        .bento-card.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #F5C125, transparent);
+        }
+
+        .card-header {
+            font-size: 0.875rem;
+            color: #9ca3af;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #23272a;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .card-description {
+            color: #6b7280;
+            margin-bottom: 24px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: #F5C125;
+            font-weight: 600;
+            margin-right: 12px;
+            font-size: 1.1rem;
+        }
+
+        /* Pricing Cards */
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #23272a;
+            margin-bottom: 8px;
+        }
+
+        .price-period {
+            font-size: 1rem;
+            color: #6b7280;
+            margin-bottom: 16px;
+        }
+
+        .price-description {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 24px;
+        }
+
+        /* Review Cards */
+        .review-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .stars {
+            color: #F5C125;
+            font-size: 1.1rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #6b7280;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: #23272a;
+            margin-bottom: 4px;
+        }
+
+        .review-role {
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            background: #fafafa;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #23272a;
+            transition: background 0.2s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(245, 193, 37, 0.05);
+        }
+
+        .faq-answer {
+            padding: 0 24px 20px;
+            color: #6b7280;
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        .faq-toggle {
+            font-size: 1.2rem;
+            color: #F5C125;
+            transition: transform 0.2s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        /* Specifications */
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .spec-row:last-child {
+            border-bottom: none;
+        }
+
+        .spec-label {
+            font-weight: 600;
+            color: #23272a;
+        }
+
+        .spec-value {
+            color: #6b7280;
+        }
+
+        /* Footer */
+        .footer {
+            background: #f9fafb;
+            padding: 80px 32px 32px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-section h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #23272a;
+            margin-bottom: 16px;
+        }
+
+        .footer-section a {
+            display: block;
+            color: #6b7280;
+            text-decoration: none;
+            margin-bottom: 8px;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .footer-section a:hover {
+            color: #F5C125;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 0 16px;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .section {
+                padding: 40px 16px; /* reduced padding for mobile */
+            }
+
+            .hero-section {
+                padding: 60px 16px 16px !important; /* reduced bottom padding for mobile */
+            }
+
+            .hero-content {
+                flex-direction: column-reverse !important;
+                gap: 32px !important;
+                align-items: flex-start !important;
+            }
+            .hero-text {
+                width: 100% !important;
+            }
+            .hero-content img {
+                max-width: 100% !important;
+                margin: 0 auto 0 0 !important;
+                display: block;
+            }
+
+            .features-grid,
+            .pricing-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+    <style>
+body, html, h1, h2, h3, h4, h5, h6, .btn, .btn-primary, .btn-secondary, .btn-beta, .btn-large, .section, .section-title, .section-subtitle, .bento-title, .bento-description, .bento-header, .dropdown-menu, .nav-menu, .logo, .footer, .footer-section, .footer-bottom {
+    font-family: 'Nunito', sans-serif !important;
+    color: #3A3328 !important;
+}
+body {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #5C5042 !important;
+}
+h1, .hero-title, .section-title {
+    font-size: 2.6rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    color: #3A3328 !important;
+}
+h2 {
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    color: #3A3328 !important;
+}
+h3, .bento-title {
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    color: #3A3328 !important;
+}
+.nav-menu a, .dropdown-item {
+    font-size: 1.18rem;
+    font-weight: 600;
+    color: #3A3328 !important;
+}
+button:not(.download-badge), .btn:not(.download-badge) {
+    text-decoration: none !important;
+    text-align: center !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+button.btn.btn-primary:not(.download-badge), a.btn.btn-primary:not(.download-badge), button.btn.btn-secondary:not(.download-badge), a.btn.btn-secondary:not(.download-badge) {
+    text-decoration: none !important;
+    text-align: center !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+    </style>
+    <!-- Facebook Meta Pixel Code -->
+    <script src="https://connect.facebook.net/signals/config/683136824196434?v=2.9.216&amp;r=stable&amp;domain=runlemonade.net&amp;hme=0d2c2eb2669df120d9f277453f8987d9c2d55affb793f9f745ec25e01f4e8872&amp;ex_m=83%2C143%2C124%2C18%2C117%2C58%2C40%2C118%2C64%2C57%2C131%2C72%2C13%2C82%2C26%2C112%2C103%2C62%2C65%2C111%2C128%2C91%2C133%2C7%2C3%2C4%2C6%2C5%2C2%2C73%2C81%2C134%2C205%2C155%2C52%2C210%2C207%2C208%2C45%2C169%2C25%2C61%2C214%2C213%2C157%2C28%2C51%2C8%2C54%2C77%2C78%2C79%2C84%2C107%2C27%2C24%2C110%2C106%2C105%2C125%2C63%2C127%2C126%2C41%2C108%2C50%2C100%2C12%2C130%2C37%2C196%2C198%2C165%2C21%2C22%2C23%2C15%2C16%2C36%2C33%2C34%2C68%2C74%2C76%2C89%2C116%2C119%2C38%2C90%2C19%2C17%2C94%2C59%2C31%2C121%2C120%2C122%2C113%2C20%2C30%2C49%2C88%2C129%2C29%2C179%2C151%2C86%2C109%2C67%2C98%2C44%2C39%2C96%2C97%2C102%2C48%2C14%2C104%2C95%2C55%2C43%2C46%2C0%2C80%2C132%2C1%2C101%2C11%2C99%2C254%2C194%2C141%2C182%2C175%2C9%2C47%2C75%2C53%2C123%2C56%2C93%2C71%2C70%2C42%2C114%2C69%2C66%2C60%2C92%2C85%2C35%2C115%2C32%2C87%2C10%2C135" async=""></script>
+    <script async src="https://connect.facebook.net/en_US/fbevents.js"></script>
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '683136824196434');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=683136824196434&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-05TVNK9913"></script>
+</head>
+<body>
+    <div id="header-include"></div>
+
+    <!-- Main Content -->
+    <div class="page-container">
+        <!-- Hero Section -->
+        <section class="hero-section" style="background: none !important;">
+            <div class="hero-content" style="display: flex; align-items: center; gap: 64px; max-width: 1200px; margin: 0 auto;">
+                <div class="hero-text">
+                    <div class="version-badge">
+                        <span>✨</span>
+                        Version 1.0.13 • Latest Release
+                    </div>
+                    <h1>FORM for SketchUp</h1>
+                    <p>Cut cabinet design time by up to 80%. FORM is a productivity extension designed to streamline your workflow and boost efficiency. Take control of your digital workspace with smart automation, beautiful interfaces, and powerful collaboration tools.</p>
+                    <div class="hero-cta">
+                        <a href="#pricing" class="btn btn-primary btn-large">Start Free Trial</a>
+                        <a href="#features" class="btn btn-secondary btn-large">Learn More</a>
+                    </div>
+                    <p style="margin-top: 12px; font-size: 1rem; color: #6b7280; font-weight: 500;">Access all features for 7 days, no card details required.</p>
+                </div>
+                <img src="images/mockuuups-transparent-macbook-pro-mockup.png" alt="FORM Interface Preview" style="width:100%;height:auto;max-width:600px;margin-left:auto;margin-right:auto;display:block;border-radius:16px;box-shadow:none;background:none;" />
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="section" id="pricing">
+            <div class="container">
+                <div class="section-overline">Pricing</div>
+                <h2 class="section-title">Choose your plan</h2>
+                
+                <div class="bento-grid pricing-grid">
+                    <div class="bento-card">
+                        <div class="card-header">Monthly</div>
+                        <h3 class="card-title">Full Access</h3>
+                        <div class="price">£49.99<span style="font-size: 1rem; color: #6b7280;">/month</span></div>
+                        <p class="price-description">Rolling 30 day subscription</p>
+                        <div class="card-actions">
+                            <a href="https://buy.stripe.com/00w28qcmYf5B5Q0dwdc7u00" class="btn btn-primary btn-large" target="_blank">Subscribe</a>
+                        </div>
+                    </div>
+
+                    <div class="bento-card featured">
+                        <div class="card-header">Yearly • Save £100</div>
+                        <h3 class="card-title">Full Access</h3>
+                        <div class="price">£499<span style="font-size: 1rem; color: #6b7280;">/year</span></div>
+                        <p class="price-description">Rolling 12 month subscription. Save £100 when buying for the year.</p>
+                        <div class="card-actions">
+                            <a href="https://buy.stripe.com/14A4gyev6bTp2DO8bTc7u01" class="btn btn-primary btn-large" target="_blank">Subscribe</a>
+                        </div>
+                    </div>
+
+                    <div class="bento-card">
+                        <div class="card-header">Studio Pricing</div>
+                        <h3 class="card-title">Multiple Users</h3>
+                        <div class="price">Custom<span style="font-size: 1rem; color: #6b7280;"> pricing</span></div>
+                        <p class="price-description">Full Access for Studio Users. Discounted Pricing Available for Studios with 5+ Users.</p>
+                        <div class="card-actions">
+                            <a href="mailto:support@runlemonade.com" class="btn btn-secondary btn-large">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What's New Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-overline">What's New</div>
+                <h2 class="section-title">Latest Release</h2>
+                
+                <div class="bento-card featured">
+                    <div class="card-header">Version 1.0.13 • 7th July</div>
+                    <h3 class="card-title">Public Release of FORM for SketchUp Extension</h3>
+                    <p class="card-description">200 Dynamic cabinet designs click and place. Features include proxy models, a replace unit feature and dynamically controlled cabinets. Improved workflow from the manual download library. Available for Windows & Mac.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features Section -->
+        <section class="section" id="features">
+            <div class="container">
+                <div class="section-overline">Features</div>
+                <h2 class="section-title">Everything you need to build faster</h2>
+                
+                <div class="bento-grid features-grid">
+                    <div class="bento-card">
+                        <div class="card-header">Dynamic Components</div>
+                        <h3 class="card-title">150+ Click & Place Cabinets</h3>
+                        <ul class="feature-list">
+                            <li>Dynamic SketchUp cabinets</li>
+                            <li>Monthly cabinet additions & updates</li>
+                            <li>Custom model requests available</li>
+                            <li>Drag and drop simplicity</li>
+                        </ul>
+                    </div>
+
+                    <div class="bento-card">
+                        <div class="card-header">Professional Tools</div>
+                        <h3 class="card-title">Advanced Documentation</h3>
+                        <ul class="feature-list">
+                            <li>Professional documentation</li>
+                            <li>Blueprint drawings in Layout</li>
+                            <li>PDF export without branding</li>
+                            <li>Replace unit feature</li>
+                        </ul>
+                    </div>
+
+                    <div class="bento-card">
+                        <div class="card-header">Mobile & AR</div>
+                        <h3 class="card-title">Mobile Catalogue Access</h3>
+                        <ul class="feature-list">
+                            <li>AR cabinet visualization</li>
+                            <li>Handy numbering system</li>
+                            <li>Interactive tool tips</li>
+                            <li>On-site accessibility</li>
+                        </ul>
+                    </div>
+
+                    <div class="bento-card">
+                        <div class="card-header">Beta Access</div>
+                        <h3 class="card-title">Early Access to NestMate</h3>
+                        <ul class="feature-list">
+                            <li>Beta access to FORM's Nesting Extension</li>
+                            <li>Panel optimization tools</li>
+                            <li>Material efficiency</li>
+                            <li>Advanced nesting algorithms</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-overline">Reviews</div>
+                <h2 class="section-title">What professionals are saying</h2>
+                
+                <div class="bento-grid reviews-grid">
+                    <div class="bento-card">
+                        <div class="review-rating">
+                            <div class="stars">★★★★★</div>
+                            <span style="color: #6b7280; font-size: 0.9rem;">Great product with excellent support</span>
+                        </div>
+                        <p class="review-text">"This first release of FORM for SketchUp has already sped up my client designs so much. Toby is great with support and the additional models I get a month are well worth the 30 quid. Can't wait for the shaker update. Thanks Toby, great product."</p>
+                        <div class="review-author">Simon Wright</div>
+                        <div class="review-role">Cabinetmaker</div>
+                    </div>
+
+                    <div class="bento-card">
+                        <div class="review-rating">
+                            <div class="stars">★★★★☆</div>
+                            <span style="color: #6b7280; font-size: 0.9rem;">Saves hours on quoting</span>
+                        </div>
+                        <p class="review-text">"I just use the empty cabinets to create quick quotes from. I'm a bit of a technical idiot, there's lots in this that I don't use but for speedy quoting this thing has saved me hours. Back end needs a bit more work but Toby has said that this is in the pipeline."</p>
+                        <div class="review-author">James Graham</div>
+                        <div class="review-role">Cabinetmaker</div>
+                    </div>
+
+                    <div class="bento-card">
+                        <div class="review-rating">
+                            <div class="stars">★★★★★</div>
+                            <span style="color: #6b7280; font-size: 0.9rem;">Surprisingly easy to use</span>
+                        </div>
+                        <p class="review-text">"I was a bit apprehensive of trying this. I use SketchUp day to day and didn't want to change how I do things, but I have to say that I am surprised at how easy it is to use after an hour of using it. The drag and drop works well for client changes. It's regularly updated and Toby's helpful. Would recommend."</p>
+                        <div class="review-author">Matt Barker</div>
+                        <div class="review-role">Cabinetmaker</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section" style="background: #fff;">
+            <div class="container">
+                <div class="section-overline">Support</div>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>What is FORM for SketchUp?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer" style="display: none;">
+                            FORM is a premium SketchUp extension designed for digital fabrication professionals. It provides parametric modeling, CNC toolpath generation, material optimization, and professional documentation tools.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>How does the 7-day trial work?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer" style="display: none;">
+                            You can try FORM for free for 7 days with full access to all features. No credit card is required to start your trial. You can cancel anytime during the trial period.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>What's included in the subscription?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer" style="display: none;">
+                            Your subscription includes full access to FORM, regular updates, new component libraries, technical support, and access to our community resources.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Can I cancel my subscription anytime?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer" style="display: none;">
+                            Yes, you can cancel your subscription at any time. Your access will continue until the end of your current billing period.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>What SketchUp versions are supported?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer" style="display: none;">
+                            FORM supports SketchUp 2024 and 2025. We regularly update compatibility with new SketchUp releases.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specifications Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-overline">Technical</div>
+                <h2 class="section-title">Specifications</h2>
+                
+                <div class="bento-grid specs-grid">
+                    <div class="bento-card">
+                        <h3 class="card-title">System Requirements</h3>
+                        <div class="spec-row">
+                            <span class="spec-label">Developer</span>
+                            <span class="spec-value">runLemonade</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Language</span>
+                            <span class="spec-value">EN</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Size</span>
+                            <span class="spec-value">15.2 MB [downloaded 512mb]</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Compatibility</span>
+                            <span class="spec-value">SketchUp 2024/25</span>
+                        </div>
+                    </div>
+
+                    <div class="bento-card">
+                        <h3 class="card-title">Features Overview</h3>
+                        <ul class="feature-list">
+                            <li>200+ Dynamic cabinet designs</li>
+                            <li>Windows & Mac compatibility</li>
+                            <li>Proxy model system</li>
+                            <li>Replace unit functionality</li>
+                            <li>Mobile AR catalogue</li>
+                            <li>Professional documentation</li>
+                            <li>Blueprint export to PDF</li>
+                            <li>Beta NestMate access</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="section" style="background: #f3f4f6;">
+            <div class="container" style="text-align: center;">
+                <div class="section-overline">Ready to get started?</div>
+                <h2 class="section-title">Transform your cabinet design workflow today</h2>
+                <p class="section-subtitle" style="max-width: 600px; margin: 0 auto 48px;">Join hundreds of fabrication professionals who've already streamlined their SketchUp workflow with FORM.</p>
+                
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="#pricing" class="btn btn-primary btn-large">Start Free Trial</a>
+                    <a href="#" class="btn btn-secondary btn-large">View Documentation</a>
+                </div>
+                
+                <p style="margin-top: 32px; font-size: 0.875rem; color: #9ca3af;">7-day free trial • No credit card required • Cancel anytime</p>
+            </div>
+        </section>
+    </div>
+    <div id="footer-include"></div>
+
+    <!-- Free Trial Modal (copied from index.html) -->
+    <div id="free-trial-modal" style="display:none;position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;">
+      <div style="background:#fff;border-radius:16px;max-width:480px;width:95vw;padding:40px 28px;box-shadow:0 8px 32px rgba(0,0,0,0.18);position:relative;">
+        <button id="close-modal-btn" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:2rem;cursor:pointer;line-height:1;">&times;</button>
+        <h2 style="font-size:2rem;font-weight:700;margin-bottom:16px;text-align:center;">Download the 7 day FREE trial for FORM for SketchUp</h2>
+        <p style="margin-bottom:16px;text-align:center;">To get your 7 day free trial simply fill in the email form below. This will subscribe you to the newsletter and send you an automated download link to the SketchUp extension. Please make sure to verify your email as download links will not arrive unless verified!<br><br>If you've not received the file after 2 minutes, please check your spam folder as we may have ended up in there!</p>
+        <div style="margin-bottom:24px;text-align:center;">
+          <iframe width="100%" height="220" src="https://www.youtube.com/embed/0P9xkwVoQrw" title="FORM Demo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius: 12px; display: block; margin: 0 auto 16px auto;"></iframe>
+        </div>
+        <div id="ghost-signup-container" style="margin-bottom:24px;">
+          <div style="min-height: 58px;max-width: 440px;margin: 0 auto;width: 100%"><script src="https://cdn.jsdelivr.net/ghost/signup-form@~0.2/umd/signup-form.min.js" data-button-color="#FEC51D" data-button-text-color="#000000" data-site="https://www.runlemonade.com/" data-locale="en" async></script></div>
+        </div>
+        <div id="download-btn-container" style="display:none;text-align:center;">
+          <a href="https://github.com/runlemonade/web-dev/releases/download/1.0.12/form_extension_v1.0.12.rbz" class="btn btn-primary" style="margin-top:16px;">Download FORM Extension (.rbz)</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // FAQ Toggle Functionality
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const toggle = element.querySelector('.faq-toggle');
+            
+            if (faqItem.classList.contains('active')) {
+                faqItem.classList.remove('active');
+                answer.style.display = 'none';
+                toggle.textContent = '+';
+            } else {
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').style.display = 'none';
+                    item.querySelector('.faq-toggle').textContent = '+';
+                });
+                
+                // Open clicked FAQ item
+                faqItem.classList.add('active');
+                answer.style.display = 'block';
+                toggle.textContent = '+';
+            }
+        }
+
+        // Add scroll effects for cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.querySelectorAll('.bento-card, .faq-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Header/Footer includes
+        function includeHTML(id, file) {
+            fetch(file).then(res => res.text()).then(data => {
+                document.getElementById(id).innerHTML = data;
+                if (id === 'header-include') window.dispatchEvent(new Event('header-loaded'));
+                if (id === 'footer-include') window.dispatchEvent(new Event('footer-loaded'));
+            });
+        }
+        includeHTML('header-include', 'header.html');
+        includeHTML('footer-include', 'footer.html');
+
+// Modal logic
+function showFreeTrialModal() {
+  document.getElementById('free-trial-modal').style.display = 'flex';
+}
+function hideFreeTrialModal() {
+  document.getElementById('free-trial-modal').style.display = 'none';
+}
+document.addEventListener('DOMContentLoaded', function() {
+  // Attach modal trigger to all Start Free Trial buttons
+  document.querySelectorAll('a.btn-primary, button.btn-primary').forEach(btn => {
+    if (btn.textContent.trim().toLowerCase().includes('start free trial')) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        showFreeTrialModal();
+      });
+    }
+  });
+  // Close modal button
+  document.getElementById('close-modal-btn').onclick = hideFreeTrialModal;
+  // Listen for Ghost signup form submission
+  let signupSubmitted = false;
+  document.addEventListener('submit', function(e) {
+    if (e.target.closest('#ghost-signup-container')) {
+      if (!signupSubmitted) {
+        signupSubmitted = true;
+        setTimeout(function() {
+          document.getElementById('download-btn-container').style.display = 'block';
+        }, 3000);
+      }
+    }
+  }, true);
+});
+    </script>
+    <script>
+        window.addEventListener('header-loaded', setupMobileMenu);
+        function setupMobileMenu() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+            if (mobileMenuToggle && mobileMenuOverlay) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mobileMenuToggle.classList.toggle('active');
+                    mobileMenuOverlay.classList.toggle('active');
+                    document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+                });
+
+                // Close menu when clicking on overlay
+                mobileMenuOverlay.addEventListener('click', function(e) {
+                    if (e.target === mobileMenuOverlay) {
+                        mobileMenuToggle.classList.remove('active');
+                        mobileMenuOverlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+
+                // Close menu when clicking on menu items
+                const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
+                mobileMenuItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        mobileMenuToggle.classList.remove('active');
+                        mobileMenuOverlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+        }
+    </script>
+</body>
+</html>

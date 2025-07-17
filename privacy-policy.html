@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - runLemonade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body, html, h1, h2, h3, h4, h5, h6, .legal-container, .legal-title, .legal-section-title, .legal-updated, .legal-body {
+            font-family: 'Noto Sans JP', sans-serif !important;
+        }
+        .legal-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            background: #fafafa;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            padding: 32px;
+        }
+        .legal-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+        }
+        .legal-section-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #F5C125;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+        .legal-updated {
+            color: #9ca3af;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+        .legal-body {
+            color: #444;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        a {
+            color: #2563EB;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            .legal-container {
+                padding: 16px 4px;
+                border-radius: 16px;
+            }
+            .legal-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-include"></div>
+    <div class="legal-container">
+        <h1 class="legal-title">Privacy Policy</h1>
+        <div class="legal-updated">Last updated: June 2024</div>
+        <div class="legal-body">
+            <p>This Privacy Policy describes how runLemonade ("we", "us", or "our") collects, uses, and protects your information when you use our website and products, including the FORM extension for SketchUp (the "Service").</p>
+
+            <div class="legal-section-title">1. Information We Collect</div>
+            <ul>
+                <li><strong>Personal Information:</strong> When you sign up, purchase, or contact us, we may collect your name, email address, payment information, and other details you provide.</li>
+                <li><strong>Usage Data:</strong> We may collect information about how you use our website and the FORM extension, such as IP address, browser type, device information, and pages visited.</li>
+                <li><strong>Cookies:</strong> We use cookies and similar technologies to enhance your experience and analyze usage.</li>
+            </ul>
+
+            <div class="legal-section-title">2. How We Use Your Information</div>
+            <ul>
+                <li>To provide, operate, and maintain our Service</li>
+                <li>To process transactions and send related information</li>
+                <li>To communicate with you, including support and updates</li>
+                <li>To improve and personalize your experience</li>
+                <li>To comply with legal obligations</li>
+            </ul>
+
+            <div class="legal-section-title">3. Sharing Your Information</div>
+            <p>We do not sell your personal information. We may share your data with trusted third-party service providers (such as payment processors, analytics, and email services) only as necessary to operate our Service. We may also disclose information if required by law or to protect our rights.</p>
+
+            <div class="legal-section-title">4. Data Security</div>
+            <p>We implement reasonable security measures to protect your information. However, no method of transmission over the Internet or electronic storage is 100% secure.</p>
+
+            <div class="legal-section-title">5. Your Rights & Choices</div>
+            <ul>
+                <li>You may request access to, correction of, or deletion of your personal data by contacting us at <a href="mailto:support@runlemonade.com">support@runlemonade.com</a>.</li>
+                <li>You may opt out of marketing emails at any time by using the unsubscribe link in our emails.</li>
+            </ul>
+
+            <div class="legal-section-title">6. Changes to This Policy</div>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page with an updated date.</p>
+
+            <div class="legal-section-title">7. Contact Us</div>
+            <p>If you have any questions about this Privacy Policy or our data practices, please contact us at <a href="mailto:support@runlemonade.com">support@runlemonade.com</a>.</p>
+        </div>
+    </div>
+    <div id="footer-include"></div>
+    <script>
+        function includeHTML(id, file) {
+            fetch(file).then(res => res.text()).then(data => {
+                document.getElementById(id).innerHTML = data;
+            });
+        }
+        includeHTML('header-include', 'header.html');
+        includeHTML('footer-include', 'footer.html');
+    </script>
+</body>
+</html> 

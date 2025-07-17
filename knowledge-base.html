@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning & Help - runLemonade</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,500,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            font-family: 'Nunito', Arial, sans-serif !important;
+            color: #3A3328 !important;
+        }
+        h1, h2, h3, h4, h5, h6, p, span, a, li, button, label, input, textarea, th, td, caption, figcaption, strong, em, b, i, small, .overline, .caption {
+            font-family: 'Nunito', Arial, sans-serif !important;
+            color: #3A3328 !important;
+        }
+        body {
+            font-family: 'Nunito', sans-serif;
+            line-height: 1.6;
+            background: #f9fafb;
+        }
+        .header-spacer { height: 72px; }
+        .kb-container {
+            display: flex;
+            min-height: calc(100vh - 72px);
+            background: #f9fafb;
+        }
+        .kb-sidebar {
+            width: 300px;
+            background: #fff;
+            border-right: 1px solid #e5e8eb;
+            overflow-y: auto;
+            position: sticky;
+            top: 72px;
+            height: calc(100vh - 72px);
+        }
+        .kb-sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e8eb;
+            background: #fff;
+        }
+        .kb-sidebar-title {
+            font-size: 1.18rem;
+            font-weight: 700;
+            color: #3A3328;
+            margin-bottom: 0.5rem;
+        }
+        .kb-search {
+            position: relative;
+            margin-bottom: 1rem;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            padding: 1rem 1.25rem;
+            border: 1.5px solid #e5e8eb;
+            display: flex;
+            align-items: center;
+        }
+        .kb-search input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            background: none;
+            box-shadow: none;
+            outline: none;
+            color: #1a1a1a;
+        }
+        .kb-search input:focus {
+            border: none;
+            box-shadow: none;
+        }
+        .kb-nav {
+            padding: 1rem 0;
+        }
+        .kb-nav-section {
+            margin-bottom: 1rem;
+        }
+        .kb-nav-section-title {
+            padding: 0.5rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #F5C125;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .kb-nav-item {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #3A3328;
+            text-decoration: none;
+            font-size: 1.08rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+            border-radius: 8px 0 0 8px;
+        }
+        .kb-nav-item:hover {
+            background: #fffbe6;
+            color: #F5C125;
+            border-left-color: #F5C128;
+        }
+        .kb-nav-item.active {
+            background: linear-gradient(135deg, #F5C125 0%, #fffbe6 100%);
+            color: #1a1a1a;
+            border-left-color: #F5C125;
+        }
+        .kb-nav-item.hidden { display: none; }
+        .kb-main { flex: 1; background: none; overflow-y: auto; }
+        .kb-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem;
+        }
+        .kb-content-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e5e8eb;
+        }
+        .kb-content-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: #3A3328;
+            margin-bottom: 0.5rem;
+        }
+        .kb-content-meta {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+        .kb-content-body {
+            line-height: 1.8;
+            color: #333;
+            font-size: 1.1rem;
+        }
+        .kb-content-body h1,
+        .kb-content-body h2,
+        .kb-content-body h3,
+        .kb-content-body h4,
+        .kb-content-body h5,
+        .kb-content-body h6 {
+            margin: 2rem 0 1rem 0;
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+        .kb-content-body h1 { font-size: 2rem; }
+        .kb-content-body h2 { font-size: 1.5rem; }
+        .kb-content-body h3 { font-size: 1.2rem; }
+        .kb-content-body p { margin-bottom: 1rem; }
+        .kb-content-body ul,
+        .kb-content-body ol { margin-bottom: 1rem; padding-left: 2rem; }
+        .kb-content-body li { margin-bottom: 0.5rem; }
+        .kb-content-body code {
+            background: #f8f9fa;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.95em;
+        }
+        .kb-content-body pre {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        .kb-content-body pre code { background: none; padding: 0; }
+        .kb-content-body blockquote {
+            border-left: 4px solid #F5C125;
+            padding-left: 1rem;
+            margin: 1rem 0;
+            color: #666;
+            font-style: italic;
+        }
+        .kb-content-body img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .kb-content-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        .kb-content-body th,
+        .kb-content-body td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e8eb;
+        }
+        .kb-content-body th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        .kb-empty {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #666;
+        }
+        .kb-empty-icon {
+            font-size: 4rem;
+            color: #e5e8eb;
+            margin-bottom: 1rem;
+        }
+        .kb-empty-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #3A3328;
+        }
+        .kb-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            color: #666;
+        }
+        .kb-loading::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e5e8eb;
+            border-top: 2px solid #F5C125;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @media (max-width: 900px) {
+            .kb-container { flex-direction: column; }
+            .kb-sidebar { width: 100%; height: auto; position: relative; top: 0; }
+            .kb-sidebar-header { padding: 1rem; }
+            .kb-content { padding: 1rem; }
+            .kb-content-title { font-size: 2rem; }
+        }
+        .kb-highlight {
+            background: #fff3cd;
+            padding: 0.1rem 0.2rem;
+            border-radius: 2px;
+        }
+        button:not(.download-badge), .btn:not(.download-badge) {
+            text-decoration: none !important;
+            text-align: center !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .mobile-menu-toggle {
+            display: none !important;
+        }
+        @media (max-width: 1024px) {
+            .mobile-menu-toggle {
+                display: flex !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-include"></div>
+    <div class="header-spacer"></div>
+    <div class="kb-container">
+        <!-- Sidebar -->
+        <div class="kb-sidebar">
+            <div class="kb-sidebar-header">
+                <h2 class="kb-sidebar-title">Knowledge Base</h2>
+                <div class="kb-search">
+                    <input type="text" id="kbSearch" placeholder="Search knowledge base...">
+                </div>
+            </div>
+            <nav class="kb-nav" id="kbNav">
+                <div class="kb-loading">Loading...</div>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="kb-main">
+            <div class="kb-content" id="kbContent">
+                <div class="kb-empty">
+                    <div class="kb-empty-icon">📚</div>
+                    <h2 class="kb-empty-title">Welcome to the Knowledge Base</h2>
+                    <p>No articles yet. Use the editor to add your first help article.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer-include"></div>
+    <script>
+        function includeHTML(id, file) {
+            fetch(file).then(res => res.text()).then(data => {
+                document.getElementById(id).innerHTML = data;
+            });
+        }
+        includeHTML('header-include', 'header.html');
+        includeHTML('footer-include', 'footer.html');
+    </script>
+    <script>
+        // Knowledge Base functionality
+        class KnowledgeBase {
+            constructor() {
+                this.articles = [];
+                this.currentArticle = null;
+                this.searchTerm = '';
+                this.init();
+            }
+
+            async init() {
+                await this.loadArticles();
+                this.setupEventListeners();
+                this.renderNavigation();
+                this.loadDefaultArticle();
+            }
+
+            async loadArticles() {
+                this.articles = [];
+            }
+
+            getMockContent(articleId) {
+                const contentMap = {
+                    'getting-started': `
+# Getting Started with FORM
+
+FORM for SketchUp is a powerful extension designed to streamline your cabinet design workflow. This guide will help you get up and running quickly.
+
+## What is FORM?
+
+FORM is a comprehensive SketchUp extension that provides:
+
+- **200+ Dynamic Cabinets**: Pre-built cabinet components that adapt to your specifications
+- **Monthly Updates**: New cabinet designs and features added regularly
+- **Custom Requests**: Need something specific? We'll build it for you
+- **Professional Documentation**: Detailed guides and tutorials
+
+## System Requirements
+
+- SketchUp 2024 or 2025
+- Windows 10/11 or macOS 10.15+
+- 8GB RAM minimum (16GB recommended)
+- 2GB free disk space
+
+## Quick Start
+
+1. **Install FORM**: Download and install the extension
+2. **Open SketchUp**: Launch SketchUp and verify FORM is loaded
+3. **Access the Library**: Use the FORM toolbar to browse cabinets
+4. **Start Designing**: Drag and drop cabinets into your model
+
+## Next Steps
+
+Once you've completed this guide, check out:
+- [Installation Guide](installation)
+- [Your First Project](first-steps)
+- [Cabinet Design Basics](cabinet-design)
+                    `,
+                    'installation': `
+# Installation Guide
+
+Follow these steps to install FORM for SketchUp on your system.
+
+## Download
+
+1. Visit the [Extensions page](/extensions.html)
+2. Click "7 Day Free Trial" or "Purchase Licence"
+3. Complete the checkout process
+4. Check your email for download instructions
+
+## Installation Steps
+
+### Windows
+1. Download the .rbz file
+2. Open SketchUp
+3. Go to **Window > Extension Manager**
+4. Click **Install Extension**
+5. Select the downloaded .rbz file
+6. Restart SketchUp
+
+### macOS
+1. Download the .rbz file
+2. Open SketchUp
+3. Go to **SketchUp > Extension Manager**
+4. Click **Install Extension**
+5. Select the downloaded .rbz file
+6. Restart SketchUp
+
+## Verification
+
+After installation, you should see:
+- FORM toolbar in SketchUp
+- FORM menu in the top menu bar
+- Access to the cabinet library
+
+## Troubleshooting
+
+If you encounter issues:
+- Ensure SketchUp is up to date
+- Check system requirements
+- Try restarting SketchUp
+- Contact support if problems persist
+                    `,
+                    'first-steps': `
+# Your First Project
+
+Ready to create your first cabinet design with FORM? Let's walk through a simple project.
+
+## Project Overview
+
+We'll create a basic kitchen cabinet setup to demonstrate FORM's capabilities.
+
+## Step 1: Setup Your Workspace
+
+1. Open SketchUp
+2. Create a new model or open an existing one
+3. Ensure FORM is loaded (check the toolbar)
+4. Set your units to millimeters (mm)
+
+## Step 2: Access the Cabinet Library
+
+1. Click the FORM toolbar icon
+2. Browse through available cabinet categories:
+   - Base cabinets
+   - Wall cabinets
+   - Tall cabinets
+   - Drawer units
+
+## Step 3: Add Your First Cabinet
+
+1. Select a base cabinet from the library
+2. Drag it into your model
+3. Use the component options to adjust:
+   - Width
+   - Height
+   - Depth
+   - Door style
+   - Material
+
+## Step 4: Customize and Arrange
+
+1. Duplicate cabinets as needed
+2. Adjust dimensions for your space
+3. Add doors, drawers, and hardware
+4. Organize your layout
+
+## Step 5: Generate Documentation
+
+1. Use FORM's documentation tools
+2. Create cut lists
+3. Export for manufacturing
+4. Save your project
+
+## Tips for Success
+
+- Start with simple designs
+- Use the preview feature before placing cabinets
+- Save your work frequently
+- Experiment with different cabinet types
+                    `,
+                    'cabinet-design': `
+# Cabinet Design Basics
+
+Learn the fundamentals of cabinet design using FORM for SketchUp.
+
+## Understanding Cabinet Types
+
+### Base Cabinets
+- Standard height: 720mm
+- Common widths: 300mm, 400mm, 500mm, 600mm
+- Depth: 580mm (standard)
+
+### Wall Cabinets
+- Height: 720mm (standard)
+- Depth: 300mm
+- Mounted 500mm above base cabinets
+
+### Tall Cabinets
+- Full height: 2100mm
+- Width: 400mm, 500mm, 600mm
+- Perfect for pantries and storage
+
+## Design Principles
+
+### 1. Ergonomics
+- Consider user height and reach
+- Plan for comfortable access
+- Account for workflow patterns
+
+### 2. Functionality
+- Group related items together
+- Plan for adequate storage
+- Consider future needs
+
+### 3. Aesthetics
+- Maintain consistent styling
+- Consider color and material choices
+- Plan for visual balance
+
+## Common Configurations
+
+### L-Shaped Kitchen
+- Efficient use of corner space
+- Good workflow between zones
+- Suitable for medium-sized kitchens
+
+### U-Shaped Kitchen
+- Maximum storage and workspace
+- Ideal for larger kitchens
+- Excellent for multiple cooks
+
+### Galley Kitchen
+- Space-efficient design
+- Good for narrow spaces
+- Linear workflow
+
+## Material Considerations
+
+### Cabinet Boxes
+- Plywood (most common)
+- MDF (budget option)
+- Solid wood (premium)
+
+### Doors and Drawers
+- Solid wood
+- MDF with veneer
+- Thermofoil
+- Acrylic
+
+## Hardware Selection
+
+### Hinges
+- European style (most common)
+- Concealed or visible
+- Soft-close options
+
+### Drawer Slides
+- Ball-bearing slides
+- Full-extension
+- Soft-close mechanisms
+
+### Handles and Knobs
+- Match your style
+- Consider ergonomics
+- Plan for consistency
+                    `,
+                    'troubleshooting': `
+# Common Issues & Solutions
+
+Find solutions to the most common problems encountered when using FORM.
+
+## Installation Issues
+
+### FORM Not Appearing in SketchUp
+**Problem**: After installation, FORM toolbar doesn't appear.
+
+**Solutions**:
+1. Restart SketchUp completely
+2. Check Extension Manager for FORM
+3. Verify SketchUp version compatibility
+4. Reinstall the extension
+
+### Extension Manager Errors
+**Problem**: Cannot install .rbz file.
+
+**Solutions**:
+1. Ensure SketchUp is closed during installation
+2. Run SketchUp as administrator (Windows)
+3. Check file permissions
+4. Download the file again
+
+## Performance Issues
+
+### Slow Loading Times
+**Problem**: FORM takes too long to load.
+
+**Solutions**:
+1. Close other applications
+2. Increase RAM allocation for SketchUp
+3. Update graphics drivers
+4. Check available disk space
+
+### Lag When Using Cabinets
+**Problem**: Interface becomes unresponsive.
+
+**Solutions**:
+1. Reduce model complexity
+2. Use proxy components
+3. Purge unused components
+4. Restart SketchUp
+
+## Functionality Issues
+
+### Cabinets Not Updating
+**Problem**: Changes don't apply to placed cabinets.
+
+**Solutions**:
+1. Select the cabinet component
+2. Use the component options panel
+3. Ensure you're editing the right component
+4. Try refreshing the component
+
+### Library Not Loading
+**Problem**: Cabinet library is empty or won't load.
+
+**Solutions**:
+1. Check internet connection
+2. Verify subscription status
+3. Clear browser cache
+4. Contact support
+
+## Getting Help
+
+### Contact Support
+- Email: support@runlemonade.com
+- Include your SketchUp version
+- Describe the issue in detail
+- Attach screenshots if possible
+
+### Community Resources
+- Check our [Discord community](https://discord.com/channels/1384828504670998569/1384862689691566130)
+- Search existing solutions
+- Ask questions in the community
+
+### Documentation
+- Review this knowledge base
+- Check video tutorials
+- Read release notes for updates
+                    `
+                };
+
+                return contentMap[articleId] || '# Article Not Found\n\nThis article could not be loaded.';
+            }
+
+            setupEventListeners() {
+                // Search functionality
+                const searchInput = document.getElementById('kbSearch');
+                searchInput.addEventListener('input', (e) => {
+                    this.searchTerm = e.target.value.toLowerCase();
+                    this.filterArticles();
+                });
+
+                // Navigation clicks
+                document.getElementById('kbNav').addEventListener('click', (e) => {
+                    if (e.target.classList.contains('kb-nav-item')) {
+                        e.preventDefault();
+                        const articleId = e.target.getAttribute('data-article');
+                        this.loadArticle(articleId);
+                    }
+                });
+            }
+
+            renderNavigation() {
+                const nav = document.getElementById('kbNav');
+                nav.innerHTML = '<div class="kb-empty">No articles yet. Use the editor to add your first help article.</div>';
+            }
+
+            filterArticles() {
+                const navItems = document.querySelectorAll('.kb-nav-item');
+                
+                navItems.forEach(item => {
+                    const title = item.textContent.toLowerCase();
+                    const matches = title.includes(this.searchTerm);
+                    item.classList.toggle('hidden', !matches);
+                });
+
+                // Show/hide section headers based on visible items
+                const sections = document.querySelectorAll('.kb-nav-section');
+                sections.forEach(section => {
+                    const visibleItems = section.querySelectorAll('.kb-nav-item:not(.hidden)');
+                    section.style.display = visibleItems.length > 0 ? 'block' : 'none';
+                });
+            }
+
+            loadArticle(articleId) {
+                const article = this.articles.find(a => a.id === articleId);
+                if (!article) return;
+
+                this.currentArticle = article;
+                this.renderArticle(article);
+                this.updateNavigation();
+            }
+
+            loadDefaultArticle() {
+                const content = document.getElementById('kbContent');
+                content.innerHTML = `<div class="kb-empty"><div class="kb-empty-icon">📚</div><h2 class="kb-empty-title">Welcome to the Knowledge Base</h2><p>No articles yet. Use the editor to add your first help article.</p></div>`;
+            }
+
+            renderArticle(article) {
+                const content = document.getElementById('kbContent');
+                
+                // Convert markdown-like content to HTML
+                const htmlContent = this.parseContent(article.content);
+                
+                content.innerHTML = `
+                    <div class="kb-content-header">
+                        <h1 class="kb-content-title">${article.title}</h1>
+                        <div class="kb-content-meta">
+                            Last updated: ${new Date(article.lastUpdated).toLocaleDateString()}
+                        </div>
+                    </div>
+                    <div class="kb-content-body">
+                        ${htmlContent}
+                    </div>
+                `;
+
+                // Highlight search terms if present
+                if (this.searchTerm) {
+                    this.highlightSearchTerms();
+                }
+            }
+
+            parseContent(content) {
+                // Simple markdown-like parser
+                return content
+                    // Headers
+                    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+                    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+                    // Bold
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    // Italic
+                    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                    // Code
+                    .replace(/`(.*?)`/g, '<code>$1</code>')
+                    // Links
+                    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+                    // Lists
+                    .replace(/^\* (.*$)/gim, '<li>$1</li>')
+                    .replace(/^- (.*$)/gim, '<li>$1</li>')
+                    // Paragraphs
+                    .replace(/\n\n/g, '</p><p>')
+                    .replace(/^(?!<[h|li|ul|ol|p|div|blockquote]).*/gim, '<p>$&</p>')
+                    // Clean up empty paragraphs
+                    .replace(/<p><\/p>/g, '')
+                    // Fix list formatting
+                    .replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>')
+                    .replace(/<\/ul>\s*<ul>/g, '');
+            }
+
+            highlightSearchTerms() {
+                if (!this.searchTerm) return;
+
+                const content = document.querySelector('.kb-content-body');
+                const text = content.innerHTML;
+                const highlighted = text.replace(
+                    new RegExp(this.searchTerm, 'gi'),
+                    match => `<span class="kb-highlight">${match}</span>`
+                );
+                content.innerHTML = highlighted;
+            }
+
+            updateNavigation() {
+                // Remove active class from all items
+                document.querySelectorAll('.kb-nav-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Add active class to current article
+                const currentItem = document.querySelector(`[data-article="${this.currentArticle.id}"]`);
+                if (currentItem) {
+                    currentItem.classList.add('active');
+                }
+            }
+        }
+
+        // Initialize knowledge base when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new KnowledgeBase();
+        });
+    </script>
+</body>
+</html> 

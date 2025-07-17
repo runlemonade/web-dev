@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>runLemonade - Professional SketchUp Extensions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+            font-size: 14px;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #5C5042;
+            background: #ffffff;
+        }
+
+        h1, .hero-video-title {
+            font-size: clamp(1.2rem, 2.3vw, 1.7rem);
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            line-height: 1.2;
+        }
+        h2, .section-title {
+            font-size: clamp(1.4rem, 1.9vw, 1.9rem);
+            font-weight: 600;
+            margin: 0 0 16px 0;
+            line-height: 1.3;
+        }
+        h3, .bento-title, .tool-title {
+            font-size: 0.94rem;
+            font-weight: 600;
+            margin: 0 0 12px 0;
+        }
+        .section-subtitle, .hero-video-subtitle {
+            font-size: 1.06rem;
+            color: #6b7280;
+            margin-bottom: 32px;
+            max-width: 600px;
+        }
+        .btn, .btn-primary, .btn-secondary, .btn-beta, .btn-small, .btn-large {
+            border-radius: 12px !important;
+            font-size: 0.94rem !important;
+            padding: 12px 24px !important;
+            min-width: unset !important;
+            min-height: unset !important;
+            font-weight: 600;
+            transition: background 0.18s cubic-bezier(.4,0,.2,1), color 0.18s cubic-bezier(.4,0,.2,1), box-shadow 0.18s cubic-bezier(.4,0,.2,1), border-color 0.18s cubic-bezier(.4,0,.2,1), transform 0.18s cubic-bezier(.4,0,.2,1);
+            box-shadow: 0 1.5px 4px rgba(0,0,0,0.08);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.94rem;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .btn-primary {
+            background: #F5C125;
+            color: #ffffff;
+            border: none;
+        }
+        .btn-primary:hover, .btn-primary:focus {
+            background: #D4A91E;
+            color: #ffffff;
+            box-shadow: 0 4px 16px rgba(245,193,37,0.25), 0 2px 8px rgba(0,0,0,0.08);
+            transform: translateY(-1px) scale(1.01);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: #23272a;
+            border: 1.5px solid rgba(0,0,0,0.15);
+        }
+        .btn-secondary:hover, .btn-secondary:focus {
+            border-color: #F5C125;
+            color: #F5C125;
+            background: rgba(245,193,37,0.08);
+            transform: translateY(-1px) scale(1.01);
+        }
+        .btn-beta {
+            background: #2563EB;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(37,99,235,0.15);
+            transition: background 0.18s cubic-bezier(.4,0,.2,1), box-shadow 0.18s cubic-bezier(.4,0,.2,1), transform 0.18s cubic-bezier(.4,0,.2,1);
+            min-height: 44px;
+            min-width: 120px;
+            font-size: 1rem;
+        }
+        .btn-beta:hover, .btn-beta:focus {
+            background: #1D4ED8;
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(37,99,235,0.25);
+            transform: translateY(-1px) scale(1.01);
+        }
+        .btn-small {
+            padding: 12px 24px;
+            font-size: 0.875rem;
+            min-width: 120px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            height: 72px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 32px;
+            height: 100%;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #23272a;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 28px;
+            width: auto;
+            border-radius: 6px;
+            display: inline-block;
+            vertical-align: middle;
+            background: none !important;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu > li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            color: #23272a;
+            text-decoration: none;
+            font-size: 0.94rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-menu > li > a:hover {
+            color: #F5C125;
+        }
+
+        .dropdown-arrow {
+            font-size: 0.7rem;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-menu > li:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 16px;
+            min-width: 280px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .nav-menu > li:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #23272a;
+            transition: background-color 0.2s ease;
+            margin-bottom: 4px;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(245, 193, 37, 0.1);
+        }
+
+        .dropdown-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .dropdown-content {
+            flex: 1;
+        }
+
+        .dropdown-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #23272a;
+            margin-bottom: 2px;
+        }
+
+        .dropdown-subtitle {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin: 0;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 8px;
+            gap: 4px;
+            background: none;
+            border: none;
+        }
+
+        .hamburger-line {
+            width: 24px;
+            height: 2px;
+            background: #23272a;
+            transition: 0.3s;
+            border-radius: 1px;
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Mobile Full Screen Menu */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #ffffff;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 80px 32px 32px;
+            overflow-y: auto;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-content {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .mobile-menu-section {
+            margin-bottom: 48px;
+        }
+
+        .mobile-menu-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #23272a;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu-item {
+            display: block;
+            padding: 16px 0;
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 1.125rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: color 0.2s ease;
+        }
+
+        .mobile-menu-item:hover {
+            color: #F5C125;
+        }
+
+        .mobile-menu-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 120px 32px;
+            background: #ffffff;
+        }
+
+        .section-header {
+            text-align: left;
+            margin-bottom: 80px;
+            max-width: 800px;
+        }
+
+        .section-overline {
+            font-size: 0.8rem;
+            color: #F5C125;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            color: #23272a;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: #6b7280;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Product Showcase Split */
+        .product-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+            margin-bottom: 120px;
+        }
+
+        .product-content h2 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: #23272a;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .product-content p {
+            color: #6b7280;
+            font-size: 1.06rem;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .product-visual {
+            background: #f3f4f6;
+            border-radius: 16px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            font-size: 1.125rem;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Video Section */
+        .video-showcase {
+            margin-bottom: 80px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 32px;
+        }
+
+        .video-card {
+            background: #fafafa;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            background: #e5e7eb;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Tools Section - Bento Grid */
+        .tools-section {
+            background: #ffffff;
+            padding: 120px 32px;
+        }
+
+        .tools-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tools-bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, auto);
+            gap: 24px;
+            margin-top: 64px;
+        }
+
+        .tool-bento-item {
+            background: #fafafa;
+            border-radius: 24px;
+            padding: 32px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tool-bento-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            border-color: rgba(245, 193, 37, 0.3);
+        }
+
+        .tool-bento-item.featured {
+            background: rgba(245, 193, 37, 0.05);
+            border-color: rgba(245, 193, 37, 0.3);
+        }
+
+        .tool-bento-item.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #F5C125, transparent);
+        }
+
+        /* Grid Layout Positions */
+        .tool-form {
+            grid-column: 1 / 3;
+            grid-row: 1 / 2;
+        }
+
+        .tool-nest {
+            grid-column: 3 / 4;
+            grid-row: 1 / 3;
+        }
+
+        .tool-cnc {
+            grid-column: 4 / 5;
+            grid-row: 1 / 2;
+        }
+
+        .tool-join {
+            grid-column: 1 / 2;
+            grid-row: 2 / 4;
+        }
+
+        .tool-cut {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+        }
+
+        .tool-exp {
+            grid-column: 2 / 4;
+            grid-row: 3 / 4;
+        }
+
+        .tool-auto {
+            grid-column: 4 / 5;
+            grid-row: 2 / 4;
+        }
+
+        .tool-header {
+            font-size: 0.875rem;
+            color: #9ca3af;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+
+        .tool-header.available {
+            color: #059669;
+        }
+
+        .tool-header.coming-soon {
+            color: #F59E0B;
+        }
+
+        .tool-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #23272a;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .tool-description {
+            color: #6b7280;
+            margin-bottom: 24px;
+            line-height: 1.6;
+            flex-grow: 1;
+            font-size: 0.94rem;
+        }
+
+        .tool-visual {
+            width: 100%;
+            height: 80px;
+            background: #e5e7eb;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            font-size: 0.875rem;
+            margin-bottom: 20px;
+        }
+
+        .tool-large-visual {
+            height: 120px;
+        }
+
+        .tool-icon-text {
+            color: #F5C125;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .tool-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+
+        .tool-price {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #F5C125;
+            margin-bottom: 16px;
+        }
+
+        .tool-timeline {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 16px;
+        }
+
+        /* Learn & Support Section */
+        .learn-support-section {
+            background: #ffffff;
+            padding: 48px 32px 60px 32px;
+        }
+
+        .learn-support-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .learn-support-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, auto);
+            gap: 24px;
+            margin-top: 64px;
+        }
+
+        .bento-item, .bento-tutorials, .bento-support, .bento-community, .bento-docs, .bento-video {
+            background: #fafafa !important;
+            border-radius: 24px !important;
+            padding: 32px !important;
+            border: 1px solid rgba(0, 0, 0, 0.08) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .bento-visual, .video-container {
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+        }
+        iframe {
+            width: 100% !important;
+            border-radius: 12px !important;
+            display: block;
+            background: #000 !important;
+        }
+
+        /* Grid Layout Positions */
+        .bento-tutorials {
+            grid-column: 1 / 3;
+            grid-row: 1 / 2;
+        }
+
+        .bento-support {
+            grid-column: 3 / 4;
+            grid-row: 1 / 3;
+        }
+
+        .bento-community {
+            grid-column: 1 / 2;
+            grid-row: 2 / 4;
+        }
+
+        .bento-docs {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+        }
+
+        .bento-video {
+            grid-column: 2 / 4;
+            grid-row: 3 / 4;
+        }
+
+        .bento-header {
+            font-size: 0.875rem;
+            color: #9ca3af;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+
+        .bento-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #23272a;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .bento-description {
+            color: #6b7280;
+            margin-bottom: 24px;
+            line-height: 1.6;
+            flex-grow: 1;
+            font-size: 0.94rem;
+        }
+
+        .bento-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 40px !important;
+        }
+
+        .bento-visual {
+            width: 100%;
+            height: 120px;
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+        }
+
+        .bento-large-visual {
+            height: 200px;
+        }
+
+        /* Testimonials Grid */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: #fafafa;
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+        }
+
+        .testimonial-text {
+            font-size: 1.06rem;
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-size: 0.94rem;
+            color: #23272a;
+            font-weight: 600;
+        }
+
+        .testimonial-role {
+            font-size: 0.81rem;
+            color: #9ca3af;
+        }
+
+        /* Developer Section */
+        .developer-section {
+            background: #ffffff;
+            padding: 120px 32px;
+        }
+
+        .developer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .developer-content h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #23272a;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .developer-tagline {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #F5C125;
+            margin-bottom: 32px;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .developer-intro {
+            font-size: 1.125rem;
+            color: #6b7280;
+            margin-bottom: 48px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 64px;
+        }
+
+        .credential-item {
+            background: #fafafa;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .credential-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+            border-color: rgba(245, 193, 37, 0.3);
+        }
+
+        .credential-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #F5C125;
+            margin-bottom: 8px;
+        }
+
+        .credential-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #23272a;
+            margin-bottom: 8px;
+        }
+
+        .credential-description {
+            font-size: 0.875rem;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #ffffff;
+            padding: 120px 32px;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(245, 193, 37, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 700;
+            color: #23272a;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .cta-content p {
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 48px;
+            line-height: 1.6;
+        }
+
+        .cta-section .hero-video-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: #f9fafb;
+            padding: 80px 32px 32px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-section h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #23272a;
+            margin-bottom: 16px;
+        }
+
+        .footer-section a {
+            display: block;
+            color: #6b7280;
+            text-decoration: none;
+            margin-bottom: 8px;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .footer-section a:hover {
+            color: #F5C125;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .product-showcase {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .learn-support-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .bento-tutorials,
+            .bento-support,
+            .bento-community,
+            .bento-docs,
+            .bento-video {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
+            .tools-bento-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .tool-form,
+            .tool-nest,
+            .tool-cnc,
+            .tool-join,
+            .tool-cut,
+            .tool-exp,
+            .tool-auto {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-video-section {
+                height: 60vh;
+            }
+
+            .hero-video-content {
+                padding: 0 16px 40px;
+                left: 0;
+                transform: none;
+                text-align: center;
+                height: 33.33%;
+                max-height: 20vh;
+            }
+
+            .hero-video-title,
+            .hero-video-subtitle {
+                max-width: none;
+            }
+
+            .hero-video-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section {
+                padding: 80px 16px;
+            }
+
+            .video-grid,
+            .testimonials-grid,
+            .credentials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                padding: 0 16px;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .learn-support-section,
+            .tools-section,
+            .developer-section,
+            .cta-section,
+            .footer {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+        }
+    </style>
+    <style>
+        body, html {
+            font-family: 'Nunito', Arial, sans-serif !important;
+            color: #3A3328 !important;
+        }
+        h1, h2, h3, h4, h5, h6, p, span, a, li, button, label, input, textarea, th, td, caption, figcaption, strong, em, b, i, small, .overline, .caption {
+            font-family: 'Nunito', Arial, sans-serif !important;
+            color: #3A3328 !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-include"></div>
+
+    <!-- Full-width Hero Video Wrapper -->
+    <section class="hero-video-section" style="background: none; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 220px; width: 100vw;">
+        <div class="hero-video-large-content" style="width:100%;max-width:1200px;margin:0 auto 40px auto;text-align:center;display:flex;flex-direction:column;align-items:center;">
+            <h1 class="hero-video-title" style="margin-bottom:32px;max-width:700px;font-size:2.6rem;">You'll never have to manually model another cabinet again!</h1>
+            <div class="hero-video-cta" style="display:flex;gap:18px;justify-content:center;margin-bottom:32px;flex-wrap:wrap;">
+                <a href="#download" class="runlemonade-server-badge-btn">
+                    <img src="images/logo.png" alt="runLemonade Logo" />
+                    <span class="badge-text">
+                        <span class="badge-download">Download via</span>
+                        <span class="badge-title">runLemonade Server</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-video-clean-container" style="width:100%;max-width:1200px;margin:0 auto 32px auto;display:flex;align-items:center;justify-content:center;">
+            <video
+                class="hero-video-clean"
+                src="videos/FORM_opening_a_cabinet.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                poster="images/HERO_PNG_FORM.png"
+                style="width:100%;aspect-ratio:16/9;border-radius:2vw;box-shadow:0 4px 32px rgba(0,0,0,0.12);background:#000;display:block;object-fit:cover;"
+            ></video>
+        </div>
+        <div class="hero-video-large-content" style="width:100%;max-width:900px;margin:40px auto 0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;">
+            <p class="hero-video-subtitle" style="font-size:1.15rem;line-height:1.6;max-width:700px;margin:0 auto;">
+                Design, model, and manufacture with confidence. FORM brings professional digital fabrication tools directly to SketchUp with dynamic sizing and over 200 professional cabinet models.
+            </p>
+        </div>
+    </section>
+
+    <style>
+    .hero-video-clean-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto 32px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .hero-video-clean {
+        width: 100%;
+        aspect-ratio: 16/9;
+        border-radius: 2vw;
+        box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+        background: #000;
+        display: block;
+        object-fit: cover;
+    }
+    @media (max-width: 900px) {
+        .hero-video-clean-container {
+            max-width: 98vw;
+        }
+        .hero-video-clean {
+            border-radius: 3vw;
+        }
+    }
+    @media (max-width: 600px) {
+        .hero-video-clean-container {
+            max-width: 100vw;
+        }
+        .hero-video-clean {
+            border-radius: 4vw;
+        }
+    }
+    .runlemonade-server-badge-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 28px 8px 18px;
+        background: #fff;
+        border: 2px solid #b0b3b8;
+        border-radius: 14px;
+        box-shadow: none;
+        font-family: 'Nunito', 'Segoe UI', Arial, sans-serif;
+        color: #4B3F2A;
+        text-decoration: none;
+        transition: box-shadow 0.18s, border-color 0.18s;
+        min-height: 44px;
+        font-size: 1.08rem;
+        font-weight: 500;
+    }
+    .runlemonade-server-badge-btn:hover, .runlemonade-server-badge-btn:focus {
+        box-shadow: 0 2px 8px rgba(245,193,37,0.10);
+        border-color: #F5C125;
+        color: #F5C125;
+    }
+    .runlemonade-server-badge-btn img {
+        height: 22px;
+        width: auto;
+        min-width: unset;
+        min-height: unset;
+        max-height: 22px;
+        max-width: unset;
+        display: inline-block;
+        vertical-align: middle;
+        filter: grayscale(1) brightness(1.2) contrast(0.8);
+        margin-right: 10px;
+    }
+    .runlemonade-server-badge-btn .badge-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 1.1;
+    }
+    .runlemonade-server-badge-btn .badge-download {
+        font-size: 0.93rem;
+        color: #7a6a4f;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+    }
+    .runlemonade-server-badge-btn .badge-title {
+        font-size: 1.18rem;
+        font-weight: 700;
+        color: #4B3F2A;
+        letter-spacing: 0.01em;
+        margin-top: 1px;
+    }
+    </style>
+
+    <!-- END HERO MACBOOK MOCKUP -->
+
+    <!-- Demo section -->
+    <section class="section">
+        <div class="container">
+            <div class="video-showcase">
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-container">
+                            <!-- Embed Video Demo 1 -->
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/0P9xkwVoQrw" title="Video Demo 1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius: 12px;"></iframe>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-container">
+                            <!-- Embed Video Demo 2 -->
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Mnt4J1kEuc0" title="Video Demo 2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius: 12px;"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase Section -->
+    <section class="section">
+        <div class="container">
+            <div class="product-showcase">
+                <div class="product-content">
+                    <h2>The fastest way to model beautiful cabinets</h2>
+                    <p>Cut your modeling time by 80%. FORM gives you ready-to-use tools that make SketchUp feel 10x faster — no setup needed. Download instantly and start using today.</p>
+                    <a href="form_app_page.html" class="btn btn-primary">Read More</a>
+                </div>
+                <div class="product-visual">
+                    <!-- Embed FORM Interface Demo video -->
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Q7YInbloSeg" title="FORM Interface Demo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius: 12px;"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learn & Support Section -->
+    <section class="learn-support-section" id="features">
+        <div class="learn-support-container">
+            <div class="section-header">
+                <div class="section-overline">Learn & Support</div>
+                <h2 class="section-title">Everything you need to get started</h2>
+                <p class="section-subtitle">Comprehensive resources, tutorials, and support to help you master FORM and optimize your digital fabrication workflow.</p>
+            </div>
+            
+            <div class="learn-support-grid" style="position:relative;z-index:2;">
+                <!-- Tutorials - Large Card -->
+                <div class="bento-item bento-tutorials">
+                    <div class="bento-header">Tutorials</div>
+                    <h3 class="bento-title">Step-by-step video guides</h3>
+                    <p class="bento-description">Learn FORM with comprehensive video tutorials covering everything from basic installation to advanced cabinet modeling techniques. Perfect for beginners and professionals alike.</p>
+                    <iframe width="100%" height="220" src="https://www.youtube.com/embed/0P9xkwVoQrw" title="Video Tutorial Preview" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius: 12px; display: block;"></iframe>
+                    <div class="bento-actions">
+                        <a href="https://www.youtube.com/watch?v=0P9xkwVoQrw&list=PLh80Z0A6lVe7QHaHXVU-f5QlF5m91goy5&index=2" class="btn btn-primary" target="_blank">Watch Now</a>
+                        <a href="#" class="btn btn-secondary">All Tutorials</a>
+                    </div>
+                </div>
+
+                <!-- Support - Tall Card -->
+                <div class="bento-item bento-support">
+                    <div class="bento-header">Support</div>
+                    <h3 class="bento-title">Expert help when you need it</h3>
+                    <p class="bento-description">Get direct support from our team of fabrication experts. We're here to help you solve problems and optimize your workflow.</p>
+                    <div style="height: 48px;"></div>
+                    <div class="bento-actions">
+                        <a href="#" class="btn btn-primary">Get Help</a>
+                        <a href="#" class="btn btn-secondary">FAQ</a>
+                    </div>
+                </div>
+
+                <!-- Community - Tall Card -->
+                <div class="bento-item bento-community">
+                    <div class="bento-header">Community</div>
+                    <h3 class="bento-title">Connect with professionals</h3>
+                    <p class="bento-description">Join our Discord community to connect with other FORM users, share projects, get tips, and request new features.</p>
+                    <div style="height: 48px;"></div>
+                    <div class="bento-actions">
+                        <a href="https://discord.com/channels/1384828504670998569/1384862569789132871" class="btn btn-primary">Join Discord</a>
+                    </div>
+                </div>
+
+                <!-- Documentation - Medium Card -->
+                <div class="bento-item bento-docs">
+                    <div class="bento-header">Documentation</div>
+                    <h3 class="bento-title">Complete reference guide</h3>
+                    <p class="bento-description">Detailed documentation covering every feature, tool, and workflow in FORM. Search, browse, and find exactly what you need.</p>
+                    <div style="height: 48px;"></div>
+                    <div class="bento-actions">
+                        <a href="knowledge-base.html" class="btn btn-secondary">Read Docs</a>
+                    </div>
+                </div>
+
+                <!-- Video Showcase - Wide Card -->
+                <div class="bento-item bento-video">
+                    <div class="bento-header">Featured</div>
+                    <h3 class="bento-title">Getting started with FORM</h3>
+                    <p class="bento-description">Watch our comprehensive getting started guide that covers installation, first project setup, and key features you'll use every day.</p>
+                    <iframe width="100%" height="220" src="https://www.youtube.com/embed/Mnt4J1kEuc0" title="Featured Video" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius: 12px; display: block;"></iframe>
+                    <div class="bento-actions">
+                        <a href="https://youtu.be/Mnt4J1kEuc0" class="btn btn-primary" target="_blank">Watch Guide</a>
+                        <a href="https://www.youtube.com/watch?v=0P9xkwVoQrw&list=PLh80Z0A6lVe7QHaHXVU-f5QlF5m91goy5&index=2" class="btn btn-secondary">More Videos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-overline">Testimonials</div>
+                <h2 class="section-title">Trusted by professionals worldwide</h2>
+                <p class="section-subtitle">See what digital fabrication professionals are saying about FORM.</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"This first release of FORM for SketchUp has already sped up my client designs so much. Toby is great with support and the additional models I get a month are well worth the 30 quid. Can't wait for the shaker update. Thanks Toby, great product."</p>
+                    <div class="testimonial-author">Simon Wright</div>
+                    <div class="testimonial-role">Professional Cabinetmaker</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I just use the empty cabinets to create quick quotes from. I'm a bit of a technical idiot, there's lots in this that I don't use but for speedy quoting this thing has saved me hours. Back end needs a bit more work but Toby has said that this is in the pipeline."</p>
+                    <div class="testimonial-author">James Graham</div>
+                    <div class="testimonial-role">Manufacturing Specialist</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I was a bit apprehensive of trying this. I use SketchUp day to day and didn't want to change how I do things, but I have to say that I am surprised at how easy it is to use after an hour of using it. The drag and drop works well for client changes. It's regularly updated and Toby's helpful. Would recommend."</p>
+                    <div class="testimonial-author">Matt Barker</div>
+                    <div class="testimonial-role">Digital Fabrication Specialist</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to transform your workflow?</h2>
+            <p>Join hundreds of fabrication professionals who've already streamlined their SketchUp workflow with FORM.</p>
+            
+            <div class="hero-video-cta">
+                <a href="#" class="btn btn-primary">Start Free Trial</a>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+            </div>
+            
+            <p style="margin-top: 32px; font-size: 0.875rem; color: #9ca3af;">7-day free trial • No credit card required • Cancel anytime</p>
+        </div>
+    </section>
+
+    <div id="footer-include"></div>
+
+    <!-- 2. Add global modal markup at the end of body -->
+    <div id="free-trial-modal" style="display:none;position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;">
+      <div style="background:#fff;border-radius:16px;max-width:480px;width:95vw;padding:40px 28px;box-shadow:0 8px 32px rgba(0,0,0,0.18);position:relative;">
+        <button id="close-modal-btn" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:2rem;cursor:pointer;line-height:1;">&times;</button>
+        <h2 style="font-size:2rem;font-weight:700;margin-bottom:16px;text-align:center;">Download the 7 day FREE trial for FORM for SketchUp</h2>
+        <p style="margin-bottom:16px;text-align:center;">To get your 7 day free trial simply fill in the email form below. This will subscribe you to the newsletter and send you an automated download link to the SketchUp extension. Please make sure to verify your email as download links will not arrive unless verified!<br><br>If you've not received the file after 2 minutes, please check your spam folder as we may have ended up in there!</p>
+        <div style="margin-bottom:24px;text-align:center;">
+          <iframe width="100%" height="220" src="https://www.youtube.com/embed/0P9xkwVoQrw" title="FORM Demo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius: 12px; display: block; margin: 0 auto 16px auto;"></iframe>
+            </div>
+        <div id="ghost-signup-container" style="margin-bottom:24px;">
+          <div style="min-height: 58px;max-width: 440px;margin: 0 auto;width: 100%"><script src="https://cdn.jsdelivr.net/ghost/signup-form@~0.2/umd/signup-form.min.js" data-button-color="#FEC51D" data-button-text-color="#000000" data-site="https://www.runlemonade.com/" data-locale="en" async></script></div>
+            </div>
+        <div id="download-btn-container" style="display:none;text-align:center;">
+          <a href="https://github.com/runlemonade/web-dev/releases/download/1.0.12/form_extension_v1.0.12.rbz" class="btn btn-primary" style="margin-top:16px;">Download FORM Extension (.rbz)</a>
+            </div>
+            </div>
+        </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effects for cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.querySelectorAll('.testimonial-card, .bento-item, .tool-bento-item, .credential-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Header/Footer includes
+        function includeHTML(id, file) {
+            fetch(file).then(res => res.text()).then(data => {
+                document.getElementById(id).innerHTML = data;
+                if (id === 'header-include') window.dispatchEvent(new Event('header-loaded'));
+                if (id === 'footer-include') window.dispatchEvent(new Event('footer-loaded'));
+            });
+        }
+        includeHTML('header-include', 'header.html');
+        includeHTML('footer-include', 'footer.html');
+    </script>
+    <!-- 3. Add modal trigger to all Start Free Trial buttons -->
+    <script>
+// Modal logic
+function showFreeTrialModal() {
+  document.getElementById('free-trial-modal').style.display = 'flex';
+}
+function hideFreeTrialModal() {
+  document.getElementById('free-trial-modal').style.display = 'none';
+}
+document.addEventListener('DOMContentLoaded', function() {
+  // Attach modal trigger to all Start Free Trial buttons
+  document.querySelectorAll('a.btn-primary, button.btn-primary').forEach(btn => {
+    if (btn.textContent.trim().toLowerCase().includes('start free trial')) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        showFreeTrialModal();
+      });
+    }
+  });
+  // Attach modal trigger to runLemonade Server badge button
+  var badgeBtn = document.querySelector('.runlemonade-server-badge-btn');
+  if (badgeBtn) {
+    badgeBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      showFreeTrialModal();
+    });
+  }
+  // Close modal button
+  document.getElementById('close-modal-btn').onclick = hideFreeTrialModal;
+  // Listen for Ghost signup form submission
+  let signupSubmitted = false;
+  document.addEventListener('submit', function(e) {
+    if (e.target.closest('#ghost-signup-container')) {
+      if (!signupSubmitted) {
+        signupSubmitted = true;
+        setTimeout(function() {
+          document.getElementById('download-btn-container').style.display = 'block';
+        }, 3000);
+      }
+    }
+  }, true);
+});
+    </script>
+    <script>
+        window.addEventListener('header-loaded', setupMobileMenu);
+        function setupMobileMenu() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+            if (mobileMenuToggle && mobileMenuOverlay) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mobileMenuToggle.classList.toggle('active');
+                    mobileMenuOverlay.classList.toggle('active');
+                    document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+                });
+
+                // Close menu when clicking on overlay
+                mobileMenuOverlay.addEventListener('click', function(e) {
+                    if (e.target === mobileMenuOverlay) {
+                        mobileMenuToggle.classList.remove('active');
+                        mobileMenuOverlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+
+                // Close menu when clicking on menu items
+                const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
+                mobileMenuItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        mobileMenuToggle.classList.remove('active');
+                        mobileMenuOverlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+        }
+    </script>
+</body>
+</html>
