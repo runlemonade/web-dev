@@ -431,6 +431,7 @@ html {
     max-width: 100% !important;
     min-width: auto !important;
     height: auto !important;
+    object-fit: contain !important;
   }
   
   .hero-overlap-left,
@@ -446,8 +447,20 @@ html {
   }
   
   .mobile-images-container img {
-    width: 120px !important;
+    width: 80px !important;
     height: auto !important;
+    object-fit: contain !important;
+    aspect-ratio: auto !important;
+  }
+  
+  /* Fix FORM page left image to be dynamic */
+  .hero-device img {
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: 200px !important;
+    object-fit: contain !important;
+    aspect-ratio: auto !important;
   }
   
   /* Fix pricing cards on FORM page */
@@ -510,6 +523,90 @@ html {
   * {
     max-width: 100% !important;
     box-sizing: border-box !important;
+  }
+  
+  /* Fix download FORM button on mobile */
+  .runlemonade-server-badge-btn {
+    width: 100% !important;
+    max-width: 280px !important;
+    padding: 16px 24px !important;
+    font-size: 0.9rem !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  
+  .runlemonade-server-badge-btn img {
+    height: 16px !important;
+    margin-right: 8px !important;
+  }
+  
+  .badge-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  
+  /* Ensure Nestmate card shows on mobile */
+  div[style*="display: flex"][style*="gap: 50px"] > div {
+    display: block !important;
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto 2rem auto !important;
+  }
+  
+  /* Fix modal popup for mobile */
+  #free-trial-modal > div {
+    max-width: 95vw !important;
+    width: 95vw !important;
+    padding: 2rem 1rem !important;
+    margin: 1rem !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+  }
+  
+  #free-trial-modal h2 {
+    font-size: 1.8rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  #free-trial-modal p {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Hide video on mobile in modal */
+  #free-trial-modal iframe {
+    display: none !important;
+  }
+  
+  /* Fix modal content spacing */
+  #free-trial-modal .ghost-signup-container {
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Fix meet the developer page mobile alignment */
+  .developer-section {
+    text-align: center !important;
+    padding: 2rem 1rem !important;
+  }
+  
+  .developer-content {
+    text-align: center !important;
+    max-width: 100% !important;
+  }
+  
+  .credentials-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+  }
+  
+  .credential-item {
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
   }
 }
 
@@ -639,6 +736,26 @@ html {
   .content-section {
     overflow-x: hidden !important;
     width: 100% !important;
+  }
+  
+  /* Additional mobile fixes for extra small screens */
+  .runlemonade-server-badge-btn {
+    font-size: 0.85rem !important;
+    padding: 14px 20px !important;
+  }
+  
+  .badge-text {
+    font-size: 0.85rem !important;
+  }
+  
+  /* Fix any text overflow in buttons */
+  .runlemonade-server-badge-btn,
+  .btn,
+  .btn-primary,
+  .btn-secondary {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    text-align: center !important;
   }
 }
 
