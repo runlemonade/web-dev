@@ -567,80 +567,14 @@ html {
     width: auto !important;
   }
   
-  /* Ensure Nestmate card shows on mobile */
-  div[style*="display: flex"][style*="gap: 50px"] > div {
-    display: block !important;
-    width: 100% !important;
-    max-width: 400px !important;
-    margin: 0 auto 2rem auto !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-  
-  /* Force all bento cards to show on mobile */
+  /* Ensure bento cards display properly on mobile */
   .bento-card {
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
-  }
-  
-  /* Specifically force Nestmate card to show */
-  .bento-card[style*="NESTMATE"],
-  div[style*="NESTMATE"] {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    position: static !important;
-    z-index: 1 !important;
-  }
-  
-  /* Force all cards in the flex container to show */
-  div[style*="display: flex"][style*="gap: 50px"] > div.bento-card {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
     width: 100% !important;
-    max-width: 400px !important;
-    margin: 0 auto 2rem auto !important;
-  }
-  
-  /* Specifically target the first bento card (Nestmate) */
-  div[style*="display: flex"][style*="gap: 50px"] > div.bento-card:first-child {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    width: 100% !important;
-    max-width: 400px !important;
-    margin: 0 auto 2rem auto !important;
-  }
-  
-  /* Force Nestmate card to show on mobile */
-  .nestmate-card {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    position: static !important;
-    z-index: 1 !important;
-    width: 100% !important;
-    max-width: 400px !important;
-    margin: 0 auto 2rem auto !important;
-  }
-  
-  /* Force all flex container children to show */
-  div[style*="display: flex"] > div {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-  
-  /* Force any element containing "NESTMATE" text to show */
-  *:contains("NESTMATE"),
-  div:has(.card-badge:contains("NESTMATE")) {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    position: static !important;
-    z-index: 1 !important;
+    max-width: 100% !important;
+    margin-bottom: 2rem !important;
   }
   
   /* Fix modal popup for mobile */
@@ -885,6 +819,32 @@ html {
   .hero div[style*="display: flex"][style*="gap: 20px"] > button,
   .hero div[style*="justify-content: center"] > a,
   .hero div[style*="justify-content: center"] > button {
+    width: 100% !important;
+    max-width: 300px !important;
+    justify-content: center !important;
+  }
+  
+  /* Direct targeting of hero button container */
+  .hero .container > div:last-child {
+    flex-direction: column !important;
+    gap: 16px !important;
+    align-items: center !important;
+  }
+  
+  .hero .container > div:last-child > a {
+    width: 100% !important;
+    max-width: 300px !important;
+    justify-content: center !important;
+  }
+  
+  /* Simple class-based targeting */
+  .hero-buttons {
+    flex-direction: column !important;
+    gap: 16px !important;
+    align-items: center !important;
+  }
+  
+  .hero-buttons > a {
     width: 100% !important;
     max-width: 300px !important;
     justify-content: center !important;

@@ -532,7 +532,7 @@
     <div class="container animate-on-scroll" style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 2;">
       <h1 class="hero-title apple-typography" style="font-size: 6.5rem; font-weight: 900; margin-bottom: 48px; color: #1d1d1f; line-height: 1.05; letter-spacing: -0.04em; text-shadow: 0 2px 10px rgba(0,0,0,0.05);">From <span class="concept-highlight">concept</span> to<br><span class="cutting-list-animation"><span class="cutting">cutting</span> <span class="list">list</span></span></h1>
       <p class="hero-subtitle-refined apple-typography" style="margin-bottom: 72px; max-width: 900px; margin-left: auto; margin-right: auto;">Three precision-engineered tools that work together to streamline your entire digital fabrication workflow. Built from real-world experience.</p>
-      <div style="display: flex; gap: 24px; justify-content: center; margin-top: 60px;">
+      <div class="hero-buttons" style="display: flex; gap: 24px; justify-content: center; margin-top: 60px;">
         <a href="#" class="runlemonade-server-badge-btn premium-button subtle-glow" style="display: inline-flex; align-items: center; text-decoration: none; position: relative; overflow: hidden; background: linear-gradient(135deg, #007AFF 0%, #0056CC 100%); color: white; padding: 20px 32px; border-radius: 16px; font-weight: 600; font-size: 1rem; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); box-shadow: 0 8px 32px rgba(0,122,255,0.25);" onclick="showFreeTrialModal(); return false;">
           <img src="images/logo.png" alt="runLemonade Logo" style="height: 22px; width: auto; margin-right: 10px; filter: brightness(0) invert(1);" />
           <span class="badge-text">
@@ -607,48 +607,47 @@
         </div>
       </div>
       
-      <div style="display: flex; gap: 50px; align-items: stretch; flex-wrap: wrap;">
-        <!-- NESTMATE Card -->
-        <div class="stagger-animation bento-card card-hover glass-card premium-shadow nestmate-card" style="background: linear-gradient(135deg, #fff 0%, #fafafa 100%); border-radius: 36px; padding: 60px; display: flex; flex-direction: column; align-items: flex-start; height: 650px; color: #1d1d1f; flex: 1 1 0; overflow: hidden; border: 1px solid rgba(0,0,0,0.04); min-width: 300px;">
-          <div class="card-badge" style="background: linear-gradient(135deg, rgba(39,174,96,0.1) 0%, rgba(39,174,96,0.05) 100%); color: #27ae60;">NESTMATE</div>
-          <div style="font-size: 0.9rem; color: #86868b; margin-bottom: 20px; font-weight: 500; letter-spacing: 0.05em;">PRODUCTION & NESTING ADD-IN</div>
-          <h3 class="card-title-refined apple-typography" style="margin-bottom: 28px;">Optimize material usage</h3>
-          <div class="body-text-refined apple-typography" style="margin-bottom: 32px;">Reduce waste with intelligent nesting algorithms. Seamlessly integrates with your FORM models for efficient production.</div>
-          <ul style="font-size: 1rem; color: #515154; margin-bottom: 36px; padding-left: 20px; line-height: 1.6; letter-spacing: -0.01em; flex: 1;">
-            <li style="margin-bottom: 12px;">Automatic nesting optimization</li>
-            <li style="margin-bottom: 12px;">Material waste reduction up to 40%</li>
-            <li style="margin-bottom: 12px;">Production-ready cutting layouts</li>
-            <li style="margin-bottom: 12px;">Integrated cost calculation tools</li>
-          </ul>
-          <div style="margin-top: auto; width: 100%;">
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-              <div style="color: #27ae60; font-size: 1.2rem;">☆☆☆☆☆</div>
-              <span style="font-size: 0.9rem; color: #86868b; font-weight: 500;">Beta Access Available</span>
-            </div>
-            <button style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); color: white; border: none; padding: 16px 28px; border-radius: 12px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 6px 24px rgba(39,174,96,0.25); letter-spacing: -0.01em;">Join Beta Waitlist</button>
+      <!-- NESTMATE Card -->
+      <div class="stagger-animation bento-card card-hover glass-card premium-shadow" style="background: linear-gradient(135deg, #fff 0%, #fafafa 100%); border-radius: 36px; padding: 60px; display: flex; flex-direction: column; align-items: flex-start; height: 650px; color: #1d1d1f; overflow: hidden; border: 1px solid rgba(0,0,0,0.04); margin-bottom: 50px;">
+        <div class="card-badge" style="background: linear-gradient(135deg, rgba(39,174,96,0.1) 0%, rgba(39,174,96,0.05) 100%); color: #27ae60;">NESTMATE</div>
+        <div style="font-size: 0.9rem; color: #86868b; margin-bottom: 20px; font-weight: 500; letter-spacing: 0.05em;">PRODUCTION & NESTING ADD-IN</div>
+        <h3 class="card-title-refined apple-typography" style="margin-bottom: 28px;">Optimize material usage</h3>
+        <div class="body-text-refined apple-typography" style="margin-bottom: 32px;">Reduce waste with intelligent nesting algorithms. Seamlessly integrates with your FORM models for efficient production.</div>
+        <ul style="font-size: 1rem; color: #515154; margin-bottom: 36px; padding-left: 20px; line-height: 1.6; letter-spacing: -0.01em; flex: 1;">
+          <li style="margin-bottom: 12px;">Automatic nesting optimization</li>
+          <li style="margin-bottom: 12px;">Material waste reduction up to 40%</li>
+          <li style="margin-bottom: 12px;">Production-ready cutting layouts</li>
+          <li style="margin-bottom: 12px;">Integrated cost calculation tools</li>
+        </ul>
+        <div style="margin-top: auto; width: 100%;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+            <div style="color: #27ae60; font-size: 1.2rem;">☆☆☆☆☆</div>
+            <span style="font-size: 0.9rem; color: #86868b; font-weight: 500;">Beta Access Available</span>
           </div>
+          <button style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); color: white; border: none; padding: 16px 28px; border-radius: 12px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 6px 24px rgba(39,174,96,0.25); letter-spacing: -0.01em;">Join Beta Waitlist</button>
         </div>
-        <!-- DRAFT Card -->
-        <div class="stagger-animation bento-card card-hover glass-card premium-shadow" style="background: linear-gradient(135deg, #fff 0%, #fafafa 100%); border-radius: 36px; padding: 60px; display: flex; flex-direction: column; align-items: flex-start; height: 650px; color: #1d1d1f; flex: 1 1 0; overflow: hidden; border: 1px solid rgba(0,0,0,0.04); min-width: 300px;">
-          <div class="card-badge" style="background: linear-gradient(135deg, rgba(232,67,147,0.1) 0%, rgba(232,67,147,0.05) 100%); color: #e84393;">DRAFT</div>
-          <div style="font-size: 0.9rem; color: #86868b; margin-bottom: 20px; font-weight: 500; letter-spacing: 0.05em;">2D LAYOUT AND VECTOR DESIGN</div>
-          <h3 class="card-title-refined apple-typography" style="margin-bottom: 28px;">Draw with your head and hand</h3>
-          <div class="body-text-refined apple-typography" style="margin-bottom: 32px;">DRAFT combines accurate layout tools with the fluidity of sketching on tracing paper.</div>
-          <ul style="font-size: 1rem; color: #515154; margin-bottom: 36px; padding-left: 20px; line-height: 1.6; letter-spacing: -0.01em; flex: 1;">
-            <li style="margin-bottom: 12px;">Snapping, scaling, align/distribute tools</li>
-            <li style="margin-bottom: 12px;">Grid + ruler overlays</li>
-            <li style="margin-bottom: 12px;">Real-world units (mm, cm, m, ft/inch toggle)</li>
-            <li style="margin-bottom: 12px;">Drag in FORM catalogue items</li>
-            <li style="margin-bottom: 12px;">Line weights, dashed lines, fills</li>
-            <li style="margin-bottom: 12px;">Export to SVG/DXF</li>
-          </ul>
-          <div style="margin-top: auto; width: 100%;">
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-              <div style="color: #e84393; font-size: 1.2rem;">☆☆☆☆☆</div>
-              <span style="font-size: 0.9rem; color: #86868b; font-weight: 500;">Coming Soon</span>
-            </div>
-            <button style="background: linear-gradient(135deg, #e84393 0%, #fd79a8 100%); color: white; border: none; padding: 16px 28px; border-radius: 12px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 6px 24px rgba(232,67,147,0.25); letter-spacing: -0.01em;">Get Notified</button>
+      </div>
+      
+      <!-- DRAFT Card -->
+      <div class="stagger-animation bento-card card-hover glass-card premium-shadow" style="background: linear-gradient(135deg, #fff 0%, #fafafa 100%); border-radius: 36px; padding: 60px; display: flex; flex-direction: column; align-items: flex-start; height: 650px; color: #1d1d1f; overflow: hidden; border: 1px solid rgba(0,0,0,0.04);">
+        <div class="card-badge" style="background: linear-gradient(135deg, rgba(232,67,147,0.1) 0%, rgba(232,67,147,0.05) 100%); color: #e84393;">DRAFT</div>
+        <div style="font-size: 0.9rem; color: #86868b; margin-bottom: 20px; font-weight: 500; letter-spacing: 0.05em;">2D LAYOUT AND VECTOR DESIGN</div>
+        <h3 class="card-title-refined apple-typography" style="margin-bottom: 28px;">Draw with your head and hand</h3>
+        <div class="body-text-refined apple-typography" style="margin-bottom: 32px;">DRAFT combines accurate layout tools with the fluidity of sketching on tracing paper.</div>
+        <ul style="font-size: 1rem; color: #515154; margin-bottom: 36px; padding-left: 20px; line-height: 1.6; letter-spacing: -0.01em; flex: 1;">
+          <li style="margin-bottom: 12px;">Snapping, scaling, align/distribute tools</li>
+          <li style="margin-bottom: 12px;">Grid + ruler overlays</li>
+          <li style="margin-bottom: 12px;">Real-world units (mm, cm, m, ft/inch toggle)</li>
+          <li style="margin-bottom: 12px;">Drag in FORM catalogue items</li>
+          <li style="margin-bottom: 12px;">Line weights, dashed lines, fills</li>
+          <li style="margin-bottom: 12px;">Export to SVG/DXF</li>
+        </ul>
+        <div style="margin-top: auto; width: 100%;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+            <div style="color: #e84393; font-size: 1.2rem;">☆☆☆☆☆</div>
+            <span style="font-size: 0.9rem; color: #86868b; font-weight: 500;">Coming Soon</span>
           </div>
+          <button style="background: linear-gradient(135deg, #e84393 0%, #fd79a8 100%); color: white; border: none; padding: 16px 28px; border-radius: 12px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 6px 24px rgba(232,67,147,0.25); letter-spacing: -0.01em;">Get Notified</button>
         </div>
       </div>
     </div>
