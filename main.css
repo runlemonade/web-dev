@@ -555,6 +555,18 @@ html {
     min-height: 48px !important;
   }
   
+  /* FORM card button mobile sizing */
+  .bento-card .runlemonade-server-badge-btn {
+    padding: 14px 20px !important;
+    font-size: 0.9rem !important;
+    min-height: 44px !important;
+  }
+  
+  .bento-card .runlemonade-server-badge-btn img {
+    height: 16px !important;
+    width: auto !important;
+  }
+  
   /* Ensure Nestmate card shows on mobile */
   div[style*="display: flex"][style*="gap: 50px"] > div {
     display: block !important;
@@ -582,11 +594,53 @@ html {
     z-index: 1 !important;
   }
   
+  /* Force all cards in the flex container to show */
+  div[style*="display: flex"][style*="gap: 50px"] > div.bento-card {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto 2rem auto !important;
+  }
+  
+  /* Specifically target the first bento card (Nestmate) */
+  div[style*="display: flex"][style*="gap: 50px"] > div.bento-card:first-child {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto 2rem auto !important;
+  }
+  
+  /* Force Nestmate card to show on mobile */
+  .nestmate-card {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: static !important;
+    z-index: 1 !important;
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto 2rem auto !important;
+  }
+  
   /* Force all flex container children to show */
   div[style*="display: flex"] > div {
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
+  }
+  
+  /* Force any element containing "NESTMATE" text to show */
+  *:contains("NESTMATE"),
+  div:has(.card-badge:contains("NESTMATE")) {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: static !important;
+    z-index: 1 !important;
   }
   
   /* Fix modal popup for mobile */
@@ -816,15 +870,21 @@ html {
     text-align: center !important;
   }
   
-  /* Stack buttons on mobile only */
-  div[style*="display: flex"][style*="gap: 24px"] {
+  /* Stack hero buttons on mobile only */
+  .hero div[style*="display: flex"][style*="gap: 24px"],
+  .hero div[style*="display: flex"][style*="gap: 20px"],
+  .hero div[style*="justify-content: center"] {
     flex-direction: column !important;
     gap: 16px !important;
     align-items: center !important;
   }
   
-  div[style*="display: flex"][style*="gap: 24px"] > a,
-  div[style*="display: flex"][style*="gap: 24px"] > button {
+  .hero div[style*="display: flex"][style*="gap: 24px"] > a,
+  .hero div[style*="display: flex"][style*="gap: 24px"] > button,
+  .hero div[style*="display: flex"][style*="gap: 20px"] > a,
+  .hero div[style*="display: flex"][style*="gap: 20px"] > button,
+  .hero div[style*="justify-content: center"] > a,
+  .hero div[style*="justify-content: center"] > button {
     width: 100% !important;
     max-width: 300px !important;
     justify-content: center !important;
