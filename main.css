@@ -567,28 +567,7 @@ html {
     width: auto !important;
   }
   
-  /* New FORM card download button mobile sizing */
-  .form-card-download-btn {
-    padding: 14px 20px !important;
-    font-size: 0.85rem !important;
-    min-height: 42px !important;
-    border-radius: 10px !important;
-  }
-  
-  .form-card-download-btn img {
-    height: 16px !important;
-    width: auto !important;
-    margin-right: 6px !important;
-  }
-  
-  .form-card-download-btn span {
-    font-size: 0.75rem !important;
-  }
-  
-  .form-card-download-btn span span:last-child {
-    font-size: 0.85rem !important;
-    font-weight: 600 !important;
-  }
+
   
   /* Ensure bento cards display properly on mobile */
   .bento-card {
@@ -610,6 +589,8 @@ html {
   .bento-cards-container .bento-card {
     width: 100% !important;
     margin-bottom: 0 !important;
+    flex: none !important;
+    min-width: auto !important;
   }
   
   /* Desktop layout for bento cards */
@@ -619,9 +600,27 @@ html {
       flex-direction: row !important;
       gap: 50px !important;
       align-items: stretch !important;
+      width: 100% !important;
     }
     
     .bento-cards-container .bento-card {
+      flex: 1 1 0 !important;
+      min-width: 300px !important;
+      margin-bottom: 0 !important;
+      width: calc(50% - 25px) !important;
+    }
+  }
+  
+  /* Force desktop layout with higher specificity */
+  @media (min-width: 900px) {
+    .bento-cards-container {
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 50px !important;
+      align-items: stretch !important;
+    }
+    
+    .bento-cards-container > div {
       flex: 1 1 0 !important;
       min-width: 300px !important;
       margin-bottom: 0 !important;
