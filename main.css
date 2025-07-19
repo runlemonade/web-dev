@@ -57,10 +57,437 @@ html, body {
   padding: 0;
   width: 100%;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 body {
   overflow-x: hidden;
+  min-height: 100vh;
+  /* Prevent content from being cut off by mobile browser UI */
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Mobile-first responsive design */
+html {
+  font-size: 16px; /* Base font size for mobile */
+}
+
+/* Ensure proper viewport handling */
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 14px; /* Slightly smaller base font for very small screens */
+  }
+}
+
+/* === MOBILE-SPECIFIC FIXES === */
+
+/* Mobile breakpoints */
+@media (max-width: 768px) {
+  /* Hero section mobile fixes */
+  .hero {
+    min-height: 100vh;
+    padding: 20px 0;
+    margin-top: 0;
+  }
+  
+  .hero-content {
+    padding: 20px;
+    margin-top: 60px; /* Account for mobile header */
+    max-width: 100%;
+  }
+  
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-badge {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .btn, .btn-primary, .btn-secondary {
+    width: 100%;
+    max-width: 300px;
+    min-height: 48px; /* Larger touch targets */
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  /* Content sections mobile fixes */
+  .content-section {
+    padding: 3rem 1rem;
+  }
+  
+  .section-title {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  /* Feature cards mobile fixes */
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .feature-card {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .feature-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .feature-list li {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Bento grid mobile fixes */
+  .bento-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .bento-card {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .bento-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .bento-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  /* Pricing mobile fixes */
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .pricing-card {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .pricing-title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+  
+  .pricing-price {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  
+  /* Reviews mobile fixes */
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .review-card {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .review-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  /* FAQ mobile fixes */
+  .faq-list {
+    gap: 1rem;
+  }
+  
+  .faq-item {
+    padding: 1rem;
+  }
+  
+  .faq-question {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  
+  .faq-answer {
+    font-size: 0.9rem;
+    padding: 0 1rem 1rem 1rem;
+  }
+  
+  /* Header mobile fixes */
+  .header {
+    height: 60px;
+    padding: 0 1rem;
+  }
+  
+  .logo-img {
+    height: 20px;
+  }
+  
+  /* Container mobile fixes */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Footer mobile fixes */
+  .footer-content {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .footer-section {
+    min-width: auto;
+    flex: none;
+  }
+  
+  /* Prevent content overflow */
+  .page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Ensure proper spacing for mobile browser UI */
+  .hero-section,
+  .section {
+    padding-bottom: 2rem;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 1rem;
+    margin-top: 50px;
+  }
+  
+  .hero-title {
+    font-size: clamp(1.5rem, 7vw, 2.5rem);
+  }
+  
+  .btn, .btn-primary, .btn-secondary {
+    min-height: 52px; /* Even larger touch targets for small screens */
+    font-size: 1rem;
+  }
+  
+  .content-section {
+    padding: 2rem 0.75rem;
+  }
+  
+  .feature-card,
+  .bento-card,
+  .pricing-card,
+  .review-card {
+    padding: 1.25rem;
+  }
+  
+  .section-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+  
+  /* Prevent text overflow */
+  .hero-title,
+  .section-title,
+  .feature-title,
+  .bento-card h3 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 360px) {
+  .hero-content {
+    padding: 0.75rem;
+  }
+  
+  .hero-title {
+    font-size: clamp(1.25rem, 6vw, 2rem);
+  }
+  
+  .btn, .btn-primary, .btn-secondary {
+    min-height: 56px;
+    font-size: 0.95rem;
+  }
+  
+  .content-section {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .feature-card,
+  .bento-card,
+  .pricing-card,
+  .review-card {
+    padding: 1rem;
+  }
+}
+
+/* Landscape mobile fixes */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    min-height: 100vh;
+    padding: 10px 0;
+  }
+  
+  .hero-content {
+    margin-top: 40px;
+    padding: 10px;
+  }
+  
+  .hero-title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+  }
+  
+  .content-section {
+    padding: 2rem 1rem;
+  }
+}
+
+/* Ensure proper viewport height handling for mobile browsers */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  }
+  
+  /* Prevent content from being hidden behind mobile browser UI */
+  body {
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .header {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* Fix for iOS Safari viewport issues */
+@supports (-webkit-touch-callout: none) {
+  .hero {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Additional mobile fixes for specific issues shown in screenshots */
+@media (max-width: 768px) {
+  /* Fix for content being cut off at bottom */
+  .page-container {
+    padding-bottom: 2rem;
+  }
+  
+  /* Ensure proper spacing for mobile browser UI */
+  .hero-section,
+  .section {
+    margin-bottom: 2rem;
+  }
+  
+  /* Fix for large text overflow */
+  .hero-title,
+  .section-title {
+    word-break: break-word;
+    hyphens: auto;
+  }
+  
+  /* Improve button layout on mobile */
+  .hero-cta {
+    margin-bottom: 3rem;
+  }
+  
+  /* Fix for card content overflow */
+  .bento-card,
+  .feature-card,
+  .pricing-card {
+    overflow: hidden;
+  }
+  
+  /* Ensure images don't overflow */
+  .bento-card img,
+  .feature-card img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Fix for mobile menu overlay */
+  .mobile-menu-overlay {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  /* Improve touch targets */
+  .mobile-menu-item,
+  .nav-menu a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Fix for footer on mobile */
+  .footer {
+    margin-top: 2rem;
+    padding: 2rem 0 1rem 0;
+  }
+  
+  .footer-bottom {
+    padding: 1rem 0;
+  }
+}
+
+/* Extra fixes for very small screens */
+@media (max-width: 360px) {
+  .hero-content {
+    padding: 0.5rem;
+  }
+  
+  .hero-title {
+    font-size: clamp(1.25rem, 6vw, 2rem);
+    line-height: 1.1;
+  }
+  
+  .section-title {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+  }
+  
+  /* Ensure content fits within viewport */
+  .bento-card,
+  .feature-card,
+  .pricing-card {
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+  
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* Fix for mobile browser address bar */
+  .hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
 }
 
 html, body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, .btn, .btn-primary, .btn-secondary, .runlemonade-server-badge-btn, .badge-text, .badge-download, .badge-title, .section-title, .section-subtitle, .feature-title, .feature-header, .pricing-title, .pricing-subtitle, .pricing-features, .pricing-plan-name, .pricing-price, .pricing-period, .review-text, .review-author, .review-role, .faq-question, .faq-answer, .footer, .footer-section, .footer-bottom {
@@ -810,7 +1237,7 @@ body {
 }
 
 /* Hamburger menu button: only show on mobile */
-.mobile-menu-toggle {
+.nav-toggle {
     display: none;
     flex-direction: column;
     cursor: pointer;
@@ -827,11 +1254,29 @@ body {
     border-radius: 1px;
 }
 @media (max-width: 900px) {
-    .mobile-menu-toggle {
+    .nav-toggle {
         display: flex;
     }
     .nav-menu {
         display: none;
+    }
+    
+    /* Mobile menu improvements */
+    .mobile-menu-overlay {
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+    
+    .mobile-menu-content {
+        padding: 2rem 1rem;
+        max-height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+        overflow-y: auto;
+    }
+    
+    .mobile-menu-item {
+        padding: 1rem;
+        font-size: 1.1rem;
+        min-height: 48px;
     }
 }
 
@@ -928,7 +1373,23 @@ body {
   border: none;
   cursor: pointer;
   padding: 8px;
-  gap: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-toggle.active svg rect:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.nav-toggle.active svg rect:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active svg rect:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.nav-toggle svg rect {
+  transition: all 0.3s ease;
 }
 
 @media (max-width: 900px) {

@@ -4,7 +4,7 @@
       <img src="images/logo.png" alt="runLemonade Logo" class="logo-img">
       <span style="text-decoration: none;">runLemonade</span>
     </a>
-    <button class="nav-toggle" aria-label="Open menu">
+    <button class="nav-toggle" id="mobileMenuToggle" aria-label="Open menu">
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect y="6" width="28" height="2.5" rx="1.25" fill="#23272a"/>
         <rect y="13" width="28" height="2.5" rx="1.25" fill="#23272a"/>
@@ -82,3 +82,80 @@
     </ul>
   </div>
 </nav>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobileMenuOverlay" class="mobile-menu-overlay">
+  <div class="mobile-menu-content">
+    <div class="mobile-menu-section">
+      <h3 class="mobile-menu-title">Apps</h3>
+      <a href="form_app_page.html" class="mobile-menu-item">FORM - Dynamic cabinet modeling</a>
+      <a href="#" class="mobile-menu-item coming-soon-item" onclick="showComingSoonPopup('NESTMATE')">NESTMATE - Production & Nesting</a>
+      <a href="#" class="mobile-menu-item coming-soon-item" onclick="showComingSoonPopup('DRAFT')">DRAFT - 2D Layout and Design</a>
+    </div>
+    
+    <div class="mobile-menu-section">
+      <h3 class="mobile-menu-title">Learning</h3>
+      <a href="knowledge-base.html" class="mobile-menu-item">Help - Documentation & support</a>
+      <a href="https://discord.gg/nc2vgvYy" class="mobile-menu-item" target="_blank">Community - Discord & forums</a>
+      <a href="https://www.youtube.com/watch?v=0P9xkwVoQrw&list=PLh80Z0A6lVe7QHaHXVU-f5QlF5m91goy5&index=2" class="mobile-menu-item" target="_blank">Beginners Series - Step-by-step tutorials</a>
+    </div>
+    
+    <div class="mobile-menu-section">
+      <h3 class="mobile-menu-title">Company</h3>
+      <a href="meet_the_developer.html" class="mobile-menu-item">Meet the Developer</a>
+      <a href="roadmap.html" class="mobile-menu-item">RoadMap - Future updates and apps</a>
+      <a href="#" class="mobile-menu-item" onclick="window.open('https://www.runlemonade.com', '_blank')">Blog</a>
+    </div>
+  </div>
+</div>
+
+<script>
+// Mobile menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+  
+  if (mobileMenuToggle && mobileMenuOverlay) {
+    // Toggle mobile menu
+    mobileMenuToggle.addEventListener('click', function() {
+      mobileMenuToggle.classList.toggle('active');
+      mobileMenuOverlay.classList.toggle('active');
+      document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+    });
+    
+    // Close mobile menu when clicking overlay
+    mobileMenuOverlay.addEventListener('click', function(e) {
+      if (e.target === mobileMenuOverlay) {
+        mobileMenuToggle.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // Close mobile menu when clicking menu items
+    const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
+    mobileMenuItems.forEach(item => {
+      item.addEventListener('click', function() {
+        mobileMenuToggle.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+    
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobileMenuOverlay.classList.contains('active')) {
+        mobileMenuToggle.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+});
+
+// Coming soon popup function (if not already defined)
+function showComingSoonPopup(appName) {
+  // You can implement a simple alert or create a proper popup
+  alert(appName + ' is coming soon! Stay tuned for updates.');
+}
+</script>
