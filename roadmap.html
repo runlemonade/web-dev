@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoadMap - runLemonade Development Timeline</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        /* Apple-style typography and refinements */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: "liga" 1, "kern" 1;
+            line-height: 1.6;
+        }
+        
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.035em;
+            color: #1d1d1f;
+        }
+        
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+            color: #1d1d1f;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding: 80px 0;
+            border-left: 2px solid #e5e5e7;
+            margin-left: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            border-left-color: #ffc107;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 80px;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #ffc107 0%, #ffd54f 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255,193,7,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover::before {
+            transform: scale(1.2);
+            box-shadow: 0 0 40px rgba(255,193,7,0.4);
+        }
+        
+        .timeline-date {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffc107;
+            margin-bottom: 24px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+        
+        .timeline-title {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #1d1d1f;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        
+        .timeline-description {
+            font-size: 1.2rem;
+            color: #515154;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+        
+        .timeline-goals {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,248,248,0.9) 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 32px;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-goals:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+        }
+        
+        .timeline-goals h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffc107;
+            margin-bottom: 20px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+        
+        .timeline-goals ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .timeline-goals li {
+            font-size: 1.05rem;
+            color: #515154;
+            margin-bottom: 16px;
+            padding-left: 28px;
+            position: relative;
+            line-height: 1.5;
+        }
+        
+        .timeline-goals li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #ffc107;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .roadmap-intro {
+            font-size: 1.3rem;
+            color: #515154;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 120px;
+            font-weight: 400;
+        }
+        
+        .timeline-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+        
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 120px;
+        }
+        
+        .timeline-header h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #1d1d1f;
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
+        }
+        
+        .timeline-header p {
+            font-size: 1.2rem;
+            color: #86868b;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .hero {
+            padding: 160px 0 120px 0;
+        }
+        
+        .content-section {
+            padding: 160px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .timeline-item {
+                margin-left: 30px;
+                padding: 60px 0;
+            }
+            
+            .timeline-title {
+                font-size: 2rem;
+            }
+            
+            .timeline-goals {
+                padding: 32px;
+            }
+            
+            .timeline-container {
+                padding: 0 30px;
+            }
+            
+            .timeline-header h2 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline-header {
+                margin-bottom: 80px;
+            }
+            
+            .roadmap-intro {
+                margin-bottom: 80px;
+            }
+            
+            .hero {
+                padding: 120px 0 80px 0;
+            }
+            
+            .content-section {
+                padding: 120px 0;
+            }
+        }
+    </style>
+</head>
+<body style="background: #fafafa; color: #1d1d1f; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;">
+    <div id="header-include"></div>
+    
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(180deg, #fafafa 0%, #f5f5f7 50%, #fafafa 100%); min-height: 60vh; display: flex; align-items: center; padding: 160px 0 120px 0;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; text-align: center;">
+            <h1 class="hero-title" style="margin-bottom: 32px;">Development RoadMap</h1>
+            <p class="roadmap-intro">Our journey to revolutionize digital fabrication. From concept to production, we're building the complete workflow that professionals need.</p>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="content-section" style="background: #fafafa; padding: 160px 0;">
+        <div class="timeline-container">
+            <div class="timeline-header">
+                <h2>Development Timeline</h2>
+                <p>Our roadmap to building the complete digital fabrication ecosystem</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">July 1st, 2025</div>
+                <div class="timeline-title">Publishing of FORM</div>
+                <div class="timeline-description">The official launch of FORM for SketchUp, bringing professional cabinet modeling to the masses.</div>
+                <div class="timeline-goals">
+                    <h4>Goals for July</h4>
+                    <ul>
+                        <li>Add 10 new models to FORM library</li>
+                        <li>Publish to SketchUp Extension Warehouse</li>
+                        <li>Establish user community and feedback channels</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">August 31st, 2025</div>
+                <div class="timeline-title">DRAFT & NESTMATE FREE Release</div>
+                <div class="timeline-description">Launching the free versions of DRAFT and NESTMATE, providing essential tools for 2D layout and basic nesting capabilities.</div>
+                <div class="timeline-goals">
+                    <h4>DRAFT FREE Features</h4>
+                    <ul>
+                        <li>2D layout and vector design tools</li>
+                        <li>Basic drawing and measurement tools</li>
+                        <li>Export to SVG/DXF</li>
+                    </ul>
+                    <h4 style="margin-top: 20px;">NESTMATE FREE Features</h4>
+                    <ul>
+                        <li>CSV panel saw nesting</li>
+                        <li>SketchUp nesting integration</li>
+                        <li>Basic material optimization</li>
+                    </ul>
+                    <h4 style="margin-top: 20px;">FORM Updates</h4>
+                    <ul>
+                        <li>Continued additional models</li>
+                        <li>Enhanced user experience</li>
+                        <li>Performance improvements</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">October 31st, 2025</div>
+                <div class="timeline-title">NESTMATE PRO Release</div>
+                <div class="timeline-description">The professional nesting solution with advanced production features and CNC integration.</div>
+                <div class="timeline-goals">
+                    <h4>Production Features</h4>
+                    <ul>
+                        <li>Advanced CNC nesting algorithms</li>
+                        <li>Auto cutting and extruding tools</li>
+                        <li>CNC production optimization</li>
+                        <li>Export to DXF with production data</li>
+                        <li>Continued support for NESTMATE FREE</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-include"></div>
+    
+    <script>
+        // Header/Footer includes
+        function includeHTML(id, file) {
+            fetch(file).then(res => res.text()).then(data => {
+                document.getElementById(id).innerHTML = data;
+                if (id === 'header-include') window.dispatchEvent(new Event('header-loaded'));
+                if (id === 'footer-include') window.dispatchEvent(new Event('footer-loaded'));
+            });
+        }
+        includeHTML('header-include', 'header.html');
+        includeHTML('footer-include', 'footer.html');
+    </script>
+</body>
+</html> 
