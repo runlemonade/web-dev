@@ -536,8 +536,8 @@ html {
   }
   
   .runlemonade-server-badge-btn img {
-    height: 16px !important;
-    margin-right: 8px !important;
+    height: 14px !important;
+    margin-right: 6px !important;
   }
   
   .badge-text {
@@ -547,12 +547,29 @@ html {
     text-align: center !important;
   }
   
+  /* Fix button sizing to match DRAFT button */
+  .runlemonade-server-badge-btn {
+    padding: 16px 28px !important;
+    font-size: 0.95rem !important;
+    border-radius: 12px !important;
+    min-height: 48px !important;
+  }
+  
   /* Ensure Nestmate card shows on mobile */
   div[style*="display: flex"][style*="gap: 50px"] > div {
     display: block !important;
     width: 100% !important;
     max-width: 400px !important;
     margin: 0 auto 2rem auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* Force all bento cards to show on mobile */
+  .bento-card {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
   
   /* Fix modal popup for mobile */
@@ -578,6 +595,17 @@ html {
   /* Hide video on mobile in modal */
   #free-trial-modal iframe {
     display: none !important;
+  }
+  
+  /* Ensure signup form is visible on mobile */
+  #free-trial-modal #ghost-signup-container {
+    display: block !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  #free-trial-modal #ghost-signup-container > div {
+    width: 100% !important;
+    max-width: 100% !important;
   }
   
   /* Fix modal content spacing */
@@ -756,6 +784,23 @@ html {
     white-space: normal !important;
     word-wrap: break-word !important;
     text-align: center !important;
+  }
+  
+  /* Prevent hyphenation - move words to next line instead */
+  * {
+    hyphens: none !important;
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  /* Specific fixes for long words */
+  .developer-intro,
+  .section-title,
+  .hero-title,
+  .card-title,
+  .feature-title {
+    word-break: normal !important;
+    hyphens: none !important;
   }
 }
 
