@@ -360,6 +360,157 @@ html {
     margin-left: auto;
     margin-right: auto;
   }
+  
+  /* Fix stats container mobile layout */
+  .stats-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .stat-item {
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  /* Fix FORM bento layout mobile */
+  .bento-card[style*="flex-direction: row"] {
+    flex-direction: column !important;
+    padding: 2rem !important;
+  }
+  
+  .bento-card[style*="flex-direction: row"] > div:first-child {
+    flex: 1 1 auto !important;
+    padding: 2rem !important;
+    width: 100% !important;
+  }
+  
+  .bento-card[style*="flex-direction: row"] > div:last-child {
+    flex: 1 1 auto !important;
+    height: 300px !important;
+    width: 100% !important;
+    border-radius: 0 0 36px 36px !important;
+  }
+  
+  /* Fix flex containers for mobile */
+  div[style*="display: flex"][style*="gap: 50px"] {
+    flex-direction: column !important;
+    gap: 2rem !important;
+    align-items: center !important;
+  }
+  
+  div[style*="display: flex"][style*="gap: 50px"] > div {
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Fix images in FORM page */
+  .bento-card img,
+  .bento-card[style*="background: url"] {
+    object-fit: cover !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 200px !important;
+  }
+  
+  /* Fix FORM page hero images */
+  .hero-device {
+    flex-direction: column !important;
+    gap: 2rem !important;
+    padding: 0 1rem !important;
+  }
+  
+  .hero-device video {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: auto !important;
+    height: auto !important;
+  }
+  
+  .hero-overlap-left,
+  .hero-overlap-center {
+    display: none !important;
+  }
+  
+  .mobile-images-container {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+    width: 100% !important;
+  }
+  
+  .mobile-images-container img {
+    width: 120px !important;
+    height: auto !important;
+  }
+  
+  /* Fix pricing cards on FORM page */
+  .pricing-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+  }
+  
+  .pricing-card {
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Fix plan cards mobile */
+  .pricing-card,
+  .feature-card {
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto 1rem auto !important;
+    padding: 1.5rem !important;
+  }
+  
+  /* Fix workflow sections */
+  .content-section {
+    padding: 2rem 1rem !important;
+  }
+  
+  /* Fix specific sections that stack incorrectly */
+  .content-section[style*="background: linear-gradient"] {
+    padding: 2rem 1rem !important;
+  }
+  
+  /* Fix any flex containers that should stack on mobile */
+  .content-section > div[style*="display: flex"] {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 2rem !important;
+  }
+  
+  /* Fix any grid layouts that should stack */
+  .content-section .grid,
+  .content-section [class*="grid"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+  }
+  
+  /* Fix any remaining horizontal layouts */
+  .content-section > div > div[style*="display: flex"] {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+  }
+  
+  /* Fix any remaining horizontal overflow */
+  * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
 }
 
 /* Small mobile devices */
@@ -463,6 +614,31 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  
+  /* Additional fixes for extra small screens */
+  .hero-title {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .hero-cta {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+  }
+  
+  .hero-cta a {
+    width: 100% !important;
+    max-width: 280px !important;
+    justify-content: center !important;
+  }
+  
+  /* Fix any remaining overflow issues */
+  .hero-content,
+  .content-section {
+    overflow-x: hidden !important;
+    width: 100% !important;
   }
 }
 
