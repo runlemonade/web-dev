@@ -572,6 +572,23 @@ html {
     visibility: visible !important;
   }
   
+  /* Specifically force Nestmate card to show */
+  .bento-card[style*="NESTMATE"],
+  div[style*="NESTMATE"] {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: static !important;
+    z-index: 1 !important;
+  }
+  
+  /* Force all flex container children to show */
+  div[style*="display: flex"] > div {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
   /* Fix modal popup for mobile */
   #free-trial-modal > div {
     max-width: 95vw !important;
@@ -606,6 +623,19 @@ html {
   #free-trial-modal #ghost-signup-container > div {
     width: 100% !important;
     max-width: 100% !important;
+  }
+  
+  /* Force signup form to show on mobile */
+  #ghost-signup-container {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  #ghost-signup-container > div {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
   
   /* Fix modal content spacing */
@@ -784,6 +814,20 @@ html {
     white-space: normal !important;
     word-wrap: break-word !important;
     text-align: center !important;
+  }
+  
+  /* Stack buttons on mobile only */
+  div[style*="display: flex"][style*="gap: 24px"] {
+    flex-direction: column !important;
+    gap: 16px !important;
+    align-items: center !important;
+  }
+  
+  div[style*="display: flex"][style*="gap: 24px"] > a,
+  div[style*="display: flex"][style*="gap: 24px"] > button {
+    width: 100% !important;
+    max-width: 300px !important;
+    justify-content: center !important;
   }
   
   /* Prevent hyphenation - move words to next line instead */
